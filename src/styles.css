@@ -310,7 +310,7 @@ h1 {
 }
 
 .hero-visual img {
-  aspect-ratio: 1.28 / 1;
+  aspect-ratio: 16 / 9;
   width: 100%;
   object-fit: cover;
   transform: scale(1.015);
@@ -373,10 +373,12 @@ h1 {
 }
 
 .product-preview {
+  position: relative;
   display: grid;
   place-items: center;
   min-height: 31rem;
   padding: clamp(1rem, 2.5vw, 2rem);
+  overflow: hidden;
   border: 1px solid rgba(255, 232, 171, 0.22);
   border-radius: clamp(1.25rem, 2.4vw, 1.85rem);
   background:
@@ -397,8 +399,52 @@ h1 {
   transform: rotate(-2deg);
 }
 
+.product-preview-layered {
+  min-height: 34rem;
+}
+
+.product-preview-layered::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.16), transparent 28%),
+    radial-gradient(circle at 70% 24%, rgba(245, 197, 83, 0.18), transparent 14rem);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.product-preview .preview-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 27rem;
+  aspect-ratio: auto;
+  border-radius: 1.15rem;
+  object-fit: cover;
+  transform: none;
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.product-preview .preview-cover {
+  position: absolute;
+  right: clamp(0.9rem, 2.4vw, 1.6rem);
+  bottom: clamp(0.9rem, 2.4vw, 1.6rem);
+  z-index: 2;
+  width: min(38%, 11.5rem);
+  aspect-ratio: 3 / 4;
+  transform: rotate(3deg);
+}
+
 .paid-preview img {
   transform: rotate(2deg);
+}
+
+.paid-preview .preview-photo {
+  transform: none;
+}
+
+.paid-preview .preview-cover {
+  transform: rotate(-3deg);
 }
 
 .offer-band,
@@ -454,111 +500,89 @@ h1 {
   pointer-events: none;
 }
 
-.player-grid {
+.storyline-layout {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(0.9rem, 1.7vw, 1.2rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: stretch;
   margin-top: 1.45rem;
 }
 
-.player-card {
+.storyline-image {
   position: relative;
-  min-height: 21rem;
+  min-height: 33rem;
+  margin: 0;
   overflow: hidden;
-  padding: 1rem;
-  border: 1px solid rgba(255, 232, 171, 0.17);
-  border-radius: 1.5rem;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(245, 197, 83, 0.16), transparent 9rem),
-    linear-gradient(155deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
-    var(--panel);
+  border: 1px solid rgba(255, 232, 171, 0.18);
+  border-radius: 1.65rem;
+  background: var(--panel);
   box-shadow: var(--shadow);
-  isolation: isolate;
 }
 
-.player-card::before,
-.player-card::after {
+.storyline-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 33rem;
+  object-fit: cover;
+}
+
+.storyline-image::after {
   position: absolute;
+  inset: 0;
   content: "";
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(7, 7, 5, 0.8)),
+    radial-gradient(circle at 18% 18%, rgba(245, 197, 83, 0.15), transparent 16rem);
   pointer-events: none;
 }
 
-.player-card::before {
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(rgba(255, 232, 171, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 232, 171, 0.06) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: linear-gradient(to bottom, #000, transparent 72%);
+.storyline-image figcaption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  color: rgba(255, 249, 233, 0.82);
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
-.player-card::after {
-  right: -3rem;
-  bottom: -4rem;
-  z-index: -1;
-  width: 12rem;
-  height: 12rem;
-  border-radius: 999px;
-  background: rgba(245, 197, 83, 0.12);
-}
-
-.player-avatar {
+.storyline-stack {
   display: grid;
-  width: 100%;
-  min-height: 10.8rem;
-  place-items: center;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(255, 232, 171, 0.19);
-  border-radius: 1.1rem;
-  color: #130f08;
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  font-weight: 950;
-  letter-spacing: -0.08em;
-  background:
-    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.46), transparent 3.4rem),
-    linear-gradient(135deg, var(--gold-2), var(--gold));
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+  gap: 0.82rem;
 }
 
-.messi-card .player-avatar {
+.storyline-card {
+  padding: 1rem;
+  border: 1px solid rgba(255, 232, 171, 0.17);
+  border-radius: 1.3rem;
   background:
-    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.4), transparent 3.4rem),
-    linear-gradient(135deg, var(--blue), var(--gold));
+    radial-gradient(circle at 0 0, rgba(245, 197, 83, 0.11), transparent 12rem),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018)),
+    var(--panel);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
 }
 
-.neymar-card .player-avatar {
-  background:
-    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.42), transparent 3.4rem),
-    linear-gradient(135deg, var(--green), var(--gold-2));
-}
-
-.mbappe-card .player-avatar {
-  background:
-    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.42), transparent 3.4rem),
-    linear-gradient(135deg, #ffffff, var(--blue));
-}
-
-.player-card span {
+.storyline-card span {
   display: inline-flex;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.82rem;
   padding: 0.34rem 0.62rem;
   border-radius: 999px;
-  color: var(--gold-2);
-  background: rgba(245, 197, 83, 0.1);
+  color: #121007;
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
-.player-card h3 {
-  margin-bottom: 0.55rem;
-  font-size: 1.38rem;
+.storyline-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
   letter-spacing: -0.04em;
 }
 
-.player-card p {
+.storyline-card p {
   margin: 0;
   color: var(--soft);
   font-size: 0.94rem;
@@ -620,6 +644,37 @@ h1 {
   background:
     radial-gradient(circle at 0% 0%, rgba(141, 240, 168, 0.12), transparent 22rem),
     var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.product-showcase {
+  display: grid;
+  grid-template-columns: 0.84fr 1.16fr;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-top: 1px solid rgba(255, 232, 171, 0.09);
+}
+
+.product-showcase h2 {
+  margin: 0.65rem 0 0.75rem;
+  font-size: clamp(1.9rem, 3.2vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.product-showcase p:not(.eyebrow) {
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.62;
+}
+
+.product-showcase img {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 232, 171, 0.18);
+  border-radius: 1.45rem;
+  object-fit: cover;
   box-shadow: var(--shadow);
 }
 
@@ -915,7 +970,9 @@ details p {
   .pdf-grid,
   .trust-panel,
   .product-cta-panel,
-  .sample-section {
+  .sample-section,
+  .product-showcase,
+  .storyline-layout {
     grid-template-columns: 1fr;
   }
 
@@ -923,8 +980,9 @@ details p {
     min-height: 24rem;
   }
 
-  .player-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .storyline-image,
+  .storyline-image img {
+    min-height: 25rem;
   }
 
   .value-grid {
@@ -1023,6 +1081,16 @@ details p {
     transform: rotate(0deg);
   }
 
+  .product-preview .preview-photo {
+    width: 100%;
+    min-height: 17rem;
+  }
+
+  .product-preview .preview-cover {
+    width: min(36vw, 9rem);
+    transform: rotate(0deg);
+  }
+
   .floating-card {
     position: relative;
     top: auto;
@@ -1098,42 +1166,31 @@ details p {
   }
 
   .product-cta-panel,
-  .sample-section {
+  .sample-section,
+  .product-showcase {
     padding: 1.1rem;
   }
 
-  .player-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  .storyline-image,
+  .storyline-image img {
+    min-height: 19rem;
   }
 
-  .player-card {
-    display: grid;
-    grid-template-columns: 6.4rem 1fr;
-    gap: 0.9rem;
-    align-items: center;
-    min-height: auto;
-    padding: 0.8rem;
+  .storyline-card {
+    padding: 0.95rem;
   }
 
-  .player-avatar {
-    min-height: 6.4rem;
-    margin: 0;
-    border-radius: 0.95rem;
-    font-size: 2rem;
-  }
-
-  .player-card span {
-    margin-bottom: 0.4rem;
+  .storyline-card span {
+    margin-bottom: 0.55rem;
     font-size: 0.66rem;
   }
 
-  .player-card h3 {
+  .storyline-card h3 {
     margin-bottom: 0.38rem;
     font-size: 1.16rem;
   }
 
-  .player-card p {
+  .storyline-card p {
     font-size: 0.88rem;
     line-height: 1.45;
   }

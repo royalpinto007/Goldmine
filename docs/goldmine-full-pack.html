@@ -47,20 +47,24 @@
         width: 210mm;
         min-height: 297mm;
         margin: 0 auto;
-        padding: 18mm 17mm 17mm;
+        padding: 15mm 15mm 15mm;
         overflow: hidden;
         page-break-after: always;
         background:
           radial-gradient(circle at 8% 4%, rgba(245, 200, 64, 0.28), transparent 28%),
           radial-gradient(circle at 92% 10%, rgba(36, 103, 200, 0.08), transparent 25%),
+          radial-gradient(circle at 82% 84%, rgba(216, 167, 38, 0.12), transparent 30%),
+          linear-gradient(rgba(155, 107, 8, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(155, 107, 8, 0.03) 1px, transparent 1px),
           linear-gradient(135deg, #fffdf5 0%, #fff7dc 100%);
+        background-size: auto, auto, auto, 28px 28px, 28px 28px, auto;
         counter-increment: page;
       }
 
       .page::before {
         content: "";
         position: absolute;
-        inset: 10mm;
+        inset: 8mm;
         border: 1px solid rgba(155, 107, 8, 0.16);
         border-radius: 18px;
         pointer-events: none;
@@ -69,15 +73,15 @@
       .page::after {
         content: counter(page);
         position: absolute;
-        right: 17mm;
-        bottom: 9mm;
+        right: 15mm;
+        bottom: 7mm;
         color: rgba(117, 103, 67, 0.58);
         font-size: 10px;
         letter-spacing: 0.08em;
       }
 
       .cover {
-        padding: 16mm;
+        padding: 14mm;
         color: #fff8d9;
         background:
           radial-gradient(circle at 78% 18%, rgba(245, 200, 64, 0.36), transparent 34%),
@@ -101,7 +105,8 @@
         z-index: 1;
         display: grid;
         min-height: 259mm;
-        align-content: space-between;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 12px;
       }
 
       .brand-row,
@@ -153,7 +158,7 @@
 
       .cover h1 {
         max-width: 720px;
-        margin: 70mm 0 12px;
+        margin: 14mm 0 12px;
         font-size: 60px;
         line-height: 0.9;
         letter-spacing: -0.085em;
@@ -164,6 +169,41 @@
         margin: 0;
         color: rgba(255, 248, 217, 0.86);
         font-size: 20px;
+      }
+
+      .cover-showcase {
+        position: relative;
+        min-height: 112mm;
+        overflow: hidden;
+        border: 1px solid rgba(255, 228, 145, 0.24);
+        border-radius: 24px;
+        background: rgba(11, 9, 6, 0.4);
+      }
+
+      .cover-showcase img {
+        width: 100%;
+        height: 112mm;
+        object-fit: cover;
+      }
+
+      .cover-showcase::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(180deg, transparent 46%, rgba(7, 6, 4, 0.78)),
+          radial-gradient(circle at 22% 20%, rgba(245, 200, 64, 0.18), transparent 40mm);
+      }
+
+      .cover-note {
+        position: absolute;
+        right: 13px;
+        bottom: 12px;
+        left: 13px;
+        z-index: 1;
+        color: rgba(255, 248, 217, 0.8);
+        font-size: 12px;
+        font-weight: 760;
       }
 
       .cover-panels {
@@ -230,8 +270,8 @@
       }
 
       .lede {
-        max-width: 680px;
-        margin-bottom: 17px;
+        max-width: 720px;
+        margin-bottom: 13px;
         color: #463b21;
         font-size: 16px;
       }
@@ -239,7 +279,7 @@
       .section-rule {
         width: 62px;
         height: 5px;
-        margin: 10px 0 19px;
+        margin: 8px 0 14px;
         border-radius: 999px;
         background: linear-gradient(90deg, #f4c546, #7b4c00);
       }
@@ -296,7 +336,7 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 9px;
-        margin: 16px 0;
+        margin: 12px 0;
       }
 
       .score-box {
@@ -322,7 +362,7 @@
 
       .lane-list {
         display: grid;
-        gap: 9px;
+        gap: 7px;
       }
 
       .lane {
@@ -330,7 +370,7 @@
         grid-template-columns: 78px 1fr;
         gap: 10px;
         align-items: start;
-        padding: 12px;
+        padding: 10px;
         border: 1px solid var(--line);
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.58);
@@ -379,8 +419,8 @@
 
       .play {
         position: relative;
-        min-height: 116px;
-        padding: 13px 13px 12px;
+        min-height: 142px;
+        padding: 14px;
         overflow: hidden;
       }
 
@@ -418,7 +458,7 @@
 
       .play .move {
         color: #1f1709;
-        font-size: 11.5px;
+        font-size: 11.7px;
         font-weight: 760;
       }
 
@@ -426,7 +466,7 @@
         display: grid;
         grid-template-columns: 36px 1fr;
         gap: 11px;
-        padding: 12px 0;
+        padding: 14px 0;
         border-bottom: 1px solid var(--line);
       }
 
@@ -452,7 +492,8 @@
       }
 
       .hook {
-        padding: 11px;
+        min-height: 56px;
+        padding: 13px;
         border-radius: 14px;
         background: rgba(255, 255, 255, 0.68);
         border: 1px solid var(--line);
@@ -469,7 +510,7 @@
         display: grid;
         grid-template-columns: 70px 1fr 125px;
         gap: 11px;
-        padding: 12px;
+        padding: 10px;
         border: 1px solid var(--line);
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.66);
@@ -488,9 +529,9 @@
 
       .next {
         position: absolute;
-        left: 17mm;
-        right: 17mm;
-        bottom: 10mm;
+        left: 15mm;
+        right: 15mm;
+        bottom: 8mm;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -507,13 +548,47 @@
       }
 
       .mini-note {
-        margin-top: 13px;
-        padding: 12px;
+        margin-top: 10px;
+        padding: 10px 12px;
         border-left: 4px solid var(--gold);
         border-radius: 14px;
         background: rgba(216, 167, 38, 0.12);
         color: #443318;
         font-size: 12.5px;
+      }
+
+      .action-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 13px;
+      }
+
+      .action-card {
+        min-height: 118px;
+        padding: 13px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.64);
+        box-shadow: 0 14px 28px rgba(50, 34, 0, 0.05);
+      }
+
+      .action-card b {
+        display: inline-flex;
+        margin-bottom: 9px;
+        padding: 5px 8px;
+        border-radius: 999px;
+        color: var(--gold-deep);
+        background: rgba(216, 167, 38, 0.16);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .action-card p {
+        margin: 0;
+        color: #40351d;
+        font-size: 12.2px;
       }
 
       .small {
@@ -522,7 +597,7 @@
       }
 
       .page-tight {
-        padding-bottom: 22mm;
+        padding-bottom: 19mm;
       }
 
       .no-break {
@@ -556,6 +631,13 @@
             AI content, fan pages, affiliate paths, lightweight products, and client-ready workflows.
           </p>
         </div>
+        <figure class="cover-showcase">
+          <img src="../public/assets/goldmine-pack-preview.jpg" alt="Goldmine full pack preview" />
+          <figcaption class="cover-note">
+            A designed idea pack: football plays, content formats, AI workflows, monetization
+            routes, and a 7-day sprint in one place.
+          </figcaption>
+        </figure>
         <div class="cover-panels">
           <div class="cover-panel">
             <strong>20</strong>
@@ -609,6 +691,20 @@
         The strongest readers will not ask, "Which player trend makes the most money?" They will
         ask, "Which football format can I keep shipping for 30 days without hating the process?"
       </div>
+      <div class="action-grid">
+        <div class="action-card">
+          <b>Use this for</b>
+          <p>Choosing one football content format instead of copying every viral page you see.</p>
+        </div>
+        <div class="action-card">
+          <b>Do not use for</b>
+          <p>Guaranteed income, official football rights, celebrity endorsements, or shortcut promises.</p>
+        </div>
+        <div class="action-card">
+          <b>Best outcome</b>
+          <p>You leave with one angle, one platform, one workflow, and one week of shipping.</p>
+        </div>
+      </div>
       <div class="next"><span>Next page: choose your lane before choosing an idea.</span><b>Keep going</b></div>
     </section>
 
@@ -647,6 +743,20 @@
       <div class="mini-note">
         If you are unsure, start with C. Tool operators can turn football workflows into content,
         products, and freelance offers faster than almost any other path.
+      </div>
+      <div class="action-grid">
+        <div class="action-card">
+          <b>Fastest test</b>
+          <p>Camera-shy builder: publish three faceless match explainers from one fixture.</p>
+        </div>
+        <div class="action-card">
+          <b>Best upside</b>
+          <p>Tool operator: turn your football workflow into a template, audit, or client offer.</p>
+        </div>
+        <div class="action-card">
+          <b>Most defensible</b>
+          <p>Niche expert: use taste and context to make posts generic pages cannot copy.</p>
+        </div>
       </div>
       <div class="next"><span>Next page: map your niche before falling in love with a tactic.</span><b>Turn the page</b></div>
     </section>
@@ -790,6 +900,11 @@
         Best first pick if you want speed: faceless match explainers. Best first pick if you want
         comments: legacy debate carousels.
       </div>
+      <div class="action-grid">
+        <div class="action-card"><b>Ship</b><p>Three posts in one format, not three unrelated football experiments.</p></div>
+        <div class="action-card"><b>Measure</b><p>Comments for debate plays; saves and completion for explainer plays.</p></div>
+        <div class="action-card"><b>Repeat if</b><p>One hook earns a real reply, save, click, or profile visit within 48 hours.</p></div>
+      </div>
       <div class="next"><span>Next page: plays that turn football attention into trust and links.</span><b>Go deeper</b></div>
     </section>
 
@@ -826,6 +941,11 @@
       <div class="mini-note">
         The hidden advantage here: every post can become a link destination. Do not only chase
         views. Route attention into a list, product, or offer.
+      </div>
+      <div class="action-grid">
+        <div class="action-card"><b>Ship</b><p>One helpful post, one product route, and one disclosure-safe link page.</p></div>
+        <div class="action-card"><b>Measure</b><p>Profile clicks, link taps, saves, and replies asking for recommendations.</p></div>
+        <div class="action-card"><b>Repeat if</b><p>Fans treat the page like a useful shortcut, not a random ad feed.</p></div>
       </div>
       <div class="next"><span>Next page: plays for quiet builders who prefer systems over personality content.</span><b>Next set</b></div>
     </section>
@@ -864,6 +984,11 @@
         If you are shy, do not fight it. Build formats where the football idea is the star:
         screen records, carousels, comparison grids, product demos, and workflow maps.
       </div>
+      <div class="action-grid">
+        <div class="action-card"><b>Ship</b><p>One comparison, one audit, one workflow post, and one simple CTA.</p></div>
+        <div class="action-card"><b>Measure</b><p>Save rate, DMs from page owners, and whether people ask for the template.</p></div>
+        <div class="action-card"><b>Repeat if</b><p>The system creates trust without needing your face or personality every day.</p></div>
+      </div>
       <div class="next"><span>Next page: plays for people who like research, data, and useful opinions.</span><b>Continue</b></div>
     </section>
 
@@ -901,6 +1026,11 @@
         Research content compounds because old posts still build trust. Your audience starts
         seeing you as a person who notices football patterns before everyone else does.
       </div>
+      <div class="action-grid">
+        <div class="action-card"><b>Ship</b><p>One chart, one toolkit preview, one agent demo, and one mini-guide outline.</p></div>
+        <div class="action-card"><b>Measure</b><p>Bookmarks, quote replies, email signups, and requests for the full resource.</p></div>
+        <div class="action-card"><b>Repeat if</b><p>The content makes people trust your judgment, not only your editing speed.</p></div>
+      </div>
       <div class="next"><span>Next page: the final plays, including repeatable systems and dashboards.</span><b>Almost there</b></div>
     </section>
 
@@ -937,6 +1067,11 @@
       <div class="mini-note">
         The quiet money is often in the system behind the football content: templates, dashboards,
         workflows, scripts, and repeatable operating checklists.
+      </div>
+      <div class="action-grid">
+        <div class="action-card"><b>Ship</b><p>A public dashboard or recipe that proves how you think and how you operate.</p></div>
+        <div class="action-card"><b>Measure</b><p>Template requests, comments from creators, and clicks from workflow posts.</p></div>
+        <div class="action-card"><b>Repeat if</b><p>The backend system becomes more valuable than the individual post.</p></div>
       </div>
       <div class="next"><span>Next page: turn the best plays into actual production workflows.</span><b>Build the machine</b></div>
     </section>
