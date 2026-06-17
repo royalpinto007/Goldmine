@@ -37,4 +37,6 @@ Cloudflare Dashboard → Workers & Pages → `goldmine` → Custom domains.
 
 - The free CTA downloads `public/free-goldmine-starter.pdf`.
 - The paid CTA opens the Lemon Squeezy checkout for `Goldmine Full Pack`.
+- The paid PDF source is `docs/goldmine-full-pack.html`.
+- The rendered paid PDF for Lemon Squeezy upload is `docs/goldmine-full-pack.pdf`.
 - The next version should connect personalized PDF generation workflows through `n8n.agentpostmortem.com`.
