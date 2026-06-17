@@ -31,12 +31,12 @@
 
   <text x="112" y="562" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Goldmine</text>
   <text x="112" y="647" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Full Pack</text>
-  <text x="116" y="711" fill="#DCCB99" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="650">20 plays, workflows, hooks, 7-day sprint</text>
+  <text x="116" y="711" fill="#DCCB99" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="650">20 football plays, hooks, 7-day sprint</text>
 
   <g transform="translate(112 800)">
     <rect width="736" height="112" rx="30" fill="#FFFBDF" fill-opacity=".09" stroke="#F8D866" stroke-opacity=".28"/>
     <text x="32" y="42" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="1.7">UPGRADE MAP</text>
-    <text x="32" y="76" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="800">Ranked ideas, channel starter, AI workflows</text>
+    <text x="32" y="76" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="800">Football ideas, channel starter, AI workflows</text>
   </g>
 
   <g transform="translate(112 956)">

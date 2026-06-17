@@ -1,11 +1,11 @@
 import "./styles.css";
 
 const ideas = [
-  "Faceless AI shorts for niche explainers",
-  "AI influencer reels for affiliate products",
-  "Trend pages that route attention into email",
-  "UGC ad concepts small brands can test",
-  "Newsletter ideas built from social trends",
+  "Legacy debate clips from match-day moments",
+  "Faceless football explainers from one fixture",
+  "Fan gear pages that route attention into links",
+  "AI edit workflows for football pages",
+  "Match-day newsletters built from social trends",
 ];
 
 const rotatingIdea = document.querySelector<HTMLElement>(".rotating-idea");

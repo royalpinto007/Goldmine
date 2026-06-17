@@ -125,18 +125,16 @@ main,
   font-size: 0.93rem;
 }
 
-.nav-links a {
-  color: var(--muted);
+.nav-links a,
+.nav-links a:visited,
+.nav-links a:active {
+  color: var(--muted) !important;
   transition: color 180ms ease;
-}
-
-.nav-links a:visited {
-  color: var(--muted);
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  color: var(--ink);
+  color: var(--ink) !important;
 }
 
 .header-cta {
@@ -357,10 +355,58 @@ h1 {
   animation-delay: -2s;
 }
 
+.product-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.68fr);
+  align-items: center;
+  gap: clamp(1.2rem, 4vw, 4rem);
+  min-height: min(680px, calc(100vh - 72px));
+  padding: 26px 0 clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.product-copy h1 {
+  max-width: 11.6ch;
+}
+
+.free-product .product-copy h1 {
+  max-width: 12.6ch;
+}
+
+.product-preview {
+  display: grid;
+  place-items: center;
+  min-height: 31rem;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border: 1px solid rgba(255, 232, 171, 0.22);
+  border-radius: clamp(1.25rem, 2.4vw, 1.85rem);
+  background:
+    radial-gradient(circle at 50% 12%, rgba(245, 197, 83, 0.2), transparent 16rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), transparent),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.product-preview img {
+  width: min(100%, 23rem);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 232, 171, 0.2);
+  transform: rotate(-2deg);
+}
+
+.paid-preview img {
+  transform: rotate(2deg);
+}
+
 .offer-band,
 .football-section,
 .inside-section,
 .trust-section,
+.product-section,
+.sample-section,
 .faq-section {
   padding: clamp(2.6rem, 5.4vw, 4.7rem) 0;
   border-top: 1px solid rgba(255, 232, 171, 0.09);
@@ -517,6 +563,99 @@ h1 {
   color: var(--soft);
   font-size: 0.94rem;
   line-height: 1.55;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.8rem, 1.6vw, 1.1rem);
+  margin-top: 1.45rem;
+}
+
+.value-card {
+  min-height: 14.5rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(245, 197, 83, 0.12), transparent 12rem),
+    var(--panel);
+  box-shadow: 0 18px 52px rgba(0, 0, 0, 0.22);
+}
+
+.value-card span {
+  display: inline-grid;
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  place-items: center;
+  margin-bottom: 1.9rem;
+  border-radius: 0.82rem;
+  color: #141006;
+  background: linear-gradient(135deg, var(--gold-2), var(--gold));
+  font-size: 0.9rem;
+  font-weight: 920;
+}
+
+.value-card h3 {
+  margin-bottom: 0.55rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.035em;
+}
+
+.value-card p {
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.58;
+}
+
+.product-cta-panel,
+.sample-section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(245, 197, 83, 0.25);
+  border-radius: 1.6rem;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(141, 240, 168, 0.12), transparent 22rem),
+    var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.product-cta-panel h2,
+.sample-section h2 {
+  margin: 0.65rem 0 0.75rem;
+  font-size: clamp(1.9rem, 3.2vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.product-cta-panel p,
+.sample-section p {
+  max-width: 62rem;
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.62;
+}
+
+.sample-section {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.sample-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.sample-list div {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  color: var(--gold-2);
+  background: rgba(255, 255, 255, 0.045);
+  font-weight: 760;
 }
 
 .pdf-card {
@@ -772,12 +911,23 @@ details p {
   }
 
   .hero,
+  .product-hero,
   .pdf-grid,
-  .trust-panel {
+  .trust-panel,
+  .product-cta-panel,
+  .sample-section {
     grid-template-columns: 1fr;
   }
 
+  .product-preview {
+    min-height: 24rem;
+  }
+
   .player-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .value-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -853,6 +1003,26 @@ details p {
     margin-top: 0.2rem;
   }
 
+  .product-hero {
+    min-height: auto;
+    padding-top: 20px;
+  }
+
+  .product-copy h1,
+  .free-product .product-copy h1 {
+    max-width: 11ch;
+  }
+
+  .product-preview {
+    min-height: 19rem;
+    padding: 1rem;
+  }
+
+  .product-preview img {
+    width: min(70vw, 15.5rem);
+    transform: rotate(0deg);
+  }
+
   .floating-card {
     position: relative;
     top: auto;
@@ -907,8 +1077,29 @@ details p {
   .football-section,
   .inside-section,
   .trust-section,
+  .product-section,
+  .sample-section,
   .faq-section {
     padding: 2.35rem 0;
+  }
+
+  .value-grid,
+  .sample-list {
+    grid-template-columns: 1fr;
+  }
+
+  .value-card {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .value-card span {
+    margin-bottom: 1rem;
+  }
+
+  .product-cta-panel,
+  .sample-section {
+    padding: 1.1rem;
   }
 
   .player-grid {

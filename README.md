@@ -1,10 +1,10 @@
 # Goldmine
 
-Goldmine is a UI-first landing page for a viral social monetization PDF product.
+Goldmine is a UI-first football-season landing page for a viral social monetization PDF product.
 
 - Public domain target: `goldmine.signalizeai.org`
 - Live site: `https://goldmine.signalizeai.org`
-- V1 scope: static page + free PDF download + $1 Lemon Squeezy checkout
+- V1 scope: homepage + `/free/` page + `/full-pack/` page + free PDF download + $1 Lemon Squeezy checkout
 - Future automation: `n8n.agentpostmortem.com`
 
 ## Local development

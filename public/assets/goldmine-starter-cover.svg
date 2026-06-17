@@ -34,7 +34,7 @@
 
   <text x="112" y="555" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Goldmine</text>
   <text x="112" y="640" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Starter</text>
-  <text x="116" y="704" fill="#CFC09A" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="600">3 viral ideas + your first move</text>
+  <text x="116" y="704" fill="#CFC09A" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="600">3 football plays + your first move</text>
 
   <g transform="translate(112 802)">
     <rect width="736" height="92" rx="26" fill="#FFFBDF" fill-opacity=".1" stroke="#F8D866" stroke-opacity=".22"/>
@@ -45,7 +45,7 @@
   <g transform="translate(112 942)">
     <rect width="204" height="112" rx="30" fill="#102017" stroke="#9AF2AE" stroke-opacity=".28"/>
     <text x="28" y="48" fill="#9AF2AE" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">3</text>
-    <text x="28" y="82" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">idea teasers</text>
+    <text x="28" y="82" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">football plays</text>
     <rect x="254" width="204" height="112" rx="30" fill="#151006" stroke="#F8D866" stroke-opacity=".24"/>
     <text x="282" y="48" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">1</text>
     <text x="282" y="82" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">best niche</text>
