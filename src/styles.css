@@ -126,10 +126,16 @@ main,
 }
 
 .nav-links a {
+  color: var(--muted);
   transition: color 180ms ease;
 }
 
-.nav-links a:hover {
+.nav-links a:visited {
+  color: var(--muted);
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
   color: var(--ink);
 }
 
@@ -352,6 +358,7 @@ h1 {
 }
 
 .offer-band,
+.football-section,
 .inside-section,
 .trust-section,
 .faq-section {
@@ -384,6 +391,132 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);
   margin-top: 1.45rem;
+}
+
+.football-section {
+  position: relative;
+}
+
+.football-section::before {
+  position: absolute;
+  inset: 1.2rem -3rem auto auto;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(141, 240, 168, 0.16), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.7vw, 1.2rem);
+  margin-top: 1.45rem;
+}
+
+.player-card {
+  position: relative;
+  min-height: 21rem;
+  overflow: hidden;
+  padding: 1rem;
+  border: 1px solid rgba(255, 232, 171, 0.17);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 197, 83, 0.16), transparent 9rem),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.018)),
+    var(--panel);
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+
+.player-card::before,
+.player-card::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.player-card::before {
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(rgba(255, 232, 171, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 232, 171, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom, #000, transparent 72%);
+}
+
+.player-card::after {
+  right: -3rem;
+  bottom: -4rem;
+  z-index: -1;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 999px;
+  background: rgba(245, 197, 83, 0.12);
+}
+
+.player-avatar {
+  display: grid;
+  width: 100%;
+  min-height: 10.8rem;
+  place-items: center;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 232, 171, 0.19);
+  border-radius: 1.1rem;
+  color: #130f08;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.46), transparent 3.4rem),
+    linear-gradient(135deg, var(--gold-2), var(--gold));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
+}
+
+.messi-card .player-avatar {
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.4), transparent 3.4rem),
+    linear-gradient(135deg, var(--blue), var(--gold));
+}
+
+.neymar-card .player-avatar {
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.42), transparent 3.4rem),
+    linear-gradient(135deg, var(--green), var(--gold-2));
+}
+
+.mbappe-card .player-avatar {
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.42), transparent 3.4rem),
+    linear-gradient(135deg, #ffffff, var(--blue));
+}
+
+.player-card span {
+  display: inline-flex;
+  margin-bottom: 0.7rem;
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  color: var(--gold-2);
+  background: rgba(245, 197, 83, 0.1);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.player-card h3 {
+  margin-bottom: 0.55rem;
+  font-size: 1.38rem;
+  letter-spacing: -0.04em;
+}
+
+.player-card p {
+  margin: 0;
+  color: var(--soft);
+  font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .pdf-card {
@@ -644,6 +777,10 @@ details p {
     grid-template-columns: 1fr;
   }
 
+  .player-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero {
     min-height: auto;
     padding-top: 20px;
@@ -767,10 +904,47 @@ details p {
   }
 
   .offer-band,
+  .football-section,
   .inside-section,
   .trust-section,
   .faq-section {
     padding: 2.35rem 0;
+  }
+
+  .player-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .player-card {
+    display: grid;
+    grid-template-columns: 6.4rem 1fr;
+    gap: 0.9rem;
+    align-items: center;
+    min-height: auto;
+    padding: 0.8rem;
+  }
+
+  .player-avatar {
+    min-height: 6.4rem;
+    margin: 0;
+    border-radius: 0.95rem;
+    font-size: 2rem;
+  }
+
+  .player-card span {
+    margin-bottom: 0.4rem;
+    font-size: 0.66rem;
+  }
+
+  .player-card h3 {
+    margin-bottom: 0.38rem;
+    font-size: 1.16rem;
+  }
+
+  .player-card p {
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .section-heading h2,
