@@ -1,11 +1,11 @@
 import "./styles.css";
 
 const ideas = [
-  "Legacy debate clips from match-day moments",
-  "Faceless football explainers from one fixture",
-  "Fan gear pages that route attention into links",
-  "AI edit workflows for football pages",
-  "Match-day newsletters built from social trends",
+  "Turn a player debate into 3 short posts",
+  "Make a faceless explainer from one match",
+  "Share useful football products fans already want",
+  "Use AI to draft hooks and captions faster",
+  "Start a simple match-day email list",
 ];
 
 const rotatingIdea = document.querySelector<HTMLElement>(".rotating-idea");

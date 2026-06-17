@@ -1,6 +1,6 @@
 # Goldmine
 
-Goldmine is a UI-first football-season landing page for a viral social monetization PDF product.
+Goldmine is a UI-first football-season site for a simple digital PDF product.
 
 - Public domain target: `goldmine.signalizeai.org`
 - Live site: `https://goldmine.signalizeai.org`
@@ -40,6 +40,6 @@ Cloudflare Dashboard → Workers & Pages → `goldmine` → Custom domains.
 - The paid CTA opens the Lemon Squeezy checkout for `Goldmine Full Pack`.
 - The paid PDF source is `docs/goldmine-full-pack.html`.
 - The rendered paid PDF for Lemon Squeezy upload is `docs/goldmine-full-pack.pdf`.
-- Generated visuals live in `public/assets/goldmine-football-hero.jpg`,
-  `public/assets/goldmine-idea-system.jpg`, and `public/assets/goldmine-pack-preview.jpg`.
-- The next version should connect personalized PDF generation workflows through `n8n.agentpostmortem.com`.
+- Generated visuals live in `public/assets/goldmine-hero-soft-v2.jpg`,
+  `public/assets/goldmine-system-soft-v2.jpg`, and `public/assets/goldmine-pack-soft-v2.jpg`.
+- The next version should connect personalized PDF generation through `n8n.agentpostmortem.com`.
