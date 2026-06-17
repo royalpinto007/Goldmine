@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Goldmine">
+  <defs>
+    <radialGradient id="glow" cx="35%" cy="20%" r="80%">
+      <stop offset="0" stop-color="#fff1a8"/>
+      <stop offset="0.48" stop-color="#f5c553"/>
+      <stop offset="1" stop-color="#8a5c12"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="28" y1="18" x2="158" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2a210d"/>
+      <stop offset="1" stop-color="#070705"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="42" fill="url(#bg)"/>
+  <path d="M50 126 88 38l42 88H50Z" fill="url(#glow)"/>
+  <path d="M72 116h36L90 76l-18 40Z" fill="#070705" opacity=".7"/>
+  <circle cx="124" cy="52" r="12" fill="#8df0a8"/>
+</svg>
