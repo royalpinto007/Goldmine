@@ -1,0 +1,71 @@
+<svg width="960" height="1280" viewBox="0 0 960 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1280" rx="72" fill="#090B06"/>
+  <rect width="960" height="1280" rx="72" fill="url(#bg)"/>
+  <circle cx="516" cy="210" r="250" fill="url(#glow)" opacity=".72"/>
+  <circle cx="214" cy="1056" r="260" fill="#1E7A50" opacity=".24"/>
+  <path d="M80 758C188 690 284 720 382 638C492 546 554 424 724 468C812 491 856 548 892 613" stroke="#F8D866" stroke-width="7" stroke-linecap="round" opacity=".7"/>
+  <path d="M88 818C210 775 310 812 424 735C546 653 623 565 804 606" stroke="#9AF2AE" stroke-width="4" stroke-linecap="round" opacity=".46"/>
+
+  <g opacity=".28">
+    <path d="M104 338H856M104 420H856M104 502H856M104 584H856M104 666H856M104 748H856M104 830H856M104 912H856" stroke="#F7E7A5"/>
+    <path d="M188 258V990M272 258V990M356 258V990M440 258V990M524 258V990M608 258V990M692 258V990M776 258V990" stroke="#F7E7A5"/>
+  </g>
+
+  <rect x="72" y="72" width="816" height="1136" rx="48" stroke="#F8D866" stroke-opacity=".32" stroke-width="2"/>
+  <rect x="116" y="116" width="184" height="52" rx="26" fill="#112018" stroke="#9AF2AE" stroke-opacity=".5"/>
+  <text x="144" y="151" fill="#9AF2AE" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="2.5">FREE STARTER</text>
+
+  <g transform="translate(112 248)">
+    <rect width="260" height="168" rx="28" fill="#FFFBDF" fill-opacity=".95"/>
+    <rect x="24" y="28" width="126" height="18" rx="9" fill="#D8A726"/>
+    <rect x="24" y="66" width="194" height="16" rx="8" fill="#1E7A50" fill-opacity=".28"/>
+    <rect x="24" y="98" width="166" height="16" rx="8" fill="#1E7A50" fill-opacity=".18"/>
+    <rect x="24" y="130" width="205" height="16" rx="8" fill="#1E7A50" fill-opacity=".16"/>
+  </g>
+
+  <g transform="translate(610 196)">
+    <rect width="190" height="190" rx="38" fill="#F5C546"/>
+    <path d="M50 116L83 82L111 107L146 56" stroke="#171006" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="51" cy="116" r="10" fill="#171006"/>
+    <circle cx="83" cy="82" r="10" fill="#171006"/>
+    <circle cx="111" cy="107" r="10" fill="#171006"/>
+    <circle cx="146" cy="56" r="10" fill="#171006"/>
+  </g>
+
+  <text x="112" y="555" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Goldmine</text>
+  <text x="112" y="640" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Starter</text>
+  <text x="116" y="704" fill="#CFC09A" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="600">3 viral ideas + your first move</text>
+
+  <g transform="translate(112 802)">
+    <rect width="736" height="92" rx="26" fill="#FFFBDF" fill-opacity=".1" stroke="#F8D866" stroke-opacity=".22"/>
+    <text x="32" y="38" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850" letter-spacing="1.5">INSIDE</text>
+    <text x="32" y="68" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="750">Idea teasers, niche pick, platform workflow</text>
+  </g>
+
+  <g transform="translate(112 942)">
+    <rect width="204" height="112" rx="30" fill="#102017" stroke="#9AF2AE" stroke-opacity=".28"/>
+    <text x="28" y="48" fill="#9AF2AE" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">3</text>
+    <text x="28" y="82" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">idea teasers</text>
+    <rect x="254" width="204" height="112" rx="30" fill="#151006" stroke="#F8D866" stroke-opacity=".24"/>
+    <text x="282" y="48" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">1</text>
+    <text x="282" y="82" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">best niche</text>
+    <rect x="508" width="228" height="112" rx="30" fill="#151006" stroke="#F8D866" stroke-opacity=".24"/>
+    <text x="536" y="48" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="900">7</text>
+    <text x="536" y="82" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="650">day direction</text>
+  </g>
+
+  <text x="112" y="1144" fill="#8F836C" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">goldmine.signalizeai.org</text>
+
+  <defs>
+    <linearGradient id="bg" x1="118" y1="43" x2="837" y2="1211" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#18260F"/>
+      <stop offset=".45" stop-color="#090B06"/>
+      <stop offset="1" stop-color="#171006"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(516 210) rotate(90) scale(250)">
+      <stop stop-color="#B2FFB9"/>
+      <stop offset=".45" stop-color="#51A66D" stop-opacity=".48"/>
+      <stop offset="1" stop-color="#51A66D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

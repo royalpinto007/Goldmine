@@ -1,0 +1,72 @@
+<svg width="960" height="1280" viewBox="0 0 960 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1280" rx="72" fill="#090805"/>
+  <rect width="960" height="1280" rx="72" fill="url(#bg)"/>
+  <circle cx="782" cy="174" r="310" fill="url(#goldGlow)" opacity=".78"/>
+  <circle cx="174" cy="1006" r="320" fill="#2467C8" opacity=".16"/>
+  <path d="M82 418C174 318 286 388 370 286C480 153 626 145 746 242C820 302 846 392 900 470" stroke="#F8D866" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+  <path d="M82 494C190 438 306 476 412 386C542 276 642 278 802 360" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity=".28"/>
+
+  <g opacity=".22">
+    <circle cx="196" cy="242" r="66" stroke="#F8D866" stroke-width="2"/>
+    <circle cx="768" cy="622" r="88" stroke="#F8D866" stroke-width="2"/>
+    <circle cx="706" cy="170" r="20" fill="#F8D866"/>
+    <circle cx="829" cy="373" r="16" fill="#F8D866"/>
+    <circle cx="313" cy="340" r="14" fill="#F8D866"/>
+    <path d="M196 242L313 340L706 170L829 373L768 622" stroke="#F8D866" stroke-width="2"/>
+  </g>
+
+  <rect x="72" y="72" width="816" height="1136" rx="48" stroke="#F8D866" stroke-opacity=".38" stroke-width="2"/>
+  <rect x="116" y="116" width="166" height="52" rx="26" fill="#F5C546"/>
+  <text x="148" y="151" fill="#150F06" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="2.2">$1 PACK</text>
+
+  <g transform="translate(600 122)">
+    <rect width="244" height="306" rx="34" fill="#FFF7D8" fill-opacity=".94"/>
+    <rect x="28" y="34" width="94" height="18" rx="9" fill="#D8A726"/>
+    <rect x="28" y="72" width="188" height="16" rx="8" fill="#171006" fill-opacity=".18"/>
+    <rect x="28" y="104" width="154" height="16" rx="8" fill="#171006" fill-opacity=".13"/>
+    <rect x="28" y="154" width="188" height="84" rx="20" fill="#171006"/>
+    <path d="M55 208L88 184L118 199L159 164L194 185" stroke="#F5C546" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="28" y="260" width="132" height="16" rx="8" fill="#D8A726" fill-opacity=".45"/>
+  </g>
+
+  <text x="112" y="562" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Goldmine</text>
+  <text x="112" y="647" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Full Pack</text>
+  <text x="116" y="711" fill="#DCCB99" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="650">20 plays, workflows, hooks, 7-day sprint</text>
+
+  <g transform="translate(112 800)">
+    <rect width="736" height="112" rx="30" fill="#FFFBDF" fill-opacity=".09" stroke="#F8D866" stroke-opacity=".28"/>
+    <text x="32" y="42" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="1.7">UPGRADE MAP</text>
+    <text x="32" y="76" fill="#FFF7D8" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="800">Ranked ideas, channel starter, AI workflows</text>
+  </g>
+
+  <g transform="translate(112 956)">
+    <rect width="176" height="118" rx="30" fill="#151006" stroke="#F8D866" stroke-opacity=".28"/>
+    <text x="26" y="50" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">20</text>
+    <text x="26" y="86" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="650">plays</text>
+    <rect x="206" width="176" height="118" rx="30" fill="#151006" stroke="#F8D866" stroke-opacity=".28"/>
+    <text x="232" y="50" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">12</text>
+    <text x="232" y="86" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="650">hooks</text>
+    <rect x="412" width="176" height="118" rx="30" fill="#151006" stroke="#F8D866" stroke-opacity=".28"/>
+    <text x="438" y="50" fill="#F8D866" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">3</text>
+    <text x="438" y="86" fill="#E7DDC2" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="650">workflows</text>
+    <rect x="618" width="118" height="118" rx="30" fill="#F5C546"/>
+    <text x="646" y="50" fill="#171006" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">7</text>
+    <text x="646" y="86" fill="#171006" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">days</text>
+  </g>
+
+  <text x="112" y="1144" fill="#93815D" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">goldmine.signalizeai.org</text>
+
+  <defs>
+    <linearGradient id="bg" x1="124" y1="35" x2="849" y2="1194" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#271706"/>
+      <stop offset=".38" stop-color="#090805"/>
+      <stop offset=".7" stop-color="#151006"/>
+      <stop offset="1" stop-color="#2C1A04"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(782 174) rotate(90) scale(310)">
+      <stop stop-color="#FFE58F"/>
+      <stop offset=".42" stop-color="#D8A726" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#D8A726" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
