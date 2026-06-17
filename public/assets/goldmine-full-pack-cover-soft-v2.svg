@@ -1,0 +1,55 @@
+<svg width="960" height="1280" viewBox="0 0 960 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="1280" rx="72" fill="#FBF4E6"/>
+  <rect width="960" height="1280" rx="72" fill="url(#paper)"/>
+  <circle cx="770" cy="178" r="270" fill="#EED18B" opacity=".34"/>
+  <circle cx="180" cy="1010" r="300" fill="#9CAF7A" opacity=".24"/>
+  <path d="M84 390C178 312 294 362 392 270C508 162 638 186 750 264C826 317 860 396 900 468" stroke="#D8A93D" stroke-width="9" stroke-linecap="round" opacity=".42"/>
+  <path d="M84 468C196 420 304 448 424 362C552 270 660 304 818 374" stroke="#8FA374" stroke-width="5" stroke-linecap="round" opacity=".34"/>
+  <rect x="72" y="72" width="816" height="1136" rx="52" stroke="#D1BD86" stroke-width="2"/>
+  <rect x="116" y="116" width="158" height="52" rx="26" fill="#F4D37B"/>
+  <text x="148" y="151" fill="#3C3C2C" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="2.2">$1 PACK</text>
+  <g transform="translate(604 136)">
+    <rect width="236" height="300" rx="34" fill="#FFFDF6" stroke="#DFD3B4"/>
+    <rect x="28" y="34" width="98" height="18" rx="9" fill="#D8A93D"/>
+    <rect x="28" y="74" width="180" height="16" rx="8" fill="#9CAF7A" opacity=".36"/>
+    <rect x="28" y="106" width="144" height="16" rx="8" fill="#9CAF7A" opacity=".25"/>
+    <rect x="28" y="154" width="180" height="84" rx="20" fill="#2E3828"/>
+    <path d="M54 208L88 184L118 200L160 164L192 186" stroke="#F3D06C" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="28" y="262" width="132" height="16" rx="8" fill="#D8A93D" opacity=".45"/>
+  </g>
+  <g opacity=".2" stroke="#8FA374" stroke-width="2">
+    <rect x="116" y="238" width="320" height="214" rx="28"/>
+    <circle cx="276" cy="345" r="58"/>
+    <path d="M116 345H436M276 238V452"/>
+  </g>
+  <text x="112" y="552" fill="#20271C" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Goldmine</text>
+  <text x="112" y="637" fill="#20271C" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Full Pack</text>
+  <text x="116" y="702" fill="#6F7462" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="650">20 football plays, hooks, 7-day sprint</text>
+  <g transform="translate(112 800)">
+    <rect width="736" height="112" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
+    <text x="32" y="42" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="1.7">UPGRADE MAP</text>
+    <text x="32" y="76" fill="#303527" font-family="Inter, Arial, sans-serif" font-size="29" font-weight="800">Football ideas, channel starter, AI workflows</text>
+  </g>
+  <g transform="translate(112 956)">
+    <rect width="176" height="118" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
+    <text x="26" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">20</text>
+    <text x="26" y="86" fill="#5B624F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">plays</text>
+    <rect x="206" width="176" height="118" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
+    <text x="232" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">12</text>
+    <text x="232" y="86" fill="#5B624F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">hooks</text>
+    <rect x="412" width="176" height="118" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
+    <text x="438" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">3</text>
+    <text x="438" y="86" fill="#5B624F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">workflows</text>
+    <rect x="618" width="118" height="118" rx="30" fill="#F3D06C" stroke="#C99A2A"/>
+    <text x="646" y="50" fill="#2C2C20" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">7</text>
+    <text x="646" y="86" fill="#2C2C20" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800">days</text>
+  </g>
+  <text x="112" y="1144" fill="#777A69" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">goldmine.signalizeai.org</text>
+  <defs>
+    <linearGradient id="paper" x1="120" y1="60" x2="840" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9EA"/>
+      <stop offset=".48" stop-color="#F7F0E2"/>
+      <stop offset="1" stop-color="#EFE2C8"/>
+    </linearGradient>
+  </defs>
+</svg>
