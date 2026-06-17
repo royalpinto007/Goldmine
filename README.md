@@ -3,8 +3,8 @@
 Goldmine is a UI-first landing page for a viral social monetization PDF product.
 
 - Public domain target: `goldmine.signalizeai.org`
-- Current Pages deployment: `https://8d36c498.goldmine-5ul.pages.dev`
-- V1 scope: static page + free PDF download + $1 full PDF positioning
+- Live site: `https://goldmine.signalizeai.org`
+- V1 scope: static page + free PDF download + $1 Lemon Squeezy checkout
 - Future automation: `n8n.agentpostmortem.com`
 
 ## Local development
@@ -36,5 +36,5 @@ Cloudflare Dashboard → Workers & Pages → `goldmine` → Custom domains.
 ## V1 notes
 
 - The free CTA downloads `public/free-goldmine-starter.pdf`.
-- The paid CTA currently opens an email intent for the $1 PDF.
-- The next version should replace the paid CTA with a payment link and connect generation workflows through `n8n.agentpostmortem.com`.
+- The paid CTA opens the Lemon Squeezy checkout for `Goldmine Full Pack`.
+- The next version should connect personalized PDF generation workflows through `n8n.agentpostmortem.com`.
