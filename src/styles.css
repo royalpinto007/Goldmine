@@ -433,6 +433,241 @@ h1 {
   transform: rotate(-3deg);
 }
 
+.product-page {
+  padding: clamp(1.1rem, 2.8vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(350px, 0.52fr);
+  gap: clamp(1.1rem, 3vw, 2.4rem);
+  align-items: start;
+}
+
+.product-gallery {
+  min-width: 0;
+}
+
+.cover-stage {
+  position: relative;
+  min-height: clamp(25rem, 46vw, 38rem);
+  margin-top: 0.85rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: clamp(1.25rem, 2.4vw, 1.8rem);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.32)),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.stage-photo {
+  width: 100%;
+  height: 100%;
+  min-height: clamp(25rem, 46vw, 38rem);
+  object-fit: cover;
+  filter: saturate(0.98) contrast(0.99);
+}
+
+.stage-cover {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  width: min(32%, 12.5rem);
+  border-radius: 1rem;
+  box-shadow:
+    0 22px 48px rgba(84, 65, 30, 0.16),
+    0 0 0 1px rgba(94, 98, 72, 0.12);
+  transform: rotate(2deg);
+}
+
+.paid-checkout .stage-cover {
+  transform: rotate(-2deg);
+}
+
+.preview-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.preview-strip span {
+  padding: 0.55rem 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #5a4718;
+  background: rgba(255, 255, 255, 0.54);
+  font-size: 0.88rem;
+  font-weight: 760;
+}
+
+.checkout-card {
+  position: sticky;
+  top: 1rem;
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.1rem, 2.4vw, 1.55rem);
+  border: 1px solid rgba(94, 98, 72, 0.16);
+  border-radius: 1.55rem;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.46)),
+    var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.product-kicker {
+  width: fit-content;
+  padding: 0.42rem 0.65rem;
+  border: 1px solid rgba(217, 173, 69, 0.28);
+  border-radius: 999px;
+  color: #8d6a16;
+  background: rgba(255, 235, 184, 0.46);
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.checkout-card h1 {
+  max-width: 12.6ch;
+  margin: 0;
+  font-size: clamp(2.25rem, 4.4vw, 4.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.07em;
+}
+
+.checkout-card p {
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.58;
+}
+
+.price-panel {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem;
+  border: 1px solid rgba(217, 173, 69, 0.28);
+  border-radius: 1.15rem;
+  background:
+    radial-gradient(circle at 0 0, rgba(217, 173, 69, 0.12), transparent 12rem),
+    rgba(255, 255, 255, 0.58);
+}
+
+.price-panel strong {
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.price-panel span {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.paid-price strong {
+  color: #8d6a16;
+}
+
+.receipt-list,
+.check-list {
+  display: grid;
+  gap: 0.62rem;
+  margin: 0;
+  padding: 0;
+  color: var(--soft);
+  list-style: none;
+}
+
+.receipt-list {
+  padding-top: 0.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.receipt-list li,
+.check-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  line-height: 1.5;
+}
+
+.receipt-list li::before,
+.check-list li::before {
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 0.44rem;
+  height: 0.44rem;
+  border-radius: 999px;
+  background: var(--gold);
+  content: "";
+}
+
+.product-details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
+  gap: clamp(0.85rem, 1.8vw, 1.2rem);
+  margin-top: clamp(1rem, 2.5vw, 1.7rem);
+  padding-top: clamp(1rem, 2.4vw, 1.4rem);
+  border-top: 1px solid rgba(94, 98, 72, 0.12);
+}
+
+.detail-panel {
+  min-height: 15rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.34)),
+    var(--panel);
+  box-shadow: 0 16px 42px rgba(84, 65, 30, 0.075);
+}
+
+.detail-panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.detail-panel p {
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.6;
+}
+
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.mini-tags span {
+  padding: 0.48rem 0.62rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #5a4718;
+  background: rgba(255, 255, 255, 0.54);
+  font-size: 0.84rem;
+  font-weight: 720;
+}
+
+.upgrade-panel,
+.secure-panel {
+  background:
+    radial-gradient(circle at 0 0, rgba(217, 173, 69, 0.09), transparent 16rem),
+    var(--panel-strong);
+}
+
+.upgrade-panel .button,
+.secure-panel .button {
+  width: fit-content;
+  margin-top: 1rem;
+}
+
 .offer-band,
 .football-section,
 .inside-section,
@@ -961,6 +1196,8 @@ details p {
 
   .hero,
   .product-hero,
+  .checkout-layout,
+  .product-details-grid,
   .pdf-grid,
   .trust-panel,
   .product-cta-panel,
@@ -998,6 +1235,10 @@ details p {
 
   .idea-grid {
     grid-template-columns: 1fr;
+  }
+
+  .checkout-card {
+    position: static;
   }
 }
 
@@ -1068,6 +1309,64 @@ details p {
   .product-preview {
     min-height: 19rem;
     padding: 1rem;
+  }
+
+  .product-page {
+    padding-top: 0.8rem;
+  }
+
+  .cover-stage {
+    min-height: 18.5rem;
+    border-radius: 1.15rem;
+  }
+
+  .stage-photo {
+    min-height: 18.5rem;
+  }
+
+  .stage-cover,
+  .paid-checkout .stage-cover {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    width: min(34vw, 8.8rem);
+    border-radius: 0.8rem;
+    transform: rotate(0deg);
+  }
+
+  .preview-strip {
+    gap: 0.45rem;
+  }
+
+  .preview-strip span {
+    padding: 0.48rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .checkout-card {
+    gap: 0.85rem;
+    order: -1;
+    padding: 1rem;
+    border-radius: 1.2rem;
+  }
+
+  .product-gallery > .eyebrow {
+    display: none;
+  }
+
+  .checkout-card h1 {
+    max-width: 11ch;
+    font-size: clamp(2.15rem, 11vw, 3.35rem);
+    letter-spacing: -0.06em;
+  }
+
+  .price-panel {
+    padding: 0.85rem;
+    border-radius: 1rem;
+  }
+
+  .receipt-list,
+  .check-list {
+    gap: 0.5rem;
   }
 
   .product-preview img {
@@ -1146,8 +1445,19 @@ details p {
   }
 
   .value-grid,
-  .sample-list {
+  .sample-list,
+  .product-details-grid {
     grid-template-columns: 1fr;
+  }
+
+  .detail-panel {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .upgrade-panel .button,
+  .secure-panel .button {
+    width: 100%;
   }
 
   .value-card {
