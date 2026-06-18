@@ -401,6 +401,241 @@ function htmlDocument(title, body) {
         font-weight: 850;
         line-height: 1.35;
       }
+      .layout-split {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) 70mm;
+        gap: 6mm;
+        align-items: stretch;
+      }
+      .layout-split.reverse {
+        grid-template-columns: 68mm minmax(0, 1fr);
+      }
+      .tall-visual, .visual-card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(94, 98, 72, 0.16);
+        border-radius: 8mm;
+        background: #f8edd8;
+        box-shadow: 0 16px 38px rgba(84, 65, 30, 0.11);
+      }
+      .tall-visual { min-height: 168mm; }
+      .visual-card { height: 62mm; }
+      .tall-visual img, .visual-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .tall-visual::after, .visual-card::after {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 45%, rgba(24, 31, 19, 0.66));
+        content: "";
+      }
+      .visual-label {
+        position: absolute;
+        left: 5mm;
+        right: 5mm;
+        bottom: 5mm;
+        z-index: 1;
+        color: #fff8df;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.25;
+      }
+      .big-play-number {
+        color: rgba(155, 114, 24, 0.17);
+        font-size: 84px;
+        font-weight: 950;
+        letter-spacing: -0.08em;
+        line-height: 0.78;
+      }
+      .route-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        margin-top: 5mm;
+      }
+      .route-step {
+        min-height: 28mm;
+        padding: 4mm;
+        border: 1px solid rgba(94, 98, 72, 0.14);
+        border-radius: 5mm;
+        background: rgba(255, 253, 247, 0.75);
+      }
+      .route-step strong {
+        display: block;
+        margin-bottom: 2mm;
+        color: #9b7218;
+        font-size: 10px;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .route-step span {
+        color: #4f5848;
+        font-size: 10.5px;
+        line-height: 1.35;
+      }
+      .bottom-band {
+        display: grid;
+        grid-template-columns: 34mm repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        align-items: stretch;
+        min-height: 34mm;
+        margin-top: auto;
+        padding: 4mm;
+        border: 1px solid rgba(94, 98, 72, 0.14);
+        border-radius: 7mm;
+        background:
+          linear-gradient(135deg, rgba(255, 253, 247, 0.9), rgba(255, 226, 154, 0.35));
+        box-shadow: 0 14px 30px rgba(84, 65, 30, 0.07);
+      }
+      .bottom-mark {
+        display: grid;
+        place-items: center;
+        border-radius: 5mm;
+        color: #9b7218;
+        background: rgba(255, 226, 154, 0.55);
+        font-size: 31px;
+        font-weight: 950;
+        letter-spacing: -0.08em;
+      }
+      .bottom-step {
+        padding: 2mm 0;
+      }
+      .bottom-step strong {
+        display: block;
+        margin-bottom: 1.5mm;
+        color: #2a331f;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .bottom-step span {
+        color: #606b57;
+        font-size: 10px;
+        line-height: 1.32;
+      }
+      .sticky-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm;
+        margin-top: 5mm;
+      }
+      .sticky-note {
+        min-height: 35mm;
+        padding: 5mm;
+        border-radius: 5mm 8mm 5mm 8mm;
+        background: #fff1b8;
+        box-shadow: 0 14px 26px rgba(92, 73, 30, 0.08);
+        transform: rotate(-0.8deg);
+      }
+      .sticky-note:nth-child(2n) {
+        background: #e8f0d1;
+        transform: rotate(0.7deg);
+      }
+      .sticky-note strong {
+        display: block;
+        margin-bottom: 2mm;
+        color: #7a5b13;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .sticky-note span {
+        color: #27301f;
+        font-size: 12px;
+        font-weight: 820;
+        line-height: 1.28;
+      }
+      .score-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        margin: 5mm 0;
+      }
+      .score-card {
+        padding: 4mm;
+        border: 1px solid rgba(94, 98, 72, 0.14);
+        border-radius: 5mm;
+        background: rgba(255, 253, 247, 0.78);
+      }
+      .score-card strong {
+        display: block;
+        color: #9b7218;
+        font-size: 20px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .score-card span {
+        display: block;
+        margin-top: 2mm;
+        color: #606b57;
+        font-size: 9.5px;
+      }
+      .play-image {
+        background:
+          radial-gradient(circle at 88% 8%, rgba(217, 173, 69, 0.2), transparent 38mm),
+          linear-gradient(135deg, #fffdf6 0%, #f7ecd7 52%, #e8d1a7 100%);
+      }
+      .play-score {
+        background:
+          linear-gradient(90deg, rgba(255, 246, 222, 0.92) 0%, rgba(255, 246, 222, 0.92) 54%, rgba(231, 210, 167, 0.82) 54%, rgba(231, 210, 167, 0.82) 100%),
+          radial-gradient(circle at 92% 16%, rgba(155, 114, 24, 0.14), transparent 38mm);
+      }
+      .play-sticky {
+        background:
+          radial-gradient(circle at 12% 13%, rgba(168, 184, 134, 0.25), transparent 40mm),
+          linear-gradient(135deg, #fff8e7 0%, #f6ead0 100%);
+      }
+      .play-dark {
+        color: #fff8df;
+        background:
+          radial-gradient(circle at 82% 16%, rgba(217, 173, 69, 0.24), transparent 42mm),
+          radial-gradient(circle at 11% 84%, rgba(168, 184, 134, 0.18), transparent 38mm),
+          linear-gradient(135deg, #1d2518 0%, #10140d 63%, #47320e 100%);
+      }
+      .play-dark::before { border-color: rgba(255, 226, 154, 0.2); }
+      .play-dark::after { color: rgba(255, 248, 223, 0.58); }
+      .play-dark .brand { color: rgba(255, 248, 223, 0.68); }
+      .play-dark .brand strong,
+      .play-dark h2,
+      .play-dark h3,
+      .play-dark .sticky-note span { color: #fff8df; }
+      .play-dark p,
+      .play-dark li,
+      .play-dark .route-step span { color: rgba(255, 248, 223, 0.78); }
+      .play-dark .badge {
+        color: #ffe7a7;
+        background: rgba(255, 226, 154, 0.11);
+        border-color: rgba(255, 226, 154, 0.3);
+      }
+      .play-dark .chip,
+      .play-dark .route-step,
+      .play-dark .panel,
+      .play-dark .score-card {
+        border-color: rgba(255, 226, 154, 0.17);
+        background: rgba(255, 248, 223, 0.08);
+        box-shadow: none;
+      }
+      .play-dark .mini,
+      .play-dark .route-step strong,
+      .play-dark .score-card strong { color: #ffe29a; }
+      .play-dark .score-card span { color: rgba(255, 248, 223, 0.68); }
+      .play-dark .hook-line {
+        color: #1d2518;
+        background: #ffe29a;
+      }
+      .play-dark .bottom-band {
+        border-color: rgba(255, 226, 154, 0.18);
+        background: rgba(255, 248, 223, 0.08);
+        box-shadow: none;
+      }
+      .play-dark .bottom-mark {
+        color: #1d2518;
+        background: #ffe29a;
+      }
+      .play-dark .bottom-step strong { color: #ffe29a; }
+      .play-dark .bottom-step span { color: rgba(255, 248, 223, 0.72); }
     </style>
   </head>
   <body>${body}</body>
@@ -524,9 +759,35 @@ function freeHtml() {
   return htmlDocument("Goldmine Football Starter", pages.join(""));
 }
 
+function visualFor(index) {
+  const visuals = [
+    ["goldmine-hero-soft-v2.jpg", "Football attention becomes a repeatable content lane."],
+    ["goldmine-system-soft-v2.jpg", "The system is topic, format, proof, and next step."],
+    ["goldmine-pack-soft-v2.jpg", "Turn one winning angle into posts, links, and products."],
+  ];
+  return visuals[(index - 1) % visuals.length];
+}
+
+function scoreLabel(index, offset = 0) {
+  const scores = ["Low", "Medium", "High"];
+  return scores[(index + offset) % scores.length];
+}
+
+function bottomBand(index) {
+  return `
+    <div class="bottom-band">
+      <div class="bottom-mark">${String(index).padStart(2, "0")}</div>
+      <div class="bottom-step"><strong>Build</strong><span>Ship one simple version before improving the design.</span></div>
+      <div class="bottom-step"><strong>Measure</strong><span>Watch saves, replies, shares, and profile clicks.</span></div>
+      <div class="bottom-step"><strong>Decide</strong><span>Repeat for 7 days only if strangers respond.</span></div>
+    </div>
+  `;
+}
+
 function ideaPage(index, idea) {
   const [title, promise, niches, aiStep, monetization] = idea;
   const lowerTitle = title.toLowerCase();
+  const [visualName, visualCaption] = visualFor(index);
   const firstPosts = [
     `Post 1: explain the problem behind ${lowerTitle}.`,
     "Post 2: show one example and one counterpoint.",
@@ -537,32 +798,142 @@ function ideaPage(index, idea) {
     "Here is the 30-second version before the next match.",
     "Save this if you create football content this week.",
   ];
-  return page("", `
-    ${brand(`Play ${String(index).padStart(2, "0")}`)}
-    <span class="badge">Football money idea</span>
-    <h2>${escapeHtml(title)}</h2>
-    <div class="idea">
-      <span class="mini">What it is</span>
-      <h3>${escapeHtml(promise)}</h3>
-      <p>${escapeHtml(niches)}</p>
-      <div class="meta">
-        <span class="chip">AI-first</span>
-        <span class="chip">Social content</span>
-        <span class="chip">Testable</span>
+
+  if (index % 5 === 1) {
+    return page("", `
+      ${brand(`Play ${String(index).padStart(2, "0")}`)}
+      <span class="badge">Football money idea</span>
+      <h2>${escapeHtml(title)}</h2>
+      <div class="idea">
+        <span class="mini">What it is</span>
+        <h3>${escapeHtml(promise)}</h3>
+        <p>${escapeHtml(niches)}</p>
+        <div class="meta">
+          <span class="chip">AI-first</span>
+          <span class="chip">Social content</span>
+          <span class="chip">Testable</span>
+        </div>
+        <div class="playbook-grid">
+          <div class="panel"><h3>Run this workflow</h3><p>${escapeHtml(aiStep)}</p></div>
+          <div class="panel"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
+          <div class="panel"><h3>First 3 posts</h3>${list(firstPosts)}</div>
+          <div class="panel"><h3>Hook bank</h3>${list(hooks)}</div>
+        </div>
+        <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
       </div>
-      <div class="playbook-grid">
-        <div class="panel"><h3>Run this workflow</h3><p>${escapeHtml(aiStep)}</p></div>
-        <div class="panel"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
+      ${bottomBand(index)}
+    `);
+  }
+
+  if (index % 5 === 2) {
+    return page("play-image", `
+      ${brand(`Play ${String(index).padStart(2, "0")}`)}
+      <div class="layout-split">
+        <div>
+          <span class="badge">Image-led play</span>
+          <h2>${escapeHtml(title)}</h2>
+          <div class="quote">${escapeHtml(promise)}</div>
+          <div class="route-strip">
+            <div class="route-step"><strong>Audience</strong><span>${escapeHtml(niches)}</span></div>
+            <div class="route-step"><strong>Workflow</strong><span>${escapeHtml(aiStep)}</span></div>
+            <div class="route-step"><strong>Revenue</strong><span>${escapeHtml(monetization)}</span></div>
+          </div>
+          <div class="panel" style="margin-top: 5mm;">
+            <h3>First posts to ship</h3>
+            ${list(firstPosts)}
+          </div>
+          <div class="panel" style="margin-top: 5mm;">
+            <h3>Hook bank</h3>
+            ${list(hooks)}
+          </div>
+        </div>
+        <div class="tall-visual">
+          <img src="${asset(visualName)}" alt="Goldmine play visual" />
+          <div class="visual-label">${escapeHtml(visualCaption)}</div>
+        </div>
+      </div>
+      ${bottomBand(index)}
+    `);
+  }
+
+  if (index % 5 === 3) {
+    return page("play-dark", `
+      ${brand(`Play ${String(index).padStart(2, "0")}`)}
+      <span class="badge">Signal to product</span>
+      <div class="layout-split reverse">
+        <div>
+          <div class="big-play-number">${String(index).padStart(2, "0")}</div>
+          <div class="visual-card" style="margin-top: 8mm;">
+            <img src="${asset(visualName)}" alt="Goldmine play visual" />
+            <div class="visual-label">${escapeHtml(visualCaption)}</div>
+          </div>
+        </div>
+        <div>
+          <h2>${escapeHtml(title)}</h2>
+          <p>${escapeHtml(promise)}</p>
+          <div class="playbook-grid">
+            <div class="panel"><h3>Use when</h3><p>${escapeHtml(niches)}</p></div>
+            <div class="panel"><h3>AI step</h3><p>${escapeHtml(aiStep)}</p></div>
+            <div class="panel"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
+            <div class="panel"><h3>Guardrail</h3><p>Fact-check names, dates, stats, and claims before posting.</p></div>
+          </div>
+          <div class="hook-line">Best next step: publish one sharp version, then remix only if people save or ask questions.</div>
+        </div>
+      </div>
+      ${bottomBand(index)}
+    `);
+  }
+
+  if (index % 5 === 4) {
+    return page("play-sticky", `
+      ${brand(`Play ${String(index).padStart(2, "0")}`)}
+      <span class="badge">Hook board</span>
+      <h2>${escapeHtml(title)}</h2>
+      <p>${escapeHtml(promise)} ${escapeHtml(niches)}</p>
+      <div class="sticky-grid">
+        <div class="sticky-note"><strong>Hook 01</strong><span>${escapeHtml(hooks[0])}</span></div>
+        <div class="sticky-note"><strong>Hook 02</strong><span>${escapeHtml(hooks[1])}</span></div>
+        <div class="sticky-note"><strong>Hook 03</strong><span>${escapeHtml(hooks[2])}</span></div>
+        <div class="sticky-note"><strong>Money test</strong><span>${escapeHtml(monetization)}</span></div>
+      </div>
+      <div class="grid-2" style="margin-top: 6mm;">
+        <div class="panel"><h3>Run the workflow</h3><p>${escapeHtml(aiStep)}</p></div>
         <div class="panel"><h3>First 3 posts</h3>${list(firstPosts)}</div>
-        <div class="panel"><h3>Hook bank</h3>${list(hooks)}</div>
       </div>
-      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+      ${bottomBand(index)}
+    `);
+  }
+
+  return page("play-score", `
+    ${brand(`Play ${String(index).padStart(2, "0")}`)}
+    <span class="badge">Scorecard</span>
+    <h2>${escapeHtml(title)}</h2>
+    <div class="layout-split">
+      <div>
+        <h3>${escapeHtml(promise)}</h3>
+        <p>${escapeHtml(niches)}</p>
+        <div class="score-grid">
+          <div class="score-card"><strong>${scoreLabel(index)}</strong><span>effort</span></div>
+          <div class="score-card"><strong>${scoreLabel(index, 1)}</strong><span>speed</span></div>
+          <div class="score-card"><strong>${scoreLabel(index, 2)}</strong><span>payoff</span></div>
+        </div>
+        <div class="panel"><h3>Workflow</h3><p>${escapeHtml(aiStep)}</p></div>
+        <div class="panel" style="margin-top: 4mm;"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
+        <div class="panel" style="margin-top: 4mm;"><h3>Hook bank</h3>${list(hooks)}</div>
+      </div>
+      <div>
+        <div class="visual-card">
+          <img src="${asset(visualName)}" alt="Goldmine play visual" />
+          <div class="visual-label">${escapeHtml(visualCaption)}</div>
+        </div>
+        <div class="panel" style="margin-top: 5mm;">
+          <h3>Publish this first</h3>
+          ${list(firstPosts)}
+        </div>
+        <div class="hook-line">Decision rule: repeat only if the post gets saves, replies, shares, or profile clicks.</div>
+      </div>
     </div>
-    <div class="grid-3" style="margin-top: 5mm;">
-      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
-      <div class="metric"><strong>3</strong><span>posts to test</span></div>
-      <div class="metric"><strong>7</strong><span>days before judging</span></div>
-    </div>
+    ${bottomBand(index)}
   `);
 }
 
