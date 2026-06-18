@@ -636,6 +636,89 @@ function htmlDocument(title, body) {
       }
       .play-dark .bottom-step strong { color: #ffe29a; }
       .play-dark .bottom-step span { color: rgba(255, 248, 223, 0.72); }
+      .playbook-page {
+        background:
+          radial-gradient(circle at 88% 7%, rgba(217, 173, 69, 0.12), transparent 42mm),
+          linear-gradient(135deg, #fffaf0 0%, #f8edd8 100%);
+      }
+      .playbook-page .brand { margin-bottom: 7mm; }
+      .playbook-page h2 {
+        max-width: 150mm;
+        margin-bottom: 3mm;
+      }
+      .lead {
+        max-width: 168mm;
+        color: #4f5848;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+      .thin-rule {
+        height: 1px;
+        margin: 5mm 0;
+        background: rgba(94, 98, 72, 0.16);
+      }
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5mm 8mm;
+      }
+      .plain-section {
+        padding-top: 4mm;
+        border-top: 1px solid rgba(94, 98, 72, 0.18);
+      }
+      .plain-section h3 {
+        margin-bottom: 2mm;
+        color: #222a1c;
+        font-size: 15px;
+      }
+      .plain-section p,
+      .plain-section li {
+        color: #4f5848;
+        font-size: 11.2px;
+        line-height: 1.38;
+      }
+      .plain-section ol,
+      .plain-section ul {
+        margin-top: 2mm;
+      }
+      .example-block {
+        margin-top: 5mm;
+        padding-top: 4mm;
+        border-top: 1px solid rgba(94, 98, 72, 0.18);
+      }
+      .example-block h3 {
+        margin-bottom: 2mm;
+        font-size: 16px;
+      }
+      .example-block p,
+      .example-block li {
+        color: #4f5848;
+        font-size: 11.2px;
+        line-height: 1.38;
+      }
+      .example-block strong {
+        color: #27301f;
+      }
+      .simple-note {
+        margin-top: 5mm;
+        padding: 4mm 0 0;
+        border-top: 2px solid rgba(217, 173, 69, 0.45);
+        color: #5a4718;
+        font-size: 11px;
+        font-weight: 800;
+        line-height: 1.35;
+      }
+      .one-line-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3mm;
+        margin: 4mm 0 1mm;
+        color: #6f5a20;
+        font-size: 9.5px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
     </style>
   </head>
   <body>${body}</body>
@@ -689,48 +772,79 @@ function freeHtml() {
       </div>
       <div class="quote" style="margin-top: 6mm;">The first win is not money. The first win is proof that strangers care about one repeatable angle.</div>
     `),
-    page("", `
+    page("playbook-page", `
       ${brand("Page 3")}
       <span class="badge">5 starter ideas</span>
       <h2>Pick one, not all five.</h2>
-      <div class="grid-2">
+      <p class="lead">The free starter is not a giant list. It is a quick way to choose one football content lane and test it for a week.</p>
+      <div class="thin-rule"></div>
+      <div class="content-grid">
         ${freeIdeas.slice(0, 4).map((idea) => `
-          <div class="card">
-            <span class="chip">${escapeHtml(idea.title)}</span>
-            <h3 style="margin-top: 3mm;">${escapeHtml(idea.angle)}</h3>
-            <p>${escapeHtml(idea.hook)}</p>
+          <div class="plain-section">
+            <h3>${escapeHtml(idea.title)}</h3>
+            <p><strong>Angle:</strong> ${escapeHtml(idea.angle)}</p>
+            <p><strong>Hook:</strong> ${escapeHtml(idea.hook)}</p>
+            <p><strong>First step:</strong> ${escapeHtml(idea.steps[0])}</p>
           </div>
         `).join("")}
       </div>
-      <div class="card" style="margin-top: 4mm;">
-        <span class="chip">${escapeHtml(freeIdeas[4].title)}</span>
-        <h3 style="margin-top: 3mm;">${escapeHtml(freeIdeas[4].angle)}</h3>
-        <p>${escapeHtml(freeIdeas[4].hook)}</p>
+      <div class="example-block">
+        <h3>${escapeHtml(freeIdeas[4].title)}</h3>
+        <p><strong>Angle:</strong> ${escapeHtml(freeIdeas[4].angle)}</p>
+        <p><strong>Hook:</strong> ${escapeHtml(freeIdeas[4].hook)}</p>
+        <p><strong>First step:</strong> ${escapeHtml(freeIdeas[4].steps[0])}</p>
       </div>
-      <p class="footer-note">Choose the one you could post for 7 days without getting bored.</p>
+      <div class="content-grid" style="margin-top: 5mm;">
+        <div class="plain-section">
+          <h3>Choose by strength</h3>
+          ${numberedList(["Pick analysis if you enjoy explaining.", "Pick trends if you move fast.", "Pick product roundups if you like useful lists."])}
+        </div>
+        <div class="plain-section">
+          <h3>Choose by proof</h3>
+          ${numberedList(["Can you post it three times this week?", "Can people save or share it?", "Can it lead to a checklist, link page, or template?"])}
+        </div>
+      </div>
+      <div class="simple-note">Choose the one you could post for 7 days without getting bored. The best idea is usually the one you can repeat calmly, not the one that sounds the fanciest.</div>
     `),
-    page("", `
+    page("playbook-page", `
       ${brand("Page 4")}
       <span class="badge">One simple AI workflow</span>
       <h2>Turn one topic into four assets.</h2>
-      <p>This is the starter workflow to run before buying tools or building automation.</p>
-      <div class="grid-2" style="margin-top: 6mm;">
-        <div class="panel">
+      <p class="lead">Use this before buying tools or building automation. The goal is one useful post, then one useful remix, then one small next step.</p>
+      <div class="thin-rule"></div>
+      <div class="content-grid">
+        <div class="plain-section">
           <h3>Input</h3>
           ${list(["Topic: a player debate, match question, or fan problem.", "Audience: casual fans, fantasy players, training fans, or creators.", "Format: reel, carousel, poll, or newsletter."])}
         </div>
-        <div class="panel">
+        <div class="plain-section">
           <h3>Prompt</h3>
           <p>Give me 5 football content angles for [topic]. For each angle, include a hook, a 30-second script, one visual idea, one caption, and one safe monetization path. Avoid copyrighted clips and fake income claims.</p>
         </div>
+        <div class="plain-section">
+          <h3>Example output</h3>
+          ${numberedList(["Hook: This goal started 18 seconds before the shot.", "Short script: explain the build-up in plain English.", "Carousel: show claim, example, takeaway, counterpoint, question.", "CTA: Want the checklist I used for this breakdown?"])}
+        </div>
+        <div class="plain-section">
+          <h3>Publishing checklist</h3>
+          ${numberedList(["Use your own wording.", "Fact-check the claim.", "Avoid copyrighted footage.", "Track saves, replies, shares, and profile clicks."])}
+        </div>
       </div>
-      <div class="grid-4" style="margin-top: 6mm;">
-        <div class="metric"><strong>1</strong><span>hook</span></div>
-        <div class="metric"><strong>1</strong><span>short script</span></div>
-        <div class="metric"><strong>1</strong><span>carousel outline</span></div>
-        <div class="metric"><strong>1</strong><span>link idea</span></div>
+      <div class="example-block">
+        <h3>One topic becomes four assets</h3>
+        ${numberedList(["Reel: one 35-second explanation.", "Carousel: one 5-slide breakdown.", "Poll: one question to collect comments.", "Newsletter note: one paragraph with the useful takeaway."])}
       </div>
-      <div class="quote" style="margin-top: 6mm;">If the hook feels generic, the post will feel generic. Make the angle specific before making it pretty.</div>
+      <div class="content-grid" style="margin-top: 5mm;">
+        <div class="plain-section">
+          <h3>Copy prompt to start</h3>
+          <p>Create a football content pack about [topic]. Give me a hook, a short video script, a carousel outline, a poll question, a newsletter paragraph, and one soft CTA. Keep it factual and avoid income promises.</p>
+        </div>
+        <div class="plain-section">
+          <h3>CTA examples</h3>
+          ${numberedList(["Want the checklist I used?", "Should I make a template for this?", "Comment a player or match and I will make a version."])}
+        </div>
+      </div>
+      <div class="simple-note">If the hook feels generic, the post will feel generic. Make the angle specific before making it pretty.</div>
     `),
     page("", `
       ${brand("Page 5")}
@@ -759,181 +873,214 @@ function freeHtml() {
   return htmlDocument("Goldmine Football Starter", pages.join(""));
 }
 
-function visualFor(index) {
-  const visuals = [
-    ["goldmine-hero-soft-v2.jpg", "Football attention becomes a repeatable content lane."],
-    ["goldmine-system-soft-v2.jpg", "The system is topic, format, proof, and next step."],
-    ["goldmine-pack-soft-v2.jpg", "Turn one winning angle into posts, links, and products."],
+function numberedList(items) {
+  return `<ol>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ol>`;
+}
+
+function ideaHooks(title, promise, niches) {
+  const firstNiche = niches.split(",")[0].toLowerCase();
+  return [
+    `The useful angle today: ${promise}`,
+    `Most fans are talking about ${firstNiche}. Here is the cleaner, more useful breakdown.`,
+    "Before the next match, turn one fan argument into one clear takeaway.",
+    "If this helps you, I can turn it into a checklist, template, or weekly series.",
   ];
-  return visuals[(index - 1) % visuals.length];
 }
 
-function scoreLabel(index, offset = 0) {
-  const scores = ["Low", "Medium", "High"];
-  return scores[(index + offset) % scores.length];
+function firstPost(index, title) {
+  const lowerTitle = title.toLowerCase();
+  const formats = [
+    {
+      name: "5-slide carousel",
+      steps: [
+        `Slide 1: bold claim about ${lowerTitle}.`,
+        "Slide 2: one simple reason the audience already feels.",
+        "Slide 3: one fact, example, or match moment that supports it.",
+        "Slide 4: one counterpoint so the post feels honest.",
+        "Slide 5: question prompt that invites comments.",
+      ],
+    },
+    {
+      name: "35-second short video",
+      steps: [
+        "0-3s: start with the strongest hook.",
+        "4-15s: explain the situation in plain language.",
+        "16-27s: show the useful takeaway or mistake people miss.",
+        "28-35s: end with a save/comment CTA.",
+      ],
+    },
+    {
+      name: "X or Threads mini-thread",
+      steps: [
+        `Post 1: name the ${lowerTitle} angle clearly.`,
+        "Post 2: give one example and why it matters.",
+        "Post 3: add one practical takeaway for fans or creators.",
+        "Post 4: ask what people want broken down next.",
+      ],
+    },
+    {
+      name: "Newsletter section",
+      steps: [
+        "Subject line: use the simplest debate or question.",
+        "Opening: say why this matters now.",
+        "Middle: give three bullets with your judgment.",
+        "End: link to one useful resource or related post.",
+      ],
+    },
+  ];
+
+  return formats[(index - 1) % formats.length];
 }
 
-function bottomBand(index) {
-  return `
-    <div class="bottom-band">
-      <div class="bottom-mark">${String(index).padStart(2, "0")}</div>
-      <div class="bottom-step"><strong>Build</strong><span>Ship one simple version before improving the design.</span></div>
-      <div class="bottom-step"><strong>Measure</strong><span>Watch saves, replies, shares, and profile clicks.</span></div>
-      <div class="bottom-step"><strong>Decide</strong><span>Repeat for 7 days only if strangers respond.</span></div>
-    </div>
-  `;
+function platformPath(index) {
+  const paths = [
+    "Instagram carousel first, then remix into Reels.",
+    "Shorts/Reels first, then turn comments into a second post.",
+    "X or Threads first, then expand the strongest reply into a carousel.",
+    "Newsletter first, then clip the strongest point into a short post.",
+  ];
+
+  return paths[(index - 1) % paths.length];
 }
 
 function ideaPage(index, idea) {
   const [title, promise, niches, aiStep, monetization] = idea;
-  const lowerTitle = title.toLowerCase();
-  const [visualName, visualCaption] = visualFor(index);
-  const firstPosts = [
-    `Post 1: explain the problem behind ${lowerTitle}.`,
-    "Post 2: show one example and one counterpoint.",
-    "Post 3: ask the audience what they want next.",
+  const hooks = ideaHooks(title, promise, niches);
+  const post = firstPost(index, title);
+  const platform = platformPath(index);
+  const copyPrompt = `Create a ${post.name} about "${title}" for football fans. Audience: ${niches}. Include a sharp hook, a simple structure, one useful example, a soft CTA, and one realistic monetization path. Keep it factual, avoid copyrighted clips, and do not make income promises.`;
+  const ctas = [
+    "Want the checklist I used to make this?",
+    "Should I turn this into a full template?",
+    "Comment your club/player and I will make a version for that angle.",
   ];
-  const hooks = [
-    `Most fans are missing this ${lowerTitle} angle.`,
-    "Here is the 30-second version before the next match.",
-    "Save this if you create football content this week.",
+  const why = `This works when the idea is tied to a moment fans already care about, but presented in a cleaner way than the noisy timeline. The goal is not to sound like an expert immediately. The goal is to make one useful point clearly enough that people save it, reply to it, or ask for the next breakdown.`;
+  const validation = [
+    "Day 1: research 5 live examples and write 10 hooks before designing anything.",
+    "Day 2: publish the first simple version on one platform only.",
+    "Day 3: reply to every useful comment and collect repeated questions.",
+    "Day 4: remix the strongest point into a second format.",
+    "Day 5: add one soft CTA to a checklist, link page, newsletter, or template.",
+    "Day 6: compare saves, shares, replies, and profile clicks.",
+    "Day 7: repeat only if there is a visible signal from strangers.",
   ];
 
-  if (index % 5 === 1) {
-    return page("", `
-      ${brand(`Play ${String(index).padStart(2, "0")}`)}
-      <span class="badge">Football money idea</span>
-      <h2>${escapeHtml(title)}</h2>
-      <div class="idea">
-        <span class="mini">What it is</span>
-        <h3>${escapeHtml(promise)}</h3>
-        <p>${escapeHtml(niches)}</p>
-        <div class="meta">
-          <span class="chip">AI-first</span>
-          <span class="chip">Social content</span>
-          <span class="chip">Testable</span>
-        </div>
-        <div class="playbook-grid">
-          <div class="panel"><h3>Run this workflow</h3><p>${escapeHtml(aiStep)}</p></div>
-          <div class="panel"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
-          <div class="panel"><h3>First 3 posts</h3>${list(firstPosts)}</div>
-          <div class="panel"><h3>Hook bank</h3>${list(hooks)}</div>
-        </div>
-        <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
-      </div>
-      ${bottomBand(index)}
-    `);
-  }
-
-  if (index % 5 === 2) {
-    return page("play-image", `
-      ${brand(`Play ${String(index).padStart(2, "0")}`)}
-      <div class="layout-split">
-        <div>
-          <span class="badge">Image-led play</span>
-          <h2>${escapeHtml(title)}</h2>
-          <div class="quote">${escapeHtml(promise)}</div>
-          <div class="route-strip">
-            <div class="route-step"><strong>Audience</strong><span>${escapeHtml(niches)}</span></div>
-            <div class="route-step"><strong>Workflow</strong><span>${escapeHtml(aiStep)}</span></div>
-            <div class="route-step"><strong>Revenue</strong><span>${escapeHtml(monetization)}</span></div>
-          </div>
-          <div class="panel" style="margin-top: 5mm;">
-            <h3>First posts to ship</h3>
-            ${list(firstPosts)}
-          </div>
-          <div class="panel" style="margin-top: 5mm;">
-            <h3>Hook bank</h3>
-            ${list(hooks)}
-          </div>
-        </div>
-        <div class="tall-visual">
-          <img src="${asset(visualName)}" alt="Goldmine play visual" />
-          <div class="visual-label">${escapeHtml(visualCaption)}</div>
-        </div>
-      </div>
-      ${bottomBand(index)}
-    `);
-  }
-
-  if (index % 5 === 3) {
-    return page("play-dark", `
-      ${brand(`Play ${String(index).padStart(2, "0")}`)}
-      <span class="badge">Signal to product</span>
-      <div class="layout-split reverse">
-        <div>
-          <div class="big-play-number">${String(index).padStart(2, "0")}</div>
-          <div class="visual-card" style="margin-top: 8mm;">
-            <img src="${asset(visualName)}" alt="Goldmine play visual" />
-            <div class="visual-label">${escapeHtml(visualCaption)}</div>
-          </div>
-        </div>
-        <div>
-          <h2>${escapeHtml(title)}</h2>
-          <p>${escapeHtml(promise)}</p>
-          <div class="playbook-grid">
-            <div class="panel"><h3>Use when</h3><p>${escapeHtml(niches)}</p></div>
-            <div class="panel"><h3>AI step</h3><p>${escapeHtml(aiStep)}</p></div>
-            <div class="panel"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
-            <div class="panel"><h3>Guardrail</h3><p>Fact-check names, dates, stats, and claims before posting.</p></div>
-          </div>
-          <div class="hook-line">Best next step: publish one sharp version, then remix only if people save or ask questions.</div>
-        </div>
-      </div>
-      ${bottomBand(index)}
-    `);
-  }
-
-  if (index % 5 === 4) {
-    return page("play-sticky", `
-      ${brand(`Play ${String(index).padStart(2, "0")}`)}
-      <span class="badge">Hook board</span>
-      <h2>${escapeHtml(title)}</h2>
-      <p>${escapeHtml(promise)} ${escapeHtml(niches)}</p>
-      <div class="sticky-grid">
-        <div class="sticky-note"><strong>Hook 01</strong><span>${escapeHtml(hooks[0])}</span></div>
-        <div class="sticky-note"><strong>Hook 02</strong><span>${escapeHtml(hooks[1])}</span></div>
-        <div class="sticky-note"><strong>Hook 03</strong><span>${escapeHtml(hooks[2])}</span></div>
-        <div class="sticky-note"><strong>Money test</strong><span>${escapeHtml(monetization)}</span></div>
-      </div>
-      <div class="grid-2" style="margin-top: 6mm;">
-        <div class="panel"><h3>Run the workflow</h3><p>${escapeHtml(aiStep)}</p></div>
-        <div class="panel"><h3>First 3 posts</h3>${list(firstPosts)}</div>
-      </div>
-      ${bottomBand(index)}
-    `);
-  }
-
-  return page("play-score", `
+  return page("playbook-page", `
     ${brand(`Play ${String(index).padStart(2, "0")}`)}
-    <span class="badge">Scorecard</span>
+    <span class="badge">Football social money idea</span>
     <h2>${escapeHtml(title)}</h2>
-    <div class="layout-split">
-      <div>
-        <h3>${escapeHtml(promise)}</h3>
-        <p>${escapeHtml(niches)}</p>
-        <div class="score-grid">
-          <div class="score-card"><strong>${scoreLabel(index)}</strong><span>effort</span></div>
-          <div class="score-card"><strong>${scoreLabel(index, 1)}</strong><span>speed</span></div>
-          <div class="score-card"><strong>${scoreLabel(index, 2)}</strong><span>payoff</span></div>
-        </div>
-        <div class="panel"><h3>Workflow</h3><p>${escapeHtml(aiStep)}</p></div>
-        <div class="panel" style="margin-top: 4mm;"><h3>Money path</h3><p>${escapeHtml(monetization)}</p></div>
-        <div class="panel" style="margin-top: 4mm;"><h3>Hook bank</h3>${list(hooks)}</div>
+    <p class="lead"><strong>Core idea:</strong> ${escapeHtml(promise)} Best fit: ${escapeHtml(niches)}</p>
+    <div class="one-line-meta">
+      <span>AI-content first</span>
+      <span>${escapeHtml(platform)}</span>
+      <span>7-day validation</span>
+    </div>
+    <div class="thin-rule"></div>
+    <div class="content-grid">
+      <div class="plain-section">
+        <h3>Why this can work</h3>
+        <p>${escapeHtml(why)}</p>
       </div>
-      <div>
-        <div class="visual-card">
-          <img src="${asset(visualName)}" alt="Goldmine play visual" />
-          <div class="visual-label">${escapeHtml(visualCaption)}</div>
-        </div>
-        <div class="panel" style="margin-top: 5mm;">
-          <h3>Publish this first</h3>
-          ${list(firstPosts)}
-        </div>
-        <div class="hook-line">Decision rule: repeat only if the post gets saves, replies, shares, or profile clicks.</div>
+      <div class="plain-section">
+        <h3>What to avoid</h3>
+        <p>Avoid pretending the result is guaranteed, copying copyrighted match clips, using unauthorized player likenesses as product endorsements, or posting generic AI text without fact-checking and taste.</p>
+      </div>
+      <div class="plain-section">
+        <h3>AI workflow</h3>
+        <p>${escapeHtml(aiStep)} Then rewrite the output in your own voice and verify names, dates, stats, and claims before publishing.</p>
+      </div>
+      <div class="plain-section">
+        <h3>Money path</h3>
+        <p>${escapeHtml(monetization)} Keep the first CTA soft: "Want the checklist/template/version I used?"</p>
       </div>
     </div>
-    ${bottomBand(index)}
+    <div class="example-block">
+      <h3>Example hooks you can adapt</h3>
+      ${numberedList(hooks)}
+    </div>
+    <div class="content-grid" style="margin-top: 5mm;">
+      <div class="plain-section">
+        <h3>Example first post</h3>
+        <p><strong>Format:</strong> ${escapeHtml(post.name)}</p>
+        ${numberedList(post.steps)}
+      </div>
+      <div class="plain-section">
+        <h3>7-day validation plan</h3>
+        ${numberedList(validation)}
+      </div>
+    </div>
+    <div class="content-grid" style="margin-top: 5mm;">
+      <div class="plain-section">
+        <h3>Copy prompt to start</h3>
+        <p>${escapeHtml(copyPrompt)}</p>
+      </div>
+      <div class="plain-section">
+        <h3>CTA examples</h3>
+        ${numberedList(ctas)}
+      </div>
+    </div>
+  `);
+}
+
+function workflowPage(index, title, flow, when) {
+  const steps = flow.split("->").map((step) => step.trim());
+  const prompt = `Build a ${title.toLowerCase()} workflow for a football creator. Use this flow: ${flow}. Give me the input fields, the exact output format, a publishing checklist, a quality check, and one safe monetization path.`;
+  const outputs = [
+    "One finished post or asset, not ten unfinished drafts.",
+    "One caption with a soft CTA.",
+    "One quality checklist before publishing.",
+    "One note on what to track after posting.",
+  ];
+  const checks = [
+    "Check names, dates, stats, and context before publishing.",
+    "Avoid copyrighted clips, fake screenshots, and player endorsement claims.",
+    "Keep the creator's point of view in the final edit.",
+    "Publish one version first, then improve after real audience signal.",
+  ];
+
+  return page("playbook-page", `
+    ${brand(`Workflow ${index + 1}`)}
+    <span class="badge">AI workflow recipe</span>
+    <h2>${escapeHtml(title)}</h2>
+    <p class="lead"><strong>Use this when:</strong> ${escapeHtml(when)}</p>
+    <div class="one-line-meta">
+      <span>Repeatable process</span>
+      <span>Human judgment required</span>
+      <span>Safe publishing</span>
+    </div>
+    <div class="thin-rule"></div>
+    <div class="content-grid">
+      <div class="plain-section">
+        <h3>Workflow steps</h3>
+        ${numberedList(steps)}
+      </div>
+      <div class="plain-section">
+        <h3>What the output should include</h3>
+        ${numberedList(outputs)}
+      </div>
+      <div class="plain-section">
+        <h3>Copy prompt to start</h3>
+        <p>${escapeHtml(prompt)}</p>
+      </div>
+      <div class="plain-section">
+        <h3>Quality checks</h3>
+        ${numberedList(checks)}
+      </div>
+    </div>
+    <div class="example-block">
+      <h3>Example use case</h3>
+      <p>Pick one live football topic, run it through this workflow, and publish the smallest useful version. For example: a match preview, a player debate, a watch-party checklist, a fan poll, or a short tactical explanation.</p>
+    </div>
+    <div class="content-grid" style="margin-top: 5mm;">
+      <div class="plain-section">
+        <h3>Monetization bridge</h3>
+        <p>After a post gets signal, route people to a simple next step: a checklist, template, newsletter, link page, prompt pack, or service offer. Keep it optional and useful.</p>
+      </div>
+      <div class="plain-section">
+        <h3>Do not automate too early</h3>
+        <p>Do the first few runs manually. Automation comes after the format proves people care. Otherwise the workflow only helps you create more ignored content faster.</p>
+      </div>
+    </div>
   `);
 }
 
@@ -952,36 +1099,56 @@ function paidHtml() {
     </div>
   `));
 
-  pages.push(page("", `
+  pages.push(page("playbook-page", `
     ${brand("How to use this")}
     <span class="badge">Read this first</span>
     <h2>Do not try all 40 ideas.</h2>
-    <p>Goldmine works best when you choose one lane, test it for one week, and only then decide whether to repeat or switch.</p>
-    <div class="grid-3" style="margin-top: 8mm;">
-      <div class="metric"><strong>40</strong><span>idea playbooks</span></div>
-      <div class="metric"><strong>5</strong><span>AI workflows</span></div>
-      <div class="metric"><strong>1</strong><span>weekly test system</span></div>
+    <p class="lead">Goldmine works best when you choose one lane, test it for one week, and only then decide whether to repeat or switch.</p>
+    <div class="one-line-meta">
+      <span>40 playbooks</span>
+      <span>5 workflows</span>
+      <span>1 weekly test system</span>
     </div>
-    <div class="grid-2" style="margin-top: 8mm;">
-      <div class="panel"><h3>Pick by energy</h3>${list(["Analysis if you like thinking.", "Trends if you like speed.", "Products if you like selling.", "Services if you like helping other creators."])}</div>
-      <div class="panel"><h3>Pick by platform</h3>${list(["Reels and Shorts for fast testing.", "X and Threads for opinions.", "Newsletter for owned audience.", "Landing page for product tests."])}</div>
+    <div class="thin-rule"></div>
+    <div class="content-grid">
+      <div class="plain-section"><h3>Use the pack in this order</h3>${numberedList(["Read the lane map.", "Choose one playbook.", "Copy the prompt.", "Publish the smallest useful version.", "Track signal for 7 days."])}</div>
+      <div class="plain-section"><h3>Pick by energy</h3>${numberedList(["Analysis if you like thinking.", "Trends if you like speed.", "Products if you like selling.", "Services if you like helping other creators."])}</div>
+      <div class="plain-section"><h3>Pick by platform</h3>${numberedList(["Reels and Shorts for fast testing.", "X and Threads for opinions.", "Newsletter for owned audience.", "Landing page for product tests."])}</div>
+      <div class="plain-section"><h3>Score each idea quickly</h3>${numberedList(["Can I make 3 posts from this?", "Would a stranger save this?", "Can it lead to a useful checklist, template, link, or service?", "Can I do this without copyrighted material?"])}</div>
     </div>
-    <div class="quote" style="margin-top: 7mm;">You are not looking for the perfect idea. You are looking for a repeatable signal.</div>
+    <div class="example-block">
+      <h3>The rule</h3>
+      <p>You are not looking for the perfect idea. You are looking for a repeatable signal: saves, replies, shares, profile clicks, email signups, or people asking for the next version.</p>
+    </div>
+    <div class="content-grid" style="margin-top: 5mm;">
+      <div class="plain-section"><h3>Do not buy tools first</h3><p>Use AI chat, a notes app, and one platform first. Buy tools only after a format gets signal.</p></div>
+      <div class="plain-section"><h3>Do not automate first</h3><p>Manual taste comes before automation. If the manual version is ignored, automation will only create ignored content faster.</p></div>
+    </div>
+    <div class="example-block">
+      <h3>Example first run</h3>
+      ${numberedList(["Pick Play 02 if you like explaining tactics.", "Write 10 hooks around one match moment.", "Publish one carousel or 35-second reel.", "Track whether people save, reply, or ask for another breakdown."])}
+    </div>
   `));
 
-  pages.push(page("", `
+  pages.push(page("playbook-page", `
     ${brand("Idea map")}
     <span class="badge">Where the ideas fit</span>
     <h2>The Goldmine map.</h2>
-    <div class="wide-image">
-      <img src="${asset("goldmine-system-soft-v2.jpg")}" alt="Goldmine content system" />
-      <div class="caption">Start from fan attention, turn it into a format, then route it to a useful next step.</div>
+    <p class="lead">Every idea in the pack sits inside one of four lanes. Pick the lane that fits your energy, not the one that sounds most impressive.</p>
+    <div class="thin-rule"></div>
+    <div class="content-grid">
+      <div class="plain-section"><h3>Analysis</h3><p>Use this if you enjoy explaining matches, players, tactics, decisions, and stats in simple language.</p>${numberedList(["Best formats: carousels, short explainers, newsletters.", "Money path: guides, sponsorships, education products."])}</div>
+      <div class="plain-section"><h3>Trends</h3><p>Use this if you move fast and can turn live football moments into useful posts before everyone else.</p>${numberedList(["Best formats: polls, memes with context, daily watchlists.", "Money path: affiliate pages, communities, newsletters."])}</div>
+      <div class="plain-section"><h3>Products</h3><p>Use this if you like creating checklists, templates, prompts, calendars, posters, or digital downloads.</p>${numberedList(["Best formats: product demos, examples, before/after posts.", "Money path: $1 to $9 digital products and bundles."])}</div>
+      <div class="plain-section"><h3>Services</h3><p>Use this if you want to help creators, fan pages, clubs, or small brands make better football content.</p>${numberedList(["Best formats: audits, sample work, teardown posts.", "Money path: retainers, setup fees, done-for-you content."])}</div>
     </div>
-    <div class="grid-4">
-      <div class="metric"><strong>A</strong><span>Analysis</span></div>
-      <div class="metric"><strong>T</strong><span>Trends</span></div>
-      <div class="metric"><strong>P</strong><span>Products</span></div>
-      <div class="metric"><strong>S</strong><span>Services</span></div>
+    <div class="example-block">
+      <h3>Simple route</h3>
+      <p>Fan attention -> useful content format -> soft CTA -> checklist/template/link/newsletter/service. Keep the route useful before trying to make it profitable.</p>
+    </div>
+    <div class="content-grid" style="margin-top: 5mm;">
+      <div class="plain-section"><h3>60-second choice test</h3>${numberedList(["Can I explain this idea to a friend quickly?", "Can I make one example today?", "Can I repeat it three times without copying myself?"])}</div>
+      <div class="plain-section"><h3>Common mistake</h3><p>Do not choose the lane with the biggest income fantasy. Choose the lane where you can make useful examples consistently.</p></div>
     </div>
   `));
 
@@ -992,40 +1159,43 @@ function paidHtml() {
     <ol class="two-col">
       ${paidIdeas.map((idea, index) => `<li>${String(index + 1).padStart(2, "0")} - ${escapeHtml(idea[0])}</li>`).join("")}
     </ol>
+    <div class="content-grid" style="margin-top: 8mm;">
+      <div class="plain-section"><h3>Fastest starting points</h3>${numberedList(["If you want content speed: start with polls, memes with context, or what to watch today.", "If you want product ideas: start with prompts, templates, calendars, or data trackers.", "If you want services: start with creator audits or reel script packs."])}</div>
+      <div class="plain-section"><h3>Best first rule</h3><p>Pick the playbook that makes you want to post today. Execution beats picking the smartest-sounding idea and never publishing it.</p></div>
+    </div>
+    <div class="example-block">
+      <h3>If you feel stuck</h3>
+      <p>Start with Play 02, Play 03, Play 16, or Play 34. They are easiest to test because they turn into a clear post, a clear prompt, or a clear service offer quickly.</p>
+    </div>
   `));
 
   paidIdeas.forEach((idea, index) => pages.push(ideaPage(index + 1, idea)));
 
   workflowPages.forEach(([title, flow, when], index) => {
-    pages.push(page("", `
-      ${brand(`Workflow ${index + 1}`)}
-      <span class="badge">AI workflow recipe</span>
-      <h2>${escapeHtml(title)}</h2>
-      <div class="wide-image">
-        <img src="${asset(index % 2 === 0 ? "goldmine-system-soft-v2.jpg" : "goldmine-pack-soft-v2.jpg")}" alt="Goldmine workflow visual" />
-        <div class="caption">${escapeHtml(flow)}</div>
-      </div>
-      <div class="grid-2">
-        <div class="panel"><h3>When to use it</h3><p>${escapeHtml(when)}</p></div>
-        <div class="panel"><h3>Quality rule</h3><p>Use AI for structure and speed. Keep the judgment, fact-checking, and final taste human.</p></div>
-      </div>
-    `));
+    pages.push(workflowPage(index, title, flow, when));
   });
 
-  pages.push(page("", `
+  pages.push(page("playbook-page", `
     ${brand("Final page")}
     <span class="badge">7-day sprint and rules</span>
     <h2>Run this before overbuilding.</h2>
-    <div class="grid-2">
-      <div class="panel"><h3>Days 1 to 3</h3>${list(["Choose one playbook.", "Write 10 hooks.", "Publish 3 posts in one format.", "Track saves, comments, shares, and profile clicks."])}</div>
-      <div class="panel"><h3>Days 4 to 7</h3>${list(["Remix the best post into a second format.", "Create one useful link destination.", "Test one CTA.", "Write down what strangers actually responded to."])}</div>
+    <p class="lead">Use the pack like a test system. Pick one playbook, publish a small version, watch the signal, then decide whether to repeat, refine, or stop.</p>
+    <div class="thin-rule"></div>
+    <div class="content-grid">
+      <div class="plain-section"><h3>Days 1 to 3</h3>${numberedList(["Choose one playbook.", "Write 10 hooks.", "Publish 3 posts in one format.", "Track saves, comments, shares, and profile clicks."])}</div>
+      <div class="plain-section"><h3>Days 4 to 7</h3>${numberedList(["Remix the best post into a second format.", "Create one useful link destination.", "Test one CTA.", "Write down what strangers actually responded to."])}</div>
+      <div class="plain-section"><h3>Repeat if</h3>${numberedList(["People save the post.", "People ask for examples or templates.", "The same question appears more than once.", "Profile clicks or email signups increase."])}</div>
+      <div class="plain-section"><h3>Stop if</h3>${numberedList(["The topic only gets empty likes.", "You cannot explain the value clearly.", "It needs copyrighted material to work.", "You are forcing the monetization path."])}</div>
     </div>
-    <div class="grid-2" style="margin-top: 8mm;">
-      <div class="panel"><h3>Good paths</h3>${list(["Affiliate links to genuinely useful tools or products.", "Small digital products like prompt packs, calendars, templates, and guides.", "Services for creators or fan pages after showing proof.", "Newsletters and community offers once trust exists."])}</div>
-      <div class="panel"><h3>Avoid</h3>${list(["Fake income screenshots.", "Unauthorized player images or copyrighted match clips.", "Pretending players endorse your product.", "Selling generic AI slop with no taste or verification."])}</div>
+    <div class="example-block">
+      <h3>Good next offers</h3>
+      ${numberedList(["Affiliate links to genuinely useful tools or products.", "Small digital products like prompt packs, calendars, templates, and guides.", "Services for creators or fan pages after showing proof.", "Newsletters and community offers once trust exists."])}
     </div>
-    <div class="quote" style="margin-top: 7mm;">A good idea is specific enough to post today, useful enough to save, and honest enough to build trust.</div>
-    <p class="footer-note">Goldmine is a testing map, not a guarantee. Use it to move faster and think clearer.</p>
+    <div class="content-grid" style="margin-top: 5mm;">
+      <div class="plain-section"><h3>Avoid</h3>${numberedList(["Fake income screenshots.", "Unauthorized player images or copyrighted match clips.", "Pretending players endorse your product.", "Selling generic AI slop with no taste or verification."])}</div>
+      <div class="plain-section"><h3>Simple tracking table</h3>${numberedList(["Post title.", "Format.", "Saves.", "Shares.", "Replies.", "Profile clicks.", "Next action."])}</div>
+    </div>
+    <div class="simple-note">A good idea is specific enough to post today, useful enough to save, and honest enough to build trust. Goldmine is a testing map, not a guarantee.</div>
   `));
 
   return htmlDocument("Goldmine Full Pack", pages.join(""));
