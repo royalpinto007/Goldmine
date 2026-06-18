@@ -602,6 +602,96 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
+      .cover-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) 66mm;
+        gap: 8mm;
+        align-items: stretch;
+        min-height: 108mm;
+        margin-top: 8mm;
+      }
+      .cover-panel {
+        padding-top: 4mm;
+        border-top: 1px solid rgba(255, 226, 154, 0.28);
+      }
+      .cover-panel h3 {
+        color: #fff8df;
+        font-size: 14px;
+        letter-spacing: -0.02em;
+      }
+      .cover-panel p,
+      .cover-panel li {
+        color: rgba(255, 248, 223, 0.78);
+        font-size: 10.8px;
+        line-height: 1.38;
+      }
+      .cover-panel ul {
+        margin-top: 2mm;
+      }
+      .cover-preview {
+        position: relative;
+        display: grid;
+        align-content: end;
+        min-height: 108mm;
+        padding: 6mm;
+        overflow: hidden;
+        border: 1px solid rgba(255, 226, 154, 0.18);
+        border-radius: 8mm;
+        background:
+          radial-gradient(circle at 22% 10%, rgba(255, 226, 154, 0.22), transparent 34mm),
+          linear-gradient(145deg, rgba(255, 248, 223, 0.1), rgba(255, 248, 223, 0.03));
+      }
+      .cover-preview img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.42;
+      }
+      .cover-preview .cover-art {
+        position: relative;
+        inset: auto;
+        width: 42mm;
+        height: auto;
+        margin-left: auto;
+        opacity: 1;
+        border-radius: 5mm;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+      }
+      .cover-preview p {
+        position: relative;
+        margin-top: 5mm;
+        color: rgba(255, 248, 223, 0.78);
+        font-size: 10.5px;
+        font-weight: 800;
+      }
+      .cover-checks {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        margin-top: 7mm;
+      }
+      .cover-check {
+        min-height: 25mm;
+        padding: 4mm;
+        border: 1px solid rgba(255, 226, 154, 0.16);
+        border-radius: 5mm;
+        background: rgba(255, 248, 223, 0.08);
+      }
+      .cover-check strong {
+        display: block;
+        margin-bottom: 2mm;
+        color: #ffe29a;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .cover-check span {
+        color: rgba(255, 248, 223, 0.76);
+        font-size: 10.2px;
+        line-height: 1.32;
+      }
     </style>
   </head>
   <body><section class="page cover-page"><div class="inner">
@@ -609,15 +699,37 @@
       <span class="badge">5-page starter PDF</span>
       <h1>Start with one football idea people already care about.</h1>
       <p>Goldmine helps you turn football attention into posts, fan pages, newsletters, affiliate angles, and small digital products. AI helps you move faster, but the idea still has to be useful, specific, and safe to publish.</p>
-      <div class="hero-image">
-        <img src="../public/assets/goldmine-hero-soft-v2.jpg" alt="Goldmine football idea desk" />
-        <img class="cover-art" src="../public/assets/goldmine-starter-cover-soft-v2.svg" alt="Goldmine Starter cover" />
-        <div class="caption">No fake income promises. No player endorsement tricks. Just practical football-first ideas you can test.</div>
+      <div class="cover-layout">
+        <div>
+          <div class="content-grid">
+            <div class="cover-panel">
+              <h3>What this gives you</h3>
+              <ul><li>A clear starting lane.</li><li>Five testable football content ideas.</li><li>One simple AI workflow.</li><li>A 7-day plan to publish and measure signal.</li></ul>
+            </div>
+            <div class="cover-panel">
+              <h3>Who it is for</h3>
+              <ul><li>Creators who want sharper football content.</li><li>People testing fan pages, reels, newsletters, or affiliate angles.</li><li>Anyone who wants action steps instead of generic AI advice.</li></ul>
+            </div>
+            <div class="cover-panel">
+              <h3>How to use it</h3>
+              <ul><li>Pick one idea only.</li><li>Make the smallest useful post.</li><li>Track saves, replies, shares, and profile clicks.</li><li>Repeat only if strangers respond.</li></ul>
+            </div>
+            <div class="cover-panel">
+              <h3>What it avoids</h3>
+              <ul><li>No fake income screenshots.</li><li>No copied match footage strategy.</li><li>No player endorsement tricks.</li><li>No giant list that leaves you confused.</li></ul>
+            </div>
+          </div>
+        </div>
+        <div class="cover-preview">
+          <img src="../public/assets/goldmine-hero-soft-v2.jpg" alt="Goldmine football idea desk" />
+          <img class="cover-art" src="../public/assets/goldmine-starter-cover-soft-v2.svg" alt="Goldmine Starter cover" />
+          <p>No fake guarantees. Just practical football-first ideas you can test this week.</p>
+        </div>
       </div>
-      <div class="grid-3" style="margin-top: 7mm;">
-        <div class="metric"><strong>5</strong><span>starter pages</span></div>
-        <div class="metric"><strong>5</strong><span>testable ideas</span></div>
-        <div class="metric"><strong>7</strong><span>day starter path</span></div>
+      <div class="cover-checks">
+        <div class="cover-check"><strong>Start</strong><span>Choose one football content lane without overthinking it.</span></div>
+        <div class="cover-check"><strong>Create</strong><span>Turn one topic into a reel, carousel, poll, or newsletter note.</span></div>
+        <div class="cover-check"><strong>Validate</strong><span>Use a 7-day test before building products or automation.</span></div>
       </div>
     </div></section><section class="page "><div class="inner">
       <div class="brand"><strong>Goldmine</strong><span>Page 2</span></div>

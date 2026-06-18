@@ -719,6 +719,96 @@ function htmlDocument(title, body) {
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
+      .cover-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) 66mm;
+        gap: 8mm;
+        align-items: stretch;
+        min-height: 108mm;
+        margin-top: 8mm;
+      }
+      .cover-panel {
+        padding-top: 4mm;
+        border-top: 1px solid rgba(255, 226, 154, 0.28);
+      }
+      .cover-panel h3 {
+        color: #fff8df;
+        font-size: 14px;
+        letter-spacing: -0.02em;
+      }
+      .cover-panel p,
+      .cover-panel li {
+        color: rgba(255, 248, 223, 0.78);
+        font-size: 10.8px;
+        line-height: 1.38;
+      }
+      .cover-panel ul {
+        margin-top: 2mm;
+      }
+      .cover-preview {
+        position: relative;
+        display: grid;
+        align-content: end;
+        min-height: 108mm;
+        padding: 6mm;
+        overflow: hidden;
+        border: 1px solid rgba(255, 226, 154, 0.18);
+        border-radius: 8mm;
+        background:
+          radial-gradient(circle at 22% 10%, rgba(255, 226, 154, 0.22), transparent 34mm),
+          linear-gradient(145deg, rgba(255, 248, 223, 0.1), rgba(255, 248, 223, 0.03));
+      }
+      .cover-preview img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.42;
+      }
+      .cover-preview .cover-art {
+        position: relative;
+        inset: auto;
+        width: 42mm;
+        height: auto;
+        margin-left: auto;
+        opacity: 1;
+        border-radius: 5mm;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+      }
+      .cover-preview p {
+        position: relative;
+        margin-top: 5mm;
+        color: rgba(255, 248, 223, 0.78);
+        font-size: 10.5px;
+        font-weight: 800;
+      }
+      .cover-checks {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        margin-top: 7mm;
+      }
+      .cover-check {
+        min-height: 25mm;
+        padding: 4mm;
+        border: 1px solid rgba(255, 226, 154, 0.16);
+        border-radius: 5mm;
+        background: rgba(255, 248, 223, 0.08);
+      }
+      .cover-check strong {
+        display: block;
+        margin-bottom: 2mm;
+        color: #ffe29a;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .cover-check span {
+        color: rgba(255, 248, 223, 0.76);
+        font-size: 10.2px;
+        line-height: 1.32;
+      }
     </style>
   </head>
   <body>${body}</body>
@@ -740,15 +830,37 @@ function freeHtml() {
       <span class="badge">5-page starter PDF</span>
       <h1>Start with one football idea people already care about.</h1>
       <p>Goldmine helps you turn football attention into posts, fan pages, newsletters, affiliate angles, and small digital products. AI helps you move faster, but the idea still has to be useful, specific, and safe to publish.</p>
-      <div class="hero-image">
-        <img src="${asset("goldmine-hero-soft-v2.jpg")}" alt="Goldmine football idea desk" />
-        <img class="cover-art" src="${asset("goldmine-starter-cover-soft-v2.svg")}" alt="Goldmine Starter cover" />
-        <div class="caption">No fake income promises. No player endorsement tricks. Just practical football-first ideas you can test.</div>
+      <div class="cover-layout">
+        <div>
+          <div class="content-grid">
+            <div class="cover-panel">
+              <h3>What this gives you</h3>
+              ${list(["A clear starting lane.", "Five testable football content ideas.", "One simple AI workflow.", "A 7-day plan to publish and measure signal."])}
+            </div>
+            <div class="cover-panel">
+              <h3>Who it is for</h3>
+              ${list(["Creators who want sharper football content.", "People testing fan pages, reels, newsletters, or affiliate angles.", "Anyone who wants action steps instead of generic AI advice."])}
+            </div>
+            <div class="cover-panel">
+              <h3>How to use it</h3>
+              ${list(["Pick one idea only.", "Make the smallest useful post.", "Track saves, replies, shares, and profile clicks.", "Repeat only if strangers respond."])}
+            </div>
+            <div class="cover-panel">
+              <h3>What it avoids</h3>
+              ${list(["No fake income screenshots.", "No copied match footage strategy.", "No player endorsement tricks.", "No giant list that leaves you confused."])}
+            </div>
+          </div>
+        </div>
+        <div class="cover-preview">
+          <img src="${asset("goldmine-hero-soft-v2.jpg")}" alt="Goldmine football idea desk" />
+          <img class="cover-art" src="${asset("goldmine-starter-cover-soft-v2.svg")}" alt="Goldmine Starter cover" />
+          <p>No fake guarantees. Just practical football-first ideas you can test this week.</p>
+        </div>
       </div>
-      <div class="grid-3" style="margin-top: 7mm;">
-        <div class="metric"><strong>5</strong><span>starter pages</span></div>
-        <div class="metric"><strong>5</strong><span>testable ideas</span></div>
-        <div class="metric"><strong>7</strong><span>day starter path</span></div>
+      <div class="cover-checks">
+        <div class="cover-check"><strong>Start</strong><span>Choose one football content lane without overthinking it.</span></div>
+        <div class="cover-check"><strong>Create</strong><span>Turn one topic into a reel, carousel, poll, or newsletter note.</span></div>
+        <div class="cover-check"><strong>Validate</strong><span>Use a 7-day test before building products or automation.</span></div>
       </div>
     `),
     page("", `
@@ -1092,10 +1204,37 @@ function paidHtml() {
     <span class="badge">50-page football idea pack</span>
     <h1>Football ideas, AI workflows, and monetization paths you can actually test.</h1>
     <p>This pack is football-first and AI-content-first. Use it to build viral social posts, fan pages, newsletters, affiliate pages, digital products, or creator services without relying on fake promises.</p>
-    <div class="hero-image">
-      <img src="${asset("goldmine-pack-soft-v2.jpg")}" alt="Goldmine full pack preview" />
-      <img class="cover-art" src="${asset("goldmine-full-pack-cover-soft-v2.svg")}" alt="Goldmine Full Pack cover" />
-      <div class="caption">40 playbooks, 5 workflows, a 7-day sprint, and a simple decision system.</div>
+    <div class="cover-layout">
+      <div>
+        <div class="content-grid">
+          <div class="cover-panel">
+            <h3>Inside the pack</h3>
+            ${list(["40 football social money playbooks.", "5 reusable AI workflows.", "Hooks, first-post structures, prompts, and CTAs.", "A 7-day sprint to test signal."])}
+          </div>
+          <div class="cover-panel">
+            <h3>What you can build</h3>
+            ${list(["Short-form explainers.", "Fan pages and newsletter angles.", "Affiliate link pages.", "Prompt packs, templates, calendars, and creator services."])}
+          </div>
+          <div class="cover-panel">
+            <h3>How to choose</h3>
+            ${list(["Pick analysis, trends, products, or services.", "Choose one playbook.", "Publish one small version.", "Let real audience signal decide the next move."])}
+          </div>
+          <div class="cover-panel">
+            <h3>Quality rules</h3>
+            ${list(["Ground posts in real football context.", "Fact-check names, dates, stats, and claims.", "Avoid copyrighted clips and fake promises.", "Keep every offer useful and optional."])}
+          </div>
+        </div>
+      </div>
+      <div class="cover-preview">
+        <img src="${asset("goldmine-pack-soft-v2.jpg")}" alt="Goldmine full pack preview" />
+        <img class="cover-art" src="${asset("goldmine-full-pack-cover-soft-v2.svg")}" alt="Goldmine Full Pack cover" />
+        <p>40 playbooks, 5 workflows, a simple decision system, and a weekly testing rhythm.</p>
+      </div>
+    </div>
+    <div class="cover-checks">
+      <div class="cover-check"><strong>Pick</strong><span>Choose one lane that matches your energy and platform.</span></div>
+      <div class="cover-check"><strong>Post</strong><span>Use the included prompt, hook, CTA, and first-post structure.</span></div>
+      <div class="cover-check"><strong>Measure</strong><span>Track saves, replies, shares, profile clicks, and signup intent.</span></div>
     </div>
   `));
 
@@ -1157,7 +1296,7 @@ function paidHtml() {
     <span class="badge">40 playbooks</span>
     <h2>Choose your starting lane.</h2>
     <ol class="two-col">
-      ${paidIdeas.map((idea, index) => `<li>${String(index + 1).padStart(2, "0")} - ${escapeHtml(idea[0])}</li>`).join("")}
+      ${paidIdeas.map((idea) => `<li>${escapeHtml(idea[0])}</li>`).join("")}
     </ol>
     <div class="content-grid" style="margin-top: 8mm;">
       <div class="plain-section"><h3>Fastest starting points</h3>${numberedList(["If you want content speed: start with polls, memes with context, or what to watch today.", "If you want product ideas: start with prompts, templates, calendars, or data trackers.", "If you want services: start with creator audits or reel script packs."])}</div>

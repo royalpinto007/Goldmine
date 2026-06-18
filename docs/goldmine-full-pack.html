@@ -602,6 +602,96 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
+      .cover-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) 66mm;
+        gap: 8mm;
+        align-items: stretch;
+        min-height: 108mm;
+        margin-top: 8mm;
+      }
+      .cover-panel {
+        padding-top: 4mm;
+        border-top: 1px solid rgba(255, 226, 154, 0.28);
+      }
+      .cover-panel h3 {
+        color: #fff8df;
+        font-size: 14px;
+        letter-spacing: -0.02em;
+      }
+      .cover-panel p,
+      .cover-panel li {
+        color: rgba(255, 248, 223, 0.78);
+        font-size: 10.8px;
+        line-height: 1.38;
+      }
+      .cover-panel ul {
+        margin-top: 2mm;
+      }
+      .cover-preview {
+        position: relative;
+        display: grid;
+        align-content: end;
+        min-height: 108mm;
+        padding: 6mm;
+        overflow: hidden;
+        border: 1px solid rgba(255, 226, 154, 0.18);
+        border-radius: 8mm;
+        background:
+          radial-gradient(circle at 22% 10%, rgba(255, 226, 154, 0.22), transparent 34mm),
+          linear-gradient(145deg, rgba(255, 248, 223, 0.1), rgba(255, 248, 223, 0.03));
+      }
+      .cover-preview img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.42;
+      }
+      .cover-preview .cover-art {
+        position: relative;
+        inset: auto;
+        width: 42mm;
+        height: auto;
+        margin-left: auto;
+        opacity: 1;
+        border-radius: 5mm;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.28);
+      }
+      .cover-preview p {
+        position: relative;
+        margin-top: 5mm;
+        color: rgba(255, 248, 223, 0.78);
+        font-size: 10.5px;
+        font-weight: 800;
+      }
+      .cover-checks {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3mm;
+        margin-top: 7mm;
+      }
+      .cover-check {
+        min-height: 25mm;
+        padding: 4mm;
+        border: 1px solid rgba(255, 226, 154, 0.16);
+        border-radius: 5mm;
+        background: rgba(255, 248, 223, 0.08);
+      }
+      .cover-check strong {
+        display: block;
+        margin-bottom: 2mm;
+        color: #ffe29a;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .cover-check span {
+        color: rgba(255, 248, 223, 0.76);
+        font-size: 10.2px;
+        line-height: 1.32;
+      }
     </style>
   </head>
   <body><section class="page cover-page"><div class="inner">
@@ -609,10 +699,37 @@
     <span class="badge">50-page football idea pack</span>
     <h1>Football ideas, AI workflows, and monetization paths you can actually test.</h1>
     <p>This pack is football-first and AI-content-first. Use it to build viral social posts, fan pages, newsletters, affiliate pages, digital products, or creator services without relying on fake promises.</p>
-    <div class="hero-image">
-      <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine full pack preview" />
-      <img class="cover-art" src="../public/assets/goldmine-full-pack-cover-soft-v2.svg" alt="Goldmine Full Pack cover" />
-      <div class="caption">40 playbooks, 5 workflows, a 7-day sprint, and a simple decision system.</div>
+    <div class="cover-layout">
+      <div>
+        <div class="content-grid">
+          <div class="cover-panel">
+            <h3>Inside the pack</h3>
+            <ul><li>40 football social money playbooks.</li><li>5 reusable AI workflows.</li><li>Hooks, first-post structures, prompts, and CTAs.</li><li>A 7-day sprint to test signal.</li></ul>
+          </div>
+          <div class="cover-panel">
+            <h3>What you can build</h3>
+            <ul><li>Short-form explainers.</li><li>Fan pages and newsletter angles.</li><li>Affiliate link pages.</li><li>Prompt packs, templates, calendars, and creator services.</li></ul>
+          </div>
+          <div class="cover-panel">
+            <h3>How to choose</h3>
+            <ul><li>Pick analysis, trends, products, or services.</li><li>Choose one playbook.</li><li>Publish one small version.</li><li>Let real audience signal decide the next move.</li></ul>
+          </div>
+          <div class="cover-panel">
+            <h3>Quality rules</h3>
+            <ul><li>Ground posts in real football context.</li><li>Fact-check names, dates, stats, and claims.</li><li>Avoid copyrighted clips and fake promises.</li><li>Keep every offer useful and optional.</li></ul>
+          </div>
+        </div>
+      </div>
+      <div class="cover-preview">
+        <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine full pack preview" />
+        <img class="cover-art" src="../public/assets/goldmine-full-pack-cover-soft-v2.svg" alt="Goldmine Full Pack cover" />
+        <p>40 playbooks, 5 workflows, a simple decision system, and a weekly testing rhythm.</p>
+      </div>
+    </div>
+    <div class="cover-checks">
+      <div class="cover-check"><strong>Pick</strong><span>Choose one lane that matches your energy and platform.</span></div>
+      <div class="cover-check"><strong>Post</strong><span>Use the included prompt, hook, CTA, and first-post structure.</span></div>
+      <div class="cover-check"><strong>Measure</strong><span>Track saves, replies, shares, profile clicks, and signup intent.</span></div>
     </div>
   </div></section><section class="page playbook-page"><div class="inner">
     <div class="brand"><strong>Goldmine</strong><span>How to use this</span></div>
@@ -668,7 +785,7 @@
     <span class="badge">40 playbooks</span>
     <h2>Choose your starting lane.</h2>
     <ol class="two-col">
-      <li>01 - Debate carousel engine</li><li>02 - Short tactical explainer</li><li>03 - Fan poll account</li><li>04 - Watch party product list</li><li>05 - Fantasy football watchlist</li><li>06 - Football newsletter digest</li><li>07 - Training micro-tip page</li><li>08 - Football history shorts</li><li>09 - Transfer rumor sanity check</li><li>10 - Underdog story account</li><li>11 - Football memes with context</li><li>12 - AI match poster shop</li><li>13 - Beginner tactics dictionary</li><li>14 - Stats without spreadsheets</li><li>15 - Match thread summaries</li><li>16 - Football creator prompts</li><li>17 - Club culture guide</li><li>18 - What to watch today</li><li>19 - Football job board content</li><li>20 - AI commentary voiceover</li><li>21 - Football fitness content</li><li>22 - Kit design concept page</li><li>23 - Referee decision explainer</li><li>24 - Football language page</li><li>25 - Stadium travel micro-guides</li><li>26 - Women football spotlight</li><li>27 - Youth academy tracker</li><li>28 - Manager decision board</li><li>29 - Football business explainer</li><li>30 - AI fan quiz account</li><li>31 - Weekly content calendar product</li><li>32 - Football betting education only</li><li>33 - Post-match quote breakdown</li><li>34 - Football creator audit service</li><li>35 - Niche fan community starter</li><li>36 - AI reel script packs</li><li>37 - Football explain-it-like-I-am-new</li><li>38 - Creator affiliate hub</li><li>39 - Football data template shop</li><li>40 - AI thumbnail testing board</li>
+      <li>Debate carousel engine</li><li>Short tactical explainer</li><li>Fan poll account</li><li>Watch party product list</li><li>Fantasy football watchlist</li><li>Football newsletter digest</li><li>Training micro-tip page</li><li>Football history shorts</li><li>Transfer rumor sanity check</li><li>Underdog story account</li><li>Football memes with context</li><li>AI match poster shop</li><li>Beginner tactics dictionary</li><li>Stats without spreadsheets</li><li>Match thread summaries</li><li>Football creator prompts</li><li>Club culture guide</li><li>What to watch today</li><li>Football job board content</li><li>AI commentary voiceover</li><li>Football fitness content</li><li>Kit design concept page</li><li>Referee decision explainer</li><li>Football language page</li><li>Stadium travel micro-guides</li><li>Women football spotlight</li><li>Youth academy tracker</li><li>Manager decision board</li><li>Football business explainer</li><li>AI fan quiz account</li><li>Weekly content calendar product</li><li>Football betting education only</li><li>Post-match quote breakdown</li><li>Football creator audit service</li><li>Niche fan community starter</li><li>AI reel script packs</li><li>Football explain-it-like-I-am-new</li><li>Creator affiliate hub</li><li>Football data template shop</li><li>AI thumbnail testing board</li>
     </ol>
     <div class="content-grid" style="margin-top: 8mm;">
       <div class="plain-section"><h3>Fastest starting points</h3><ol><li>If you want content speed: start with polls, memes with context, or what to watch today.</li><li>If you want product ideas: start with prompts, templates, calendars, or data trackers.</li><li>If you want services: start with creator audits or reel script packs.</li></ol></div>
