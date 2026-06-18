@@ -1314,8 +1314,7 @@ details p {
   }
 
   .hero-visual {
-    border-radius: 1.15rem;
-    margin-top: 0.2rem;
+    display: none;
   }
 
   .product-hero {
