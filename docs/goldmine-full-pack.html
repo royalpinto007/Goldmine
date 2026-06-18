@@ -2,1377 +2,1449 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Goldmine Full Pack</title>
     <style>
-      @page {
-        size: A4;
-        margin: 0;
-      }
-
-      :root {
-        --ink: #130f08;
-        --muted: #756743;
-        --soft: #fff8dc;
-        --paper: #fffdf5;
-        --gold: #d8a726;
-        --gold-deep: #9b6b08;
-        --green: #1d7a4f;
-        --blue: #2467c8;
-        --rose: #ba4c62;
-        --line: rgba(85, 60, 14, 0.16);
-        --shadow: rgba(50, 34, 0, 0.18);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
+      @page { size: A4; margin: 0; }
+      * { box-sizing: border-box; }
+      html, body {
         margin: 0;
         padding: 0;
-        background: #e8dcc0;
-        color: var(--ink);
+        background: #efe4cf;
+        color: #1d2518;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        line-height: 1.44;
+        line-height: 1.42;
       }
-
-      body {
-        counter-reset: page;
-      }
-
+      body { counter-reset: page; }
       .page {
         position: relative;
         width: 210mm;
-        min-height: 297mm;
+        height: 297mm;
         margin: 0 auto;
-        padding: 15mm 15mm 15mm;
+        padding: 14mm;
         overflow: hidden;
+        break-after: page;
         page-break-after: always;
         background:
-          radial-gradient(circle at 8% 4%, rgba(245, 200, 64, 0.28), transparent 28%),
-          radial-gradient(circle at 92% 10%, rgba(36, 103, 200, 0.08), transparent 25%),
-          radial-gradient(circle at 82% 84%, rgba(216, 167, 38, 0.12), transparent 30%),
-          linear-gradient(rgba(155, 107, 8, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(155, 107, 8, 0.03) 1px, transparent 1px),
-          linear-gradient(135deg, #fffdf5 0%, #fff7dc 100%);
-        background-size: auto, auto, auto, 28px 28px, 28px 28px, auto;
+          radial-gradient(circle at 8% 5%, rgba(217, 173, 69, 0.2), transparent 44mm),
+          radial-gradient(circle at 92% 12%, rgba(168, 184, 134, 0.18), transparent 42mm),
+          linear-gradient(135deg, #fff9ec 0%, #fbf4e6 48%, #f1dfbf 100%);
         counter-increment: page;
       }
-
+      .page:last-child { break-after: auto; page-break-after: auto; }
       .page::before {
-        content: "";
         position: absolute;
-        inset: 8mm;
-        border: 1px solid rgba(155, 107, 8, 0.16);
-        border-radius: 18px;
+        inset: 7mm;
+        border: 1px solid rgba(94, 98, 72, 0.15);
+        border-radius: 15mm;
+        content: "";
         pointer-events: none;
       }
-
       .page::after {
-        content: counter(page);
         position: absolute;
-        right: 15mm;
+        right: 14mm;
         bottom: 7mm;
-        color: rgba(117, 103, 67, 0.58);
-        font-size: 10px;
-        letter-spacing: 0.08em;
+        color: rgba(90, 71, 24, 0.55);
+        content: counter(page);
+        font-size: 9px;
+        font-weight: 800;
       }
-
-      .cover {
-        padding: 14mm;
-        color: #fff8d9;
-        background:
-          radial-gradient(circle at 78% 18%, rgba(245, 200, 64, 0.36), transparent 34%),
-          radial-gradient(circle at 16% 78%, rgba(29, 122, 79, 0.28), transparent 32%),
-          linear-gradient(rgba(255, 228, 145, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 228, 145, 0.045) 1px, transparent 1px),
-          linear-gradient(135deg, #10200f 0%, #070604 50%, #2b1a04 100%);
-        background-size: auto, auto, 34px 34px, 34px 34px, auto;
-      }
-
-      .cover::before {
-        border-color: rgba(255, 216, 91, 0.28);
-      }
-
-      .cover::after {
-        color: rgba(255, 248, 217, 0.72);
-      }
-
-      .cover-grid {
+      .inner {
         position: relative;
         z-index: 1;
-        display: grid;
-        min-height: 259mm;
-        grid-template-rows: auto auto 1fr auto;
-        gap: 12px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
-
-      .brand-row,
-      .topline {
+      .brand {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 14px;
-      }
-
-      .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
+        gap: 10px;
+        margin-bottom: 9mm;
+        color: #5a4718;
+        font-size: 10px;
         font-weight: 900;
-        letter-spacing: -0.03em;
-      }
-
-      .brand-mark {
-        display: grid;
-        width: 34px;
-        height: 34px;
-        place-items: center;
-        border-radius: 12px;
-        background: linear-gradient(135deg, #ffdd67, #b87803);
-        color: #140f06;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
-      }
-
-      .badge,
-      .chip,
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        width: fit-content;
-        border-radius: 999px;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-
+      .brand strong {
+        color: #1d2518;
+        font-size: 16px;
+        letter-spacing: -0.04em;
+        text-transform: none;
+      }
+      .badge, .chip {
+        display: inline-flex;
+        width: fit-content;
+        align-items: center;
+        border-radius: 999px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
       .badge {
-        padding: 7px 11px;
-        border: 1px solid rgba(255, 222, 118, 0.36);
-        color: #ffe59c;
-        background: rgba(255, 216, 91, 0.11);
+        margin-bottom: 7mm;
+        padding: 6px 10px;
+        border: 1px solid rgba(217, 173, 69, 0.38);
+        color: #8d6a16;
+        background: rgba(255, 236, 180, 0.74);
+        font-size: 9px;
+        letter-spacing: 0.13em;
       }
-
-      .cover h1 {
-        max-width: 720px;
-        margin: 14mm 0 12px;
-        font-size: 60px;
-        line-height: 0.9;
-        letter-spacing: -0.085em;
+      .chip {
+        padding: 4px 7px;
+        color: #2c2411;
+        background: #ffe29a;
+        font-size: 8px;
+        letter-spacing: 0.08em;
       }
-
-      .cover .subtitle {
-        max-width: 600px;
+      h1, h2, h3, p { margin-top: 0; }
+      h1 {
+        max-width: 155mm;
+        margin: 0 0 5mm;
+        font-size: 49px;
+        line-height: 0.91;
+        letter-spacing: -0.075em;
+      }
+      h2 {
+        margin: 0 0 4mm;
+        font-size: 30px;
+        line-height: 0.98;
+        letter-spacing: -0.06em;
+      }
+      h3 {
+        margin: 0 0 2mm;
+        font-size: 17px;
+        line-height: 1.05;
+        letter-spacing: -0.035em;
+      }
+      p {
         margin: 0;
-        color: rgba(255, 248, 217, 0.86);
-        font-size: 20px;
+        color: #5e6654;
+        font-size: 12px;
+        line-height: 1.47;
       }
-
-      .cover-showcase {
+      ul, ol {
+        margin: 3mm 0 0;
+        padding-left: 15px;
+        color: #4f5848;
+        font-size: 10.8px;
+        line-height: 1.36;
+      }
+      li { margin: 1.2mm 0; }
+      .hero-image, .wide-image {
         position: relative;
-        min-height: 112mm;
         overflow: hidden;
-        border: 1px solid rgba(255, 228, 145, 0.24);
-        border-radius: 24px;
-        background: rgba(11, 9, 6, 0.4);
+        border: 1px solid rgba(94, 98, 72, 0.15);
+        border-radius: 8mm;
+        background: rgba(255, 253, 247, 0.72);
+        box-shadow: 0 18px 46px rgba(84, 65, 30, 0.11);
       }
-
-      .cover-showcase img {
+      .hero-image { height: 102mm; margin-top: auto; }
+      .wide-image { height: 78mm; margin: 6mm 0; }
+      .hero-image img:not(.cover-art), .wide-image img:not(.cover-art) {
         width: 100%;
-        height: 112mm;
+        height: 100%;
         object-fit: cover;
       }
-
-      .cover-showcase::after {
+      .hero-image::after, .wide-image::after {
         position: absolute;
         inset: 0;
+        background: linear-gradient(180deg, transparent 46%, rgba(255, 249, 236, 0.62));
         content: "";
-        background:
-          linear-gradient(180deg, transparent 46%, rgba(7, 6, 4, 0.78)),
-          radial-gradient(circle at 22% 20%, rgba(245, 200, 64, 0.18), transparent 40mm);
       }
-
-      .cover-note {
+      .hero-image .cover-art, .wide-image .cover-art {
         position: absolute;
-        right: 13px;
-        bottom: 12px;
-        left: 13px;
-        z-index: 1;
-        color: rgba(255, 248, 217, 0.8);
-        font-size: 12px;
-        font-weight: 760;
-      }
-
-      .cover-panels {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-
-      .cover-panel {
-        padding: 14px;
-        border: 1px solid rgba(255, 228, 145, 0.28);
-        border-radius: 18px;
-        background: rgba(11, 9, 6, 0.58);
-        backdrop-filter: blur(12px);
-      }
-
-      .cover-panel strong {
-        display: block;
-        color: #fff;
-        font-size: 24px;
-      }
-
-      .cover-panel span {
-        color: rgba(255, 248, 217, 0.72);
-        font-size: 12px;
-      }
-
-      h2 {
-        margin: 4px 0 10px;
-        font-size: 34px;
-        line-height: 1;
-        letter-spacing: -0.055em;
-      }
-
-      h3 {
-        margin: 0 0 8px;
-        font-size: 18px;
-        line-height: 1.12;
-        letter-spacing: -0.03em;
-      }
-
-      p {
-        margin: 0 0 11px;
-        color: #302816;
-      }
-
-      ul,
-      ol {
-        margin: 0;
-        padding-left: 18px;
-      }
-
-      li {
-        margin: 4px 0;
-      }
-
-      .kicker {
-        margin-bottom: 7px;
-        color: var(--gold-deep);
-        font-size: 11px;
-        font-weight: 900;
-        letter-spacing: 0.13em;
-        text-transform: uppercase;
-      }
-
-      .lede {
-        max-width: 720px;
-        margin-bottom: 13px;
-        color: #463b21;
-        font-size: 16px;
-      }
-
-      .section-rule {
-        width: 62px;
-        height: 5px;
-        margin: 8px 0 14px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #f4c546, #7b4c00);
-      }
-
-      .grid-2 {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 13px;
-      }
-
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 11px;
-      }
-
-      .card,
-      .play,
-      .table-card {
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.62);
-        box-shadow: 0 14px 32px rgba(50, 34, 0, 0.06);
-      }
-
-      .card {
-        padding: 15px;
-      }
-
-      .card.dark {
-        color: #fff8db;
-        border: 0;
-        background: linear-gradient(135deg, #171008, #3a2505);
-      }
-
-      .card.dark p,
-      .card.dark li {
-        color: rgba(255, 248, 219, 0.78);
-      }
-
-      .chip {
-        padding: 6px 9px;
-        color: var(--gold-deep);
-        background: rgba(216, 167, 38, 0.17);
-      }
-
-      .tag {
-        padding: 5px 8px;
-        color: #fff;
-        background: #1c1307;
-      }
-
-      .profile-score {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 9px;
-        margin: 12px 0;
-      }
-
-      .score-box {
-        padding: 12px;
-        border-radius: 16px;
-        background: #fff;
-        border: 1px solid var(--line);
-      }
-
-      .score-box strong {
-        display: block;
-        color: var(--gold-deep);
-        font-size: 25px;
-        line-height: 1;
-      }
-
-      .score-box span {
-        color: var(--muted);
-        font-size: 11px;
-        font-weight: 800;
-        text-transform: uppercase;
-      }
-
-      .lane-list {
-        display: grid;
-        gap: 7px;
-      }
-
-      .lane {
-        display: grid;
-        grid-template-columns: 78px 1fr;
-        gap: 10px;
-        align-items: start;
-        padding: 10px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.58);
-      }
-
-      .lane b {
-        color: var(--gold-deep);
-      }
-
-      .matrix {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.74);
-        font-size: 12px;
-      }
-
-      .matrix th,
-      .matrix td {
-        padding: 9px 10px;
-        border-bottom: 1px solid var(--line);
-        vertical-align: top;
-        text-align: left;
-      }
-
-      .matrix th {
-        color: var(--gold-deep);
-        background: rgba(216, 167, 38, 0.12);
-        font-size: 11px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .matrix tr:last-child td {
-        border-bottom: 0;
-      }
-
-      .play-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .play {
-        position: relative;
-        min-height: 142px;
-        padding: 14px;
-        overflow: hidden;
-      }
-
-      .play::after {
-        content: "";
-        position: absolute;
-        right: -26px;
-        bottom: -34px;
-        width: 88px;
-        height: 88px;
-        border-radius: 999px;
-        background: rgba(216, 167, 38, 0.13);
-      }
-
-      .play .meta {
-        display: flex;
-        gap: 6px;
-        margin-bottom: 8px;
-      }
-
-      .play .meta span {
-        padding: 4px 7px;
-        border-radius: 999px;
-        color: #6a4906;
-        background: rgba(216, 167, 38, 0.16);
-        font-size: 9px;
-        font-weight: 900;
-        text-transform: uppercase;
-      }
-
-      .play p {
-        margin-bottom: 7px;
-        font-size: 12.4px;
-      }
-
-      .play .move {
-        color: #1f1709;
-        font-size: 11.7px;
-        font-weight: 760;
-      }
-
-      .workflow {
-        display: grid;
-        grid-template-columns: 36px 1fr;
-        gap: 11px;
-        padding: 14px 0;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .workflow:last-child {
-        border-bottom: 0;
-      }
-
-      .step-num {
-        display: grid;
-        width: 34px;
-        height: 34px;
-        place-items: center;
-        border-radius: 12px;
-        color: #1b1306;
-        background: linear-gradient(135deg, #f5cc4e, #b57404);
-        font-weight: 900;
-      }
-
-      .hook-bank {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 9px;
-      }
-
-      .hook {
-        min-height: 56px;
-        padding: 13px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.68);
-        border: 1px solid var(--line);
-        font-size: 12.2px;
-        font-weight: 760;
-      }
-
-      .timeline {
-        display: grid;
-        gap: 9px;
-      }
-
-      .day {
-        display: grid;
-        grid-template-columns: 70px 1fr 125px;
-        gap: 11px;
-        padding: 10px;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.66);
-      }
-
-      .day strong {
-        color: var(--gold-deep);
-      }
-
-      .day span {
-        color: var(--muted);
-        font-size: 11px;
-        font-weight: 800;
-        text-transform: uppercase;
-      }
-
-      .next {
-        position: absolute;
-        left: 15mm;
-        right: 15mm;
+        right: 10mm;
         bottom: 8mm;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        padding-top: 8px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
+        width: 36mm;
+        height: auto;
+        border-radius: 5mm;
+        box-shadow: 0 16px 34px rgba(84, 65, 30, 0.22);
+      }
+      .caption {
+        position: absolute;
+        left: 9mm;
+        right: 55mm;
+        bottom: 9mm;
+        z-index: 2;
+        color: #38412f;
         font-size: 11px;
-        font-weight: 760;
+        font-weight: 800;
       }
-
-      .next b {
-        color: var(--gold-deep);
-      }
-
-      .mini-note {
-        margin-top: 10px;
-        padding: 10px 12px;
-        border-left: 4px solid var(--gold);
-        border-radius: 14px;
-        background: rgba(216, 167, 38, 0.12);
-        color: #443318;
-        font-size: 12.5px;
-      }
-
-      .action-grid {
+      .grid-2, .grid-3, .grid-4 {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        margin-top: 13px;
+        gap: 4mm;
       }
-
-      .action-card {
-        min-height: 118px;
-        padding: 13px;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.64);
-        box-shadow: 0 14px 28px rgba(50, 34, 0, 0.05);
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card, .panel, .idea, .metric {
+        border: 1px solid rgba(94, 98, 72, 0.15);
+        border-radius: 6mm;
+        background: rgba(255, 253, 247, 0.78);
+        box-shadow: 0 12px 30px rgba(84, 65, 30, 0.07);
       }
-
-      .action-card b {
-        display: inline-flex;
-        margin-bottom: 9px;
-        padding: 5px 8px;
-        border-radius: 999px;
-        color: var(--gold-deep);
-        background: rgba(216, 167, 38, 0.16);
-        font-size: 10px;
-        letter-spacing: 0.08em;
+      .card, .panel, .idea { padding: 5mm; }
+      .metric { padding: 4mm; }
+      .metric strong {
+        display: block;
+        color: #9b7218;
+        font-size: 22px;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+      .metric span {
+        display: block;
+        margin-top: 2mm;
+        color: #65705c;
+        font-size: 9.5px;
+      }
+      .idea {
+        display: grid;
+        min-height: 88mm;
+      }
+      .idea h3 { font-size: 19px; }
+      .idea .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2mm;
+        margin: 4mm 0;
+      }
+      .mini {
+        color: #6f5a20;
+        font-size: 9.5px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
       }
-
-      .action-card p {
-        margin: 0;
-        color: #40351d;
-        font-size: 12.2px;
+      .quote {
+        padding: 5mm;
+        border-left: 4px solid #d9ad45;
+        border-radius: 4mm;
+        color: #27301f;
+        background: rgba(255, 236, 180, 0.52);
+        font-size: 14px;
+        font-weight: 850;
+        line-height: 1.35;
       }
-
-      .small {
-        color: var(--muted);
-        font-size: 11.5px;
+      .footer-note {
+        margin-top: auto;
+        color: rgba(90, 71, 24, 0.66);
+        font-size: 9.4px;
+        font-weight: 700;
       }
-
-      .page-tight {
-        padding-bottom: 19mm;
+      .cover-page {
+        color: #fff8df;
+        background:
+          radial-gradient(circle at 82% 10%, rgba(217, 173, 69, 0.34), transparent 44mm),
+          radial-gradient(circle at 8% 82%, rgba(168, 184, 134, 0.24), transparent 48mm),
+          linear-gradient(135deg, #1d2518 0%, #0d0e09 58%, #5d4314 100%);
       }
-
-      .no-break {
-        break-inside: avoid;
+      .cover-page::before { border-color: rgba(255, 226, 154, 0.24); }
+      .cover-page::after { color: rgba(255, 248, 223, 0.68); }
+      .cover-page h1 { color: #fff8df; }
+      .cover-page p { color: rgba(255, 248, 223, 0.82); }
+      .cover-page .brand { color: rgba(255, 248, 223, 0.74); }
+      .cover-page .brand strong { color: #fff8df; }
+      .cover-page .badge { color: #ffe7a7; background: rgba(255, 226, 154, 0.11); border-color: rgba(255, 226, 154, 0.3); }
+      .toc-row {
+        display: grid;
+        grid-template-columns: 20mm 1fr;
+        gap: 5mm;
+        align-items: start;
+        padding: 3.5mm 0;
+        border-bottom: 1px solid rgba(94, 98, 72, 0.12);
       }
-
-      @media print {
-        html,
-        body {
-          background: #fff;
-        }
-
-        .page {
-          margin: 0;
-          box-shadow: none;
-        }
+      .toc-row strong {
+        color: #9b7218;
+        font-size: 20px;
+        line-height: 1;
+      }
+      .two-col {
+        columns: 2;
+        column-gap: 8mm;
+      }
+      .two-col li { break-inside: avoid; }
+      .playbook-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm;
+        margin-top: 5mm;
+      }
+      .playbook-grid .panel {
+        min-height: 38mm;
+      }
+      .hook-line {
+        margin-top: 5mm;
+        padding: 4mm 5mm;
+        border-radius: 5mm;
+        background: rgba(255, 226, 154, 0.5);
+        color: #2a331f;
+        font-size: 13px;
+        font-weight: 850;
+        line-height: 1.35;
       }
     </style>
   </head>
-  <body>
-    <section class="page cover">
-      <div class="cover-grid">
-        <div class="brand-row">
-          <div class="brand"><span class="brand-mark">G</span><span>Goldmine</span></div>
-          <span class="badge">$1 Full Pack</span>
-        </div>
-        <div>
-          <h1>Turn football attention into money ideas.</h1>
-          <p class="subtitle">
-            A practical, human-first blueprint for turning World Cup-season storylines into
-            AI content, fan pages, affiliate paths, lightweight products, and client-ready workflows.
-          </p>
-        </div>
-        <figure class="cover-showcase">
-          <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine full pack preview" />
-          <figcaption class="cover-note">
-            A designed idea pack: football plays, content formats, AI workflows, monetization
-            routes, and a 7-day sprint in one place.
-          </figcaption>
-        </figure>
-        <div class="cover-panels">
-          <div class="cover-panel">
-            <strong>20</strong>
-            <span>football-first plays</span>
-          </div>
-          <div class="cover-panel">
-            <strong>5</strong>
-            <span>creator paths</span>
-          </div>
-          <div class="cover-panel">
-            <strong>7</strong>
-            <span>day launch sprint</span>
-          </div>
-        </div>
+  <body><section class="page cover-page"><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>$1 Full Pack</span></div>
+    <span class="badge">50-page football idea pack</span>
+    <h1>Football ideas, AI workflows, and monetization paths you can actually test.</h1>
+    <p>This pack is football-first and AI-content-first. Use it to build viral social posts, fan pages, newsletters, affiliate pages, digital products, or creator services without relying on fake promises.</p>
+    <div class="hero-image">
+      <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine full pack preview" />
+      <img class="cover-art" src="../public/assets/goldmine-full-pack-cover-soft-v2.svg" alt="Goldmine Full Pack cover" />
+      <div class="caption">40 playbooks, 5 workflows, a 7-day sprint, and a simple decision system.</div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>How to use this</span></div>
+    <span class="badge">Read this first</span>
+    <h2>Do not try all 40 ideas.</h2>
+    <p>Goldmine works best when you choose one lane, test it for one week, and only then decide whether to repeat or switch.</p>
+    <div class="grid-3" style="margin-top: 8mm;">
+      <div class="metric"><strong>40</strong><span>idea playbooks</span></div>
+      <div class="metric"><strong>5</strong><span>AI workflows</span></div>
+      <div class="metric"><strong>1</strong><span>weekly test system</span></div>
+    </div>
+    <div class="grid-2" style="margin-top: 8mm;">
+      <div class="panel"><h3>Pick by energy</h3><ul><li>Analysis if you like thinking.</li><li>Trends if you like speed.</li><li>Products if you like selling.</li><li>Services if you like helping other creators.</li></ul></div>
+      <div class="panel"><h3>Pick by platform</h3><ul><li>Reels and Shorts for fast testing.</li><li>X and Threads for opinions.</li><li>Newsletter for owned audience.</li><li>Landing page for product tests.</li></ul></div>
+    </div>
+    <div class="quote" style="margin-top: 7mm;">You are not looking for the perfect idea. You are looking for a repeatable signal.</div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Idea map</span></div>
+    <span class="badge">Where the ideas fit</span>
+    <h2>The Goldmine map.</h2>
+    <div class="wide-image">
+      <img src="../public/assets/goldmine-system-soft-v2.jpg" alt="Goldmine content system" />
+      <div class="caption">Start from fan attention, turn it into a format, then route it to a useful next step.</div>
+    </div>
+    <div class="grid-4">
+      <div class="metric"><strong>A</strong><span>Analysis</span></div>
+      <div class="metric"><strong>T</strong><span>Trends</span></div>
+      <div class="metric"><strong>P</strong><span>Products</span></div>
+      <div class="metric"><strong>S</strong><span>Services</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Table of contents</span></div>
+    <span class="badge">40 playbooks</span>
+    <h2>Choose your starting lane.</h2>
+    <ol class="two-col">
+      <li>01 - Debate carousel engine</li><li>02 - Short tactical explainer</li><li>03 - Fan poll account</li><li>04 - Watch party product list</li><li>05 - Fantasy football watchlist</li><li>06 - Football newsletter digest</li><li>07 - Training micro-tip page</li><li>08 - Football history shorts</li><li>09 - Transfer rumor sanity check</li><li>10 - Underdog story account</li><li>11 - Football memes with context</li><li>12 - AI match poster shop</li><li>13 - Beginner tactics dictionary</li><li>14 - Stats without spreadsheets</li><li>15 - Match thread summaries</li><li>16 - Football creator prompts</li><li>17 - Club culture guide</li><li>18 - What to watch today</li><li>19 - Football job board content</li><li>20 - AI commentary voiceover</li><li>21 - Football fitness content</li><li>22 - Kit design concept page</li><li>23 - Referee decision explainer</li><li>24 - Football language page</li><li>25 - Stadium travel micro-guides</li><li>26 - Women football spotlight</li><li>27 - Youth academy tracker</li><li>28 - Manager decision board</li><li>29 - Football business explainer</li><li>30 - AI fan quiz account</li><li>31 - Weekly content calendar product</li><li>32 - Football betting education only</li><li>33 - Post-match quote breakdown</li><li>34 - Football creator audit service</li><li>35 - Niche fan community starter</li><li>36 - AI reel script packs</li><li>37 - Football explain-it-like-I-am-new</li><li>38 - Creator affiliate hub</li><li>39 - Football data template shop</li><li>40 - AI thumbnail testing board</li>
+    </ol>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 01</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Debate carousel engine</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Turn ongoing player debates into clean carousel posts.</h3>
+      <p>Greatest-of-era comparisons, current form arguments, comeback stories.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
       </div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Read this first</p>
-      <h2>This is not a magic-money PDF.</h2>
-      <div class="section-rule"></div>
-      <p class="lede">
-        Goldmine is a decision tool for football-season attention. It helps you choose a social
-        monetization direction that matches your energy, skills, time, and comfort level. AI-content
-        ideas come first because they are fast to test, but the goal is broader: use football
-        storylines to create a path toward affiliate income, digital products, sponsorships,
-        services, or paid templates.
-      </p>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI for 3 claims, 3 counterpoints, and 5 slide titles.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Newsletter signups, digital guides, creator tool affiliates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind debate carousel engine.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this debate carousel engine angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 02</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Short tactical explainer</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain a game pattern in plain English for casual fans.</h3>
+      <p>Pressing traps, inverted fullbacks, late substitutions, set pieces.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Draft a 40-second voiceover and generate a diagram checklist.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Sponsorships, coaching tools, sports education products.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind short tactical explainer.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this short tactical explainer angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 03</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Fan poll account</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Run daily polls around simple football questions.</h3>
+      <p>Who starts, who sits, best XI, score predictions, transfer choices.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to generate 7 poll prompts and follow-up captions.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Affiliate links, community subscriptions, prediction templates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind fan poll account.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this fan poll account angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 04</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Watch party product list</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Turn match-day excitement into practical shopping lists.</h3>
+      <p>Snacks, projectors, jerseys, streaming tools, room setup.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate a buyer checklist and short social captions.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Affiliate commissions and bundle pages.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind watch party product list.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this watch party product list angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 05</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Fantasy football watchlist</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Help fans choose players by fixture, form, and role.</h3>
+      <p>Budget picks, risky captains, differential players, injury swaps.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI to format picks into safe, upside, avoid.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Paid spreadsheets, newsletters, communities.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind fantasy football watchlist.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this fantasy football watchlist angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 06</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football newsletter digest</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Curate what happened and why it matters in 5 minutes.</h3>
+      <p>Morning-after recaps, weekend previews, transfer summaries.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to outline sections, then add your judgment.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Sponsorships, paid archive, tool affiliates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football newsletter digest.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football newsletter digest angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 07</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Training micro-tip page</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Convert pro moments into simple training advice.</h3>
+      <p>First touch, scanning, weak foot, pressing, positioning.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate one drill from one match moment.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Training app affiliates, coaching leads, paid PDF drills.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind training micro-tip page.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this training micro-tip page angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 08</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football history shorts</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Tell short stories about iconic moments and forgotten players.</h3>
+      <p>World Cup moments, club eras, tactical revolutions.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI for story beats, then fact-check names and dates.</p></div>
+        <div class="panel"><h3>Money path</h3><p>YouTube revenue, sponsorships, history guides.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football history shorts.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football history shorts angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 09</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Transfer rumor sanity check</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain rumors without pretending they are confirmed.</h3>
+      <p>Likelihood, fit, money, squad need, source quality.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to create a rumor scorecard template.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Newsletter, membership, sports data tools.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind transfer rumor sanity check.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this transfer rumor sanity check angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 10</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Underdog story account</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Spot compelling lesser-known teams and players.</h3>
+      <p>Small nations, academy graduates, comeback seasons.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate a 5-part human story structure.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Brand partnerships and long-form YouTube.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind underdog story account.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this underdog story account angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 11</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football memes with context</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Make memes that also teach or summarize a moment.</h3>
+      <p>VAR drama, missed chances, manager reactions, fan pain.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to generate caption variants and timing windows.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Merch, paid community, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football memes with context.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football memes with context angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 12</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>AI match poster shop</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Design tasteful match posters and digital wallpapers.</h3>
+      <p>Fixture posters, score recap cards, player-neutral visuals.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI for layout prompts, not copyrighted player likenesses.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Digital downloads, print-on-demand, bundles.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind ai match poster shop.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this ai match poster shop angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 13</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Beginner tactics dictionary</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain football terms for new fans.</h3>
+      <p>Low block, overload, xG, half-space, rest defense.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI for plain examples and test them with real clips you can describe.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Mini-course, glossary PDF, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind beginner tactics dictionary.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this beginner tactics dictionary angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 14</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Stats without spreadsheets</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Turn one stat into a short human insight.</h3>
+      <p>Shots, xG, pressures, carries, progressive passes.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI to translate stats into a fan-friendly sentence.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Data tool affiliates, newsletters.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind stats without spreadsheets.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this stats without spreadsheets angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 15</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Match thread summaries</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Summarize live fan conversation after a match.</h3>
+      <p>Top complaints, praise, tactical questions, meme angles.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to cluster comments, then rewrite responsibly.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Community growth, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind match thread summaries.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this match thread summaries angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 16</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football creator prompts</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Sell prompts that help other creators make football content.</h3>
+      <p>Hook prompts, carousel outlines, reel scripts, newsletter sections.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Package 25 prompts by use case and show examples.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Prompt pack sales, Gumroad-style products.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football creator prompts.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football creator prompts angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 17</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Club culture guide</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Help global fans understand a club's identity.</h3>
+      <p>Rivalries, chants, legends, style, fan expectations.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI for structure, then verify with reliable sources.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Guides, newsletter, affiliate fan products.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind club culture guide.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this club culture guide angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 18</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>What to watch today</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Daily post telling busy fans which games matter.</h3>
+      <p>Best fixture, hidden fixture, player to watch, story angle.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate a daily card template and fill it manually.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Newsletter and sports app affiliates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind what to watch today.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this what to watch today angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 19</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football job board content</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Create content around football careers and creator gigs.</h3>
+      <p>Analyst roles, video editor gigs, sports marketing openings.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to summarize opportunities and skills needed.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Job board sponsorships, resume templates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football job board content.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football job board content angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 20</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>AI commentary voiceover</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Create original commentary-style explainers without using match audio.</h3>
+      <p>Tactical moments, historic stories, fan reactions.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate a script, record voiceover, use diagrams or licensed assets.</p></div>
+        <div class="panel"><h3>Money path</h3><p>YouTube, sponsorships, voiceover services.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind ai commentary voiceover.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this ai commentary voiceover angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 21</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football fitness content</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Bridge fan interest into athletic training.</h3>
+      <p>Speed, stamina, mobility, recovery, warmups.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate a 7-day beginner routine and safety notes.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Fitness app affiliates and coaching leads.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football fitness content.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football fitness content angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 22</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Kit design concept page</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Make original concept kits without copying official designs.</h3>
+      <p>Retro concepts, color palettes, fictional tournament kits.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI for palette prompts and design notes.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Print-on-demand and design commissions.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind kit design concept page.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this kit design concept page angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 23</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Referee decision explainer</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain controversial decisions calmly.</h3>
+      <p>VAR, offside, handball, red cards, penalties.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to create a neutral breakdown template.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Trust-building account, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind referee decision explainer.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this referee decision explainer angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 24</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football language page</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Teach football vocabulary in multiple languages.</h3>
+      <p>Spanish, Portuguese, French, Arabic football phrases.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate phrase cards and pronunciation notes.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Language app affiliates, digital phrasebooks.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football language page.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football language page angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 25</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Stadium travel micro-guides</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Create short guides for fans visiting stadiums.</h3>
+      <p>Transport, food, seating, chants, local etiquette.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI for structure, then verify with maps and official pages.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Travel affiliates and city guide sales.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind stadium travel micro-guides.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this stadium travel micro-guides angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 26</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Women football spotlight</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Cover rising teams, players, and stories with respect.</h3>
+      <p>Tournament previews, player profiles, club growth.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to outline profiles, then fact-check thoroughly.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Sponsorships, newsletters, community.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind women football spotlight.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this women football spotlight angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 27</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Youth academy tracker</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Track young players and explain their roles.</h3>
+      <p>Breakout prospects, loan moves, minutes, style.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate scouting-card copy from verified notes.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Newsletter, premium watchlist, data affiliates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind youth academy tracker.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this youth academy tracker angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 28</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Manager decision board</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Analyze one manager decision per post.</h3>
+      <p>Lineup changes, pressing style, substitutions, rotations.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI for pros, cons, and what to watch next.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Paid analysis, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind manager decision board.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this manager decision board angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 29</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football business explainer</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain money behind clubs and tournaments.</h3>
+      <p>Transfers, wages, sponsorships, TV rights, ownership.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to simplify concepts and create visual analogies.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Finance newsletter, course affiliates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football business explainer.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football business explainer angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 30</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>AI fan quiz account</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Create quizzes around matches, history, and players.</h3>
+      <p>Guess the player, lineup memory, club trivia.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate quiz options and explanations.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Lead magnets, ad revenue, quiz packs.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind ai fan quiz account.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this ai fan quiz account angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 31</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Weekly content calendar product</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Sell simple football content calendars to creators.</h3>
+      <p>Hooks, dates, match themes, post formats.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to generate a calendar, then curate manually.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Digital product sales and subscriptions.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind weekly content calendar product.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this weekly content calendar product angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 32</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football betting education only</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain probability and risk without giving gambling promises.</h3>
+      <p>Odds, variance, bankroll risk, bookmaker margin.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI for educational examples and clear disclaimers.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Safer education content, tools if compliant.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football betting education only.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football betting education only angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 33</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Post-match quote breakdown</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Explain what managers and players actually implied.</h3>
+      <p>Press conferences, interviews, tactical comments.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to extract themes and write neutral summaries.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Newsletter, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind post-match quote breakdown.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this post-match quote breakdown angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 34</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football creator audit service</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Audit football pages for hooks, thumbnails, bios, and consistency.</h3>
+      <p>Accounts posting often but not converting.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to create an audit checklist and sample report.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Service revenue, upsells to templates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football creator audit service.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football creator audit service angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 35</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Niche fan community starter</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Build around one club, league, or player type.</h3>
+      <p>Underrated leagues, tactical fans, fantasy players.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to create onboarding posts and weekly rituals.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Paid community, sponsorships.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind niche fan community starter.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this niche fan community starter angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 36</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>AI reel script packs</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Sell batches of short reel scripts to busy creators.</h3>
+      <p>Match previews, player stories, debate hooks.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate drafts, then edit for voice and accuracy.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Script packs, retainers.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind ai reel script packs.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this ai reel script packs angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 37</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football explain-it-like-I-am-new</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Make the sport easier for new fans.</h3>
+      <p>Rules, formations, competitions, transfer windows.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI to rewrite complex ideas for a beginner.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Beginner guides, YouTube, affiliates.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football explain-it-like-i-am-new.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football explain-it-like-i-am-new angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 38</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Creator affiliate hub</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Curate tools football creators actually use.</h3>
+      <p>Editing apps, design tools, microphones, scheduling tools.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Use AI to compare tools and write honest summaries.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Recurring affiliate income.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind creator affiliate hub.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this creator affiliate hub angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 39</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>Football data template shop</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Create spreadsheet templates for fans and creators.</h3>
+      <p>Fixture tracker, content tracker, fantasy tracker.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Ask AI for columns, formulas, and dashboard sections.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Template sales.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind football data template shop.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this football data template shop angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Play 40</span></div>
+    <span class="badge">Football money idea</span>
+    <h2>AI thumbnail testing board</h2>
+    <div class="idea">
+      <span class="mini">What it is</span>
+      <h3>Create thumbnail/caption variants for football videos.</h3>
+      <p>Derby previews, reaction videos, explainers.</p>
+      <div class="meta">
+        <span class="chip">AI-first</span>
+        <span class="chip">Social content</span>
+        <span class="chip">Testable</span>
+      </div>
+      <div class="playbook-grid">
+        <div class="panel"><h3>Run this workflow</h3><p>Generate 10 variants, test small, keep winners.</p></div>
+        <div class="panel"><h3>Money path</h3><p>Service offers and template packs.</p></div>
+        <div class="panel"><h3>First 3 posts</h3><ul><li>Post 1: explain the problem behind ai thumbnail testing board.</li><li>Post 2: show one example and one counterpoint.</li><li>Post 3: ask the audience what they want next.</li></ul></div>
+        <div class="panel"><h3>Hook bank</h3><ul><li>Most fans are missing this ai thumbnail testing board angle.</li><li>Here is the 30-second version before the next match.</li><li>Save this if you create football content this week.</li></ul></div>
+      </div>
+      <div class="hook-line">CTA to test: "Want me to turn this into a template, checklist, or weekly page?"</div>
+    </div>
+    <div class="grid-3" style="margin-top: 5mm;">
+      <div class="metric"><strong>1</strong><span>repeatable format</span></div>
+      <div class="metric"><strong>3</strong><span>posts to test</span></div>
+      <div class="metric"><strong>7</strong><span>days before judging</span></div>
+    </div>
+  </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Workflow 1</span></div>
+      <span class="badge">AI workflow recipe</span>
+      <h2>Script to short video</h2>
+      <div class="wide-image">
+        <img src="../public/assets/goldmine-system-soft-v2.jpg" alt="Goldmine workflow visual" />
+        <div class="caption">Topic -&gt; hook -&gt; 35-second script -&gt; voiceover -&gt; soft visual scene -&gt; caption -&gt; post.</div>
+      </div>
       <div class="grid-2">
-        <div class="card">
-          <span class="chip">What you get</span>
-          <h3>Ideas you can actually test</h3>
-          <ul>
-            <li>20 football-first plays with platform, workflow, and monetization routes.</li>
-            <li>A profile chooser so you do not copy the wrong football format for your personality.</li>
-            <li>A 7-day sprint that gets you from match research to the first shipped content.</li>
-            <li>Hook prompts, fan-niche filters, and tool stacks you can adapt immediately.</li>
-          </ul>
-        </div>
-        <div class="card dark">
-          <span class="badge">Important</span>
-          <h3>How to use this</h3>
-          <p>
-            Do not try all 20 ideas. Read the pack once, circle three that feel natural, then pick
-            one for the 7-day sprint. The win is not finding the perfect football idea. The win is
-            starting with a format that has enough proof to deserve a real test.
-          </p>
-        </div>
+        <div class="panel"><h3>When to use it</h3><p>Use this when you want repeatable reels without relying on copyrighted footage.</p></div>
+        <div class="panel"><h3>Quality rule</h3><p>Use AI for structure and speed. Keep the judgment, fact-checking, and final taste human.</p></div>
       </div>
-      <div class="mini-note">
-        The strongest readers will not ask, "Which player trend makes the most money?" They will
-        ask, "Which football format can I keep shipping for 30 days without hating the process?"
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Workflow 2</span></div>
+      <span class="badge">AI workflow recipe</span>
+      <h2>Carousel workflow</h2>
+      <div class="wide-image">
+        <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine workflow visual" />
+        <div class="caption">Claim -&gt; slide titles -&gt; supporting points -&gt; counterpoint -&gt; final question -&gt; caption.</div>
       </div>
-      <div class="action-grid">
-        <div class="action-card">
-          <b>Use this for</b>
-          <p>Choosing one football content format instead of copying every viral page you see.</p>
-        </div>
-        <div class="action-card">
-          <b>Do not use for</b>
-          <p>Guaranteed income, official football rights, celebrity endorsements, or shortcut promises.</p>
-        </div>
-        <div class="action-card">
-          <b>Best outcome</b>
-          <p>You leave with one angle, one platform, one workflow, and one week of shipping.</p>
-        </div>
-      </div>
-      <div class="next"><span>Next page: choose your lane before choosing an idea.</span><b>Keep going</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Step 1</p>
-      <h2>Pick the operator path that fits you.</h2>
-      <div class="section-rule"></div>
-      <p class="lede">
-        Most people fail because they copy a business model that requires a personality they do
-        not have. Use this quick lens before you choose a play.
-      </p>
-      <div class="profile-score">
-        <div class="score-box"><strong>A</strong><span>Camera-shy builder</span></div>
-        <div class="score-box"><strong>B</strong><span>Trend curator</span></div>
-        <div class="score-box"><strong>C</strong><span>Tool operator</span></div>
-        <div class="score-box"><strong>D</strong><span>Niche expert</span></div>
-      </div>
-      <div class="lane-list">
-        <div class="lane">
-          <b>A</b>
-          <p><strong>Camera-shy builder:</strong> pick faceless football explainers, carousel pages, stat visuals, or match-breakdown threads.</p>
-        </div>
-        <div class="lane">
-          <b>B</b>
-          <p><strong>Trend curator:</strong> pick fan debates, meme pages, player storylines, affiliate reels, and rapid reaction content.</p>
-        </div>
-        <div class="lane">
-          <b>C</b>
-          <p><strong>Tool operator:</strong> pick AI edit workflows, football page templates, sponsor mockups, lead magnets, and service demos.</p>
-        </div>
-        <div class="lane">
-          <b>D</b>
-          <p><strong>Niche expert:</strong> pick tactical explainers, stats content, player comparisons, watch guides, and digital mini-products.</p>
-        </div>
-      </div>
-      <div class="mini-note">
-        If you are unsure, start with C. Tool operators can turn football workflows into content,
-        products, and freelance offers faster than almost any other path.
-      </div>
-      <div class="action-grid">
-        <div class="action-card">
-          <b>Fastest test</b>
-          <p>Camera-shy builder: publish three faceless match explainers from one fixture.</p>
-        </div>
-        <div class="action-card">
-          <b>Best upside</b>
-          <p>Tool operator: turn your football workflow into a template, audit, or client offer.</p>
-        </div>
-        <div class="action-card">
-          <b>Most defensible</b>
-          <p>Niche expert: use taste and context to make posts generic pages cannot copy.</p>
-        </div>
-      </div>
-      <div class="next"><span>Next page: map your niche before falling in love with a tactic.</span><b>Turn the page</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Step 2</p>
-      <h2>The football niche map: where attention can become money.</h2>
-      <div class="section-rule"></div>
-      <p class="lede">
-        A good football niche has three signals: fans already share it, there are products or tools
-        to recommend, and the audience has a repeating emotional reason to come back.
-      </p>
-      <table class="matrix">
-        <thead>
-          <tr>
-            <th>Niche lane</th>
-            <th>Why it spreads</th>
-            <th>Money route</th>
-            <th>Best platforms</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>GOAT and legacy debates</td>
-            <td>Fans argue, save stats, and share emotional comparisons.</td>
-            <td>Newsletters, stat packs, sponsorships, paid guides.</td>
-            <td>X, YouTube Shorts, Instagram, TikTok</td>
-          </tr>
-          <tr>
-            <td>Skill edits and flair moments</td>
-            <td>Short visual moments travel fast and invite reactions.</td>
-            <td>Creator tools, edit presets, sponsorships, templates.</td>
-            <td>TikTok, Reels, Shorts</td>
-          </tr>
-          <tr>
-            <td>Fan gear and watch-party products</td>
-            <td>Identity plus events creates buying intent.</td>
-            <td>Affiliate, bundles, newsletters, brand sponsorships.</td>
-            <td>Instagram, Pinterest, TikTok</td>
-          </tr>
-          <tr>
-            <td>Tactical and match explainers</td>
-            <td>Fans want context quickly after big moments.</td>
-            <td>Premium explainers, newsletters, sponsored tools.</td>
-            <td>YouTube, X, Instagram</td>
-          </tr>
-          <tr>
-            <td>Fantasy and prediction content</td>
-            <td>People return before every game for decisions.</td>
-            <td>Paid picks, newsletters, communities, affiliates.</td>
-            <td>X, YouTube, Telegram, Discord</td>
-          </tr>
-          <tr>
-            <td>Creator workflow and AI edits</td>
-            <td>Creators want faster ways to publish during tournaments.</td>
-            <td>Prompt packs, templates, edit workflows, services.</td>
-            <td>LinkedIn, X, YouTube, Instagram</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="mini-note">
-        Your first niche should feel obvious to fans. Obvious is good when the emotion repeats,
-        the audience is easy to find, and you can ship without needing motivation every day.
-      </div>
-      <div class="next"><span>Next page: scan the full football idea menu before choosing your first test.</span><b>Now the fun part</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">The idea menu</p>
-      <h2>20 curated football money plays.</h2>
-      <div class="section-rule"></div>
-      <p class="lede">
-        Use this page like a map. The detailed pages after this explain how to run each play.
-      </p>
-      <table class="matrix">
-        <thead>
-          <tr>
-            <th>Play</th>
-            <th>Best for</th>
-            <th>Main output</th>
-            <th>Money route</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Faceless match explainer shorts</td><td>A, D</td><td>30-45 sec clips</td><td>Affiliate, sponsorship, product</td></tr>
-          <tr><td>Legacy debate carousel page</td><td>B, D</td><td>Stat/context carousels</td><td>Newsletter, sponsorship</td></tr>
-          <tr><td>AI fan-edit workflow page</td><td>C</td><td>Edit recipes and reels</td><td>Templates, services</td></tr>
-          <tr><td>Player storyline reels</td><td>B</td><td>Reaction reels</td><td>Affiliate, email, sponsor</td></tr>
-          <tr><td>Football affiliate gear page</td><td>B, C</td><td>Product reels</td><td>Affiliate, bundles</td></tr>
-          <tr><td>Watch-party kit page</td><td>B</td><td>Lists and setup posts</td><td>Affiliate, sponsorship</td></tr>
-          <tr><td>Tactical breakdown threads</td><td>D</td><td>Threads and diagrams</td><td>Newsletter, paid guide</td></tr>
-          <tr><td>Daily football AI newsletter</td><td>B, D</td><td>Weekly issue</td><td>Ads, affiliates, paid tier</td></tr>
-          <tr><td>GOAT comparison charts</td><td>A, D</td><td>Swipe posts</td><td>Lead magnet, product</td></tr>
-          <tr><td>Avatar match narrator</td><td>A, C</td><td>Talking-head clips</td><td>Course, affiliate</td></tr>
-          <tr><td>Club/fan page audit service</td><td>C</td><td>Public teardown</td><td>Client work</td></tr>
-          <tr><td>Trend-to-affiliate match reels</td><td>B</td><td>Product-led reels</td><td>Affiliate, sponsorship</td></tr>
-          <tr><td>Football data storytelling</td><td>D</td><td>Charts and explainers</td><td>Newsletter, sponsorship</td></tr>
-          <tr><td>Football creator toolkit</td><td>C</td><td>Templates and prompts</td><td>Paid pack, services</td></tr>
-          <tr><td>Browser agent football research</td><td>C</td><td>Screen recordings</td><td>Consulting, templates</td></tr>
-          <tr><td>Mini-guide product lab</td><td>C, D</td><td>Build-in-public posts</td><td>$5-$49 products</td></tr>
-          <tr><td>Meme-to-match explainer</td><td>B</td><td>Fast explainers</td><td>Sponsorship, newsletter</td></tr>
-          <tr><td>Boots/gear comparison account</td><td>D</td><td>Best X for Y posts</td><td>Affiliate, SEO</td></tr>
-          <tr><td>AI football workflow recipe book</td><td>C</td><td>Recipe posts</td><td>Paid pack, templates</td></tr>
-          <tr><td>Creator match-day dashboard</td><td>C</td><td>Public tracker</td><td>Template, consulting</td></tr>
-        </tbody>
-      </table>
-      <div class="next"><span>Next page: the first four plays, starting with the fastest football-content tests.</span><b>Pick signals</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Plays 1-4</p>
-      <h2>Fast match-day plays.</h2>
-      <div class="section-rule"></div>
-      <div class="play-grid">
-        <article class="play">
-          <div class="meta"><span>AI content</span><span>Low budget</span></div>
-          <h3>1. Faceless match explainer shorts</h3>
-          <p>Pick one match question and answer it in a 30-45 second format with AI visuals and captions.</p>
-          <p class="move">First 48h: write 20 hooks from current fixtures, make 3 clips, keep one structure.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Debate</span><span>Saveable</span></div>
-          <h3>2. Legacy debate carousel page</h3>
-          <p>Compare public narratives with stats, context, and respectful framing fans will share.</p>
-          <p class="move">First 48h: build 5 carousel outlines around records, trophies, and decisive moments.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Workflow</span><span>Creator</span></div>
-          <h3>3. AI fan-edit workflow page</h3>
-          <p>Show how to turn a match moment into hooks, captions, edit prompts, and thumbnail concepts.</p>
-          <p class="move">First 48h: publish 3 before/after workflow posts and package one template.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Story</span><span>Reels</span></div>
-          <h3>4. Player storyline reels</h3>
-          <p>Build around comeback arcs, pressure moments, rivalry context, flair, speed, and fan emotion.</p>
-          <p class="move">First 48h: choose 4 storylines and make one repeatable reel format.</p>
-        </article>
-      </div>
-      <div class="mini-note">
-        Best first pick if you want speed: faceless match explainers. Best first pick if you want
-        comments: legacy debate carousels.
-      </div>
-      <div class="action-grid">
-        <div class="action-card"><b>Ship</b><p>Three posts in one format, not three unrelated football experiments.</p></div>
-        <div class="action-card"><b>Measure</b><p>Comments for debate plays; saves and completion for explainer plays.</p></div>
-        <div class="action-card"><b>Repeat if</b><p>One hook earns a real reply, save, click, or profile visit within 48 hours.</p></div>
-      </div>
-      <div class="next"><span>Next page: plays that turn football attention into trust and links.</span><b>Go deeper</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Plays 5-8</p>
-      <h2>Affiliate and audience plays.</h2>
-      <div class="section-rule"></div>
-      <div class="play-grid">
-        <article class="play">
-          <div class="meta"><span>Affiliate</span><span>Buyer intent</span></div>
-          <h3>5. Football affiliate gear page</h3>
-          <p>Build posts around boots, jerseys, fan gear, watch-party products, and creator tools.</p>
-          <p class="move">First 48h: map 20 products to 10 football moments and publish 3 useful posts.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Commerce</span><span>Event</span></div>
-          <h3>6. Watch-party kit page</h3>
-          <p>Curate setup lists: projector, snacks, decor, jerseys, games, creator templates, and playlists.</p>
-          <p class="move">First 48h: create one kit post and one link page with 8 recommendations.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Tactical</span><span>Trust</span></div>
-          <h3>7. Tactical breakdown threads</h3>
-          <p>Explain one decision, formation shift, or run pattern using simple diagrams and plain language.</p>
-          <p class="move">First 48h: choose 3 match moments and publish one thread with 4 visuals.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Newsletter</span><span>Curated</span></div>
-          <h3>8. Daily football AI newsletter</h3>
-          <p>Collect fan debates, match moments, tool workflows, and links into one useful daily issue.</p>
-          <p class="move">First 48h: create the landing page and draft issue #1 from 7 saved posts.</p>
-        </article>
-      </div>
-      <div class="mini-note">
-        The hidden advantage here: every post can become a link destination. Do not only chase
-        views. Route attention into a list, product, or offer.
-      </div>
-      <div class="action-grid">
-        <div class="action-card"><b>Ship</b><p>One helpful post, one product route, and one disclosure-safe link page.</p></div>
-        <div class="action-card"><b>Measure</b><p>Profile clicks, link taps, saves, and replies asking for recommendations.</p></div>
-        <div class="action-card"><b>Repeat if</b><p>Fans treat the page like a useful shortcut, not a random ad feed.</p></div>
-      </div>
-      <div class="next"><span>Next page: plays for quiet builders who prefer systems over personality content.</span><b>Next set</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Plays 9-12</p>
-      <h2>Quiet builder plays.</h2>
-      <div class="section-rule"></div>
-      <div class="play-grid">
-        <article class="play">
-          <div class="meta"><span>Charts</span><span>Saveable</span></div>
-          <h3>9. GOAT comparison charts</h3>
-          <p>Turn debates into balanced charts: context, era, role, stats, trophies, and limitations.</p>
-          <p class="move">First 48h: write 5 comparison posts and one disclaimer template.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Avatar</span><span>Scalable</span></div>
-          <h3>10. Avatar match narrator</h3>
-          <p>Use an avatar or illustrated host to explain match context without showing your face.</p>
-          <p class="move">First 48h: script 3 explainers and test one avatar style, not five.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Service</span><span>Audit</span></div>
-          <h3>11. Club/fan page audit service</h3>
-          <p>Show how football pages can improve hooks, thumbnails, link routing, and posting systems.</p>
-          <p class="move">First 48h: make one public audit and privately send it to 10 page owners.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Affiliate</span><span>Trend</span></div>
-          <h3>12. Trend-to-affiliate match reels</h3>
-          <p>Attach a relevant product or tool to a match trend without making it feel forced.</p>
-          <p class="move">First 48h: pick 3 trend formats and map each to one genuinely useful product.</p>
-        </article>
-      </div>
-      <div class="mini-note">
-        If you are shy, do not fight it. Build formats where the football idea is the star:
-        screen records, carousels, comparison grids, product demos, and workflow maps.
-      </div>
-      <div class="action-grid">
-        <div class="action-card"><b>Ship</b><p>One comparison, one audit, one workflow post, and one simple CTA.</p></div>
-        <div class="action-card"><b>Measure</b><p>Save rate, DMs from page owners, and whether people ask for the template.</p></div>
-        <div class="action-card"><b>Repeat if</b><p>The system creates trust without needing your face or personality every day.</p></div>
-      </div>
-      <div class="next"><span>Next page: plays for people who like research, data, and useful opinions.</span><b>Continue</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Plays 13-16</p>
-      <h2>Research and proof plays.</h2>
-      <div class="section-rule"></div>
-      <div class="play-grid">
-        <article class="play">
-          <div class="meta"><span>Data</span><span>Authority</span></div>
-          <h3>13. Football data storytelling</h3>
-          <p>Turn stats, reports, and match data into short visual explanations people can share.</p>
-          <p class="move">First 48h: find 3 public data sources and extract 10 surprising angles.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Toolkit</span><span>Product</span></div>
-          <h3>14. Football creator toolkit</h3>
-          <p>Package hooks, caption prompts, edit checklists, thumbnail formulas, and posting calendars.</p>
-          <p class="move">First 48h: create a 1-page toolkit preview and ask for feedback publicly.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Agents</span><span>Demo</span></div>
-          <h3>15. Browser agent football research</h3>
-          <p>Record agents collecting fixtures, headlines, stats, sources, and post ideas into a table.</p>
-          <p class="move">First 48h: ship one tiny demo and explain where it fails honestly.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Product</span><span>Build</span></div>
-          <h3>16. Mini-guide product lab</h3>
-          <p>Build one tiny PDF around a football niche: hooks, watch-party kit, stat guide, or edit pack.</p>
-          <p class="move">First 48h: outline a $5-$49 product and post the table of contents.</p>
-        </article>
-      </div>
-      <div class="mini-note">
-        Research content compounds because old posts still build trust. Your audience starts
-        seeing you as a person who notices football patterns before everyone else does.
-      </div>
-      <div class="action-grid">
-        <div class="action-card"><b>Ship</b><p>One chart, one toolkit preview, one agent demo, and one mini-guide outline.</p></div>
-        <div class="action-card"><b>Measure</b><p>Bookmarks, quote replies, email signups, and requests for the full resource.</p></div>
-        <div class="action-card"><b>Repeat if</b><p>The content makes people trust your judgment, not only your editing speed.</p></div>
-      </div>
-      <div class="next"><span>Next page: the final plays, including repeatable systems and dashboards.</span><b>Almost there</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Plays 17-20</p>
-      <h2>Repeatable system plays.</h2>
-      <div class="section-rule"></div>
-      <div class="play-grid">
-        <article class="play">
-          <div class="meta"><span>Fast</span><span>Culture</span></div>
-          <h3>17. Meme-to-match explainer</h3>
-          <p>Use a meme or viral fan moment as the hook, then explain the match lesson behind it.</p>
-          <p class="move">First 48h: save 20 fan memes and turn 3 into short explainers.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Review</span><span>Buyer intent</span></div>
-          <h3>18. Boots/gear comparison account</h3>
-          <p>Create "best X for Y" comparisons where football fans already have buying intent.</p>
-          <p class="move">First 48h: pick one product category and write 10 comparison angles.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Workflow</span><span>Paid pack</span></div>
-          <h3>19. AI football workflow recipe book</h3>
-          <p>Publish recipes like input, tools, prompt, output, match use case, and posting format.</p>
-          <p class="move">First 48h: document 5 football workflows you can build quickly.</p>
-        </article>
-        <article class="play">
-          <div class="meta"><span>Dashboard</span><span>Template</span></div>
-          <h3>20. Creator match-day dashboard</h3>
-          <p>Track fixtures, hooks, posts, metrics, monetization, and experiments in one public tracker.</p>
-          <p class="move">First 48h: build a simple tracker and publish your first week plan.</p>
-        </article>
-      </div>
-      <div class="mini-note">
-        The quiet money is often in the system behind the football content: templates, dashboards,
-        workflows, scripts, and repeatable operating checklists.
-      </div>
-      <div class="action-grid">
-        <div class="action-card"><b>Ship</b><p>A public dashboard or recipe that proves how you think and how you operate.</p></div>
-        <div class="action-card"><b>Measure</b><p>Template requests, comments from creators, and clicks from workflow posts.</p></div>
-        <div class="action-card"><b>Repeat if</b><p>The backend system becomes more valuable than the individual post.</p></div>
-      </div>
-      <div class="next"><span>Next page: turn the best plays into actual production workflows.</span><b>Build the machine</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">AI football workflows</p>
-      <h2>Three repeatable match-day recipes.</h2>
-      <div class="section-rule"></div>
-      <div class="card">
-        <div class="workflow">
-          <div class="step-num">1</div>
-          <div>
-            <h3>Faceless match explainer workflow</h3>
-            <p>Match question -> 5 hooks -> 80-word script -> voiceover -> 4-6 visual scenes -> captions -> title variants -> post.</p>
-            <p class="small">Tools: ChatGPT/Claude/Gemini, CapCut, native TTS, royalty-safe footage or graphics, Canva, a simple match tracker.</p>
-          </div>
-        </div>
-        <div class="workflow">
-          <div class="step-num">2</div>
-          <div>
-            <h3>Football affiliate page workflow</h3>
-            <p>Fan persona -> product angle -> image batch -> reel script -> caption -> link routing -> email capture -> weekly roundup.</p>
-            <p class="small">Tools: Canva, simple landing page, affiliate network, newsletter tool, scheduler, and a disclosure template.</p>
-          </div>
-        </div>
-        <div class="workflow">
-          <div class="step-num">3</div>
-          <div>
-            <h3>Fan-edit and sponsor concept workflow</h3>
-            <p>Brand/page -> fan pain point -> 10 hooks -> 3 edit concepts -> rough visual -> landing-page angle -> sample pitch.</p>
-            <p class="small">Tools: LLM, screenshot capture, CapCut, Canva, avatar tool if needed, a one-page portfolio, and a direct outreach list.</p>
-          </div>
-        </div>
-      </div>
-      <div class="mini-note">
-        Keep the workflow boring. The content can be creative, but the production system should
-        be repetitive enough that you can run it when your motivation is low.
-      </div>
-      <div class="next"><span>Next page: name the channel and make the first five posts easier.</span><b>Package it</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Channel starter pack</p>
-      <h2>Turn the football idea into a public surface.</h2>
-      <div class="section-rule"></div>
       <div class="grid-2">
-        <div class="card">
-          <span class="chip">Naming formulas</span>
-          <h3>Use names that reveal the promise.</h3>
-          <ul>
-            <li><strong>The Daily [Angle]:</strong> The Daily Match Lens, The Daily Football Edit.</li>
-            <li><strong>[Niche] Lab:</strong> Football AI Lab, Matchday Content Lab.</li>
-            <li><strong>[Audience] Shortcuts:</strong> Fan Page Shortcuts, Matchday Creator Kit.</li>
-            <li><strong>[Problem] Fix:</strong> Football Hook Fix, Fan Page Fix, Edit Fix.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <span class="chip">Bio formula</span>
-          <h3>Simple is better.</h3>
-          <p>
-            "I turn [football angle] into [format] for [audience] who want [outcome] without
-            [pain]. Follow for [frequency]."
-          </p>
-          <p class="small">
-            Example: "I turn football debates into simple charts for fans who want context without
-            endless arguments. Follow for one match-day breakdown every day."
-          </p>
-        </div>
+        <div class="panel"><h3>When to use it</h3><p>Use this for debate posts, stat explainers, and beginner education.</p></div>
+        <div class="panel"><h3>Quality rule</h3><p>Use AI for structure and speed. Keep the judgment, fact-checking, and final taste human.</p></div>
       </div>
-      <div class="card" style="margin-top: 12px">
-        <span class="chip">First five posts</span>
-        <div class="grid-2">
-          <ol>
-            <li>The debate: one fan argument and the missing context.</li>
-            <li>The shortcut: one small AI workflow or edit format.</li>
-            <li>The comparison: two players, teams, products, or match moments.</li>
-            <li>The teardown: show one football page, brand, or workflow.</li>
-            <li>The invite: ask fans what moment they want explained next.</li>
-          </ol>
-          <p>
-            The first five posts are not meant to go viral. They are meant to establish a repeatable
-            football format, so your next fifty have somewhere to go.
-          </p>
-        </div>
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Workflow 3</span></div>
+      <span class="badge">AI workflow recipe</span>
+      <h2>Newsletter workflow</h2>
+      <div class="wide-image">
+        <img src="../public/assets/goldmine-system-soft-v2.jpg" alt="Goldmine workflow visual" />
+        <div class="caption">Trend scan -&gt; 3 bullets -&gt; 1 deeper insight -&gt; useful link -&gt; next issue teaser.</div>
       </div>
-      <div class="next"><span>Next page: use hooks that open curiosity without sounding fake.</span><b>Hook bank</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Hook bank</p>
-      <h2>Hooks that make the next sentence feel necessary.</h2>
-      <div class="section-rule"></div>
-      <p class="lede">
-        A good football hook creates a tiny open loop. It should make the reader think: "Wait,
-        what did I miss?" Use these as starting points, then make them specific to your lane.
-      </p>
-      <div class="hook-bank">
-        <div class="hook">The hidden reason this match moment spread so fast...</div>
-        <div class="hook">Most fans compare [player A] and [player B] wrong. Here is the better lens.</div>
-        <div class="hook">This tiny AI workflow turns one fixture into five posts.</div>
-        <div class="hook">If I had to start a faceless football page today, I would avoid broad news.</div>
-        <div class="hook">Here is the simplest football content business I would test with $0 and 7 days.</div>
-        <div class="hook">The boring part of fan gear is where the affiliate money hides.</div>
-        <div class="hook">I found a football format that does not require showing your face.</div>
-        <div class="hook">Before you chase highlights, build this match-day research system.</div>
-        <div class="hook">I would avoid this football trend unless you can answer one question.</div>
-        <div class="hook">Here is a football angle that can become an affiliate funnel later.</div>
-        <div class="hook">The easiest way to test demand is not a product. It is this match-day post.</div>
-        <div class="hook">This is how I would turn one football trend into five pieces of content.</div>
-      </div>
-      <div class="next"><span>Next page: choose the money route before you chase views.</span><b>Money map</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Monetization map</p>
-      <h2>Views are not the business. The route is.</h2>
-      <div class="section-rule"></div>
       <div class="grid-2">
-        <div class="card">
-          <span class="chip">Fastest to test</span>
-          <h3>Affiliate or lead magnet</h3>
-          <p>
-            Best when your content naturally recommends tools, products, platforms, or templates.
-            Add a simple link destination and track clicks before optimizing anything else.
-          </p>
-          <p class="small">Metric to watch: saves, profile clicks, link clicks, email signups.</p>
-        </div>
-        <div class="card">
-          <span class="chip">Best for builders</span>
-          <h3>Service or workflow template</h3>
-          <p>
-            Best when your content shows you can solve an operational problem. Turn one demo into
-            a paid setup, audit, or downloadable workflow.
-          </p>
-          <p class="small">Metric to watch: replies, DMs, booked calls, template purchases.</p>
-        </div>
-        <div class="card">
-          <span class="chip">Best long-term</span>
-          <h3>Newsletter or digital product</h3>
-          <p>
-            Best when your audience wants repeated insight. Use content to gather emails, then
-            package guides, prompts, dashboards, or deeper research.
-          </p>
-          <p class="small">Metric to watch: opt-in rate, reply rate, paid conversion.</p>
-        </div>
-        <div class="card">
-          <span class="chip">Best after traction</span>
-          <h3>Sponsorships</h3>
-          <p>
-            Best once you have consistent reach in a clear category. Do not wait for huge follower
-            counts if your audience is specific and buyers care about it.
-          </p>
-          <p class="small">Metric to watch: niche clarity, average reach, audience proof.</p>
-        </div>
+        <div class="panel"><h3>When to use it</h3><p>Use this when you want an owned audience instead of only platform reach.</p></div>
+        <div class="panel"><h3>Quality rule</h3><p>Use AI for structure and speed. Keep the judgment, fact-checking, and final taste human.</p></div>
       </div>
-      <div class="mini-note">
-        Pick one primary route now. You can add more later. A scattered monetization plan creates
-        scattered football content.
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Workflow 4</span></div>
+      <span class="badge">AI workflow recipe</span>
+      <h2>Affiliate workflow</h2>
+      <div class="wide-image">
+        <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine workflow visual" />
+        <div class="caption">Fan problem -&gt; useful product -&gt; honest note -&gt; link page -&gt; follow-up post.</div>
       </div>
-      <div class="next"><span>Next page: the 7-day sprint that turns this PDF into proof.</span><b>Action time</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">7-day sprint</p>
-      <h2>Your first week, without overthinking.</h2>
-      <div class="section-rule"></div>
-      <div class="timeline">
-        <div class="day">
-          <strong>Day 1</strong>
-          <p>Choose one football lane, one platform, and one monetization route. Write the promise in one sentence.</p>
-          <span>Decision</span>
-        </div>
-        <div class="day">
-          <strong>Day 2</strong>
-          <p>Research 20 football posts. Save hooks, formats, comments, products, and repeated fan questions.</p>
-          <span>Research</span>
-        </div>
-        <div class="day">
-          <strong>Day 3</strong>
-          <p>Create 10 football hooks and 5 post outlines. Do not design yet. Find the angles first.</p>
-          <span>Angles</span>
-        </div>
-        <div class="day">
-          <strong>Day 4</strong>
-          <p>Produce 3 football posts with one repeatable format. Keep the style consistent so the test is clean.</p>
-          <span>Production</span>
-        </div>
-        <div class="day">
-          <strong>Day 5</strong>
-          <p>Publish post 1 and 2. Ask one fan question in each caption to create replies, not just likes.</p>
-          <span>Ship</span>
-        </div>
-        <div class="day">
-          <strong>Day 6</strong>
-          <p>Publish post 3. Create one link destination: affiliate page, service note, free download, or waitlist.</p>
-          <span>Route</span>
-        </div>
-        <div class="day">
-          <strong>Day 7</strong>
-          <p>Review saves, replies, clicks, and completion rate. Pick one football format to repeat next week.</p>
-          <span>Review</span>
-        </div>
-      </div>
-      <div class="next"><span>Next page: track the right signals so you do not mistake noise for demand.</span><b>Measure</b></div>
-    </section>
-
-    <section class="page page-tight">
-      <p class="kicker">Tracking</p>
-      <h2>The tiny dashboard that keeps you honest.</h2>
-      <div class="section-rule"></div>
-      <p class="lede">
-        A viral football post feels good, but your goal is learning. Track signals that show
-        whether the idea deserves another week.
-      </p>
-      <table class="matrix">
-        <thead>
-          <tr>
-            <th>Signal</th>
-            <th>Why it matters</th>
-            <th>What to do next</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Saves</td>
-            <td>People think the idea has future value.</td>
-            <td>Make a deeper explainer, chart, or checklist.</td>
-          </tr>
-          <tr>
-            <td>Replies and comments</td>
-            <td>The football topic creates conversation and emotion.</td>
-            <td>Turn fan questions into the next posts.</td>
-          </tr>
-          <tr>
-            <td>Profile clicks</td>
-            <td>The post made people curious about you.</td>
-            <td>Improve bio promise and pinned content.</td>
-          </tr>
-          <tr>
-            <td>Link clicks</td>
-            <td>Attention is moving toward money.</td>
-            <td>Test the offer, landing page, or lead magnet.</td>
-          </tr>
-          <tr>
-            <td>DMs</td>
-            <td>Trust is high enough for a direct ask.</td>
-            <td>Offer a page audit, template, workflow, or setup.</td>
-          </tr>
-          <tr>
-            <td>Repeatable production</td>
-            <td>You can sustain the format.</td>
-            <td>Run the same format for 7 more days.</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="mini-note">
-        Do not quit a good football lane because the first post is quiet. Quit when the format is painful,
-        the audience is vague, or no signal improves after repeated tests.
-      </div>
-      <div class="next"><span>Final page: the rules that keep this useful, grounded, and sane.</span><b>Finish strong</b></div>
-    </section>
-
-    <section class="page">
-      <p class="kicker">Final notes</p>
-      <h2>Build curiosity. Keep your claims clean.</h2>
-      <div class="section-rule"></div>
       <div class="grid-2">
-        <div class="card">
-          <span class="chip">Do this</span>
-          <ul>
-            <li>Show your process, not just the result.</li>
-            <li>Use real examples and honest limitations.</li>
-            <li>Keep one football content promise for at least 7 days.</li>
-            <li>Track clicks, replies, saves, and DMs.</li>
-            <li>Turn repeated questions into products or services.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <span class="chip">Avoid this</span>
-          <ul>
-            <li>Do not promise guaranteed income.</li>
-            <li>Do not fake results or screenshots.</li>
-            <li>Do not use copyrighted clips or player images without rights.</li>
-            <li>Do not imply official tournament, club, or player endorsement.</li>
-            <li>Do not start five pages at once or confuse views with a business model.</li>
-          </ul>
-        </div>
+        <div class="panel"><h3>When to use it</h3><p>Use this for watch-party gear, creator tools, training products, and digital templates.</p></div>
+        <div class="panel"><h3>Quality rule</h3><p>Use AI for structure and speed. Keep the judgment, fact-checking, and final taste human.</p></div>
       </div>
-      <div class="card dark" style="margin-top: 14px">
-        <h3>The Goldmine rule</h3>
-        <p>
-          A good football idea should make you curious enough to test it today and disciplined
-          enough to measure it tomorrow. If it only feels exciting in your head, it is not a play
-          yet. Turn it into one post, one link, one offer, or one workflow.
-        </p>
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Workflow 5</span></div>
+      <span class="badge">AI workflow recipe</span>
+      <h2>Digital product workflow</h2>
+      <div class="wide-image">
+        <img src="../public/assets/goldmine-system-soft-v2.jpg" alt="Goldmine workflow visual" />
+        <div class="caption">Repeated question -&gt; template -&gt; example output -&gt; simple landing page -&gt; $1 to $9 offer.</div>
       </div>
-      <div class="mini-note">
-        This guide is educational and does not guarantee income. It is not affiliated with FIFA,
-        any tournament, club, or player. Use it as a practical starting map, then let real audience
-        behavior decide what deserves your next week.
+      <div class="grid-2">
+        <div class="panel"><h3>When to use it</h3><p>Use this when your audience keeps asking for the same checklist or prompt pack.</p></div>
+        <div class="panel"><h3>Quality rule</h3><p>Use AI for structure and speed. Keep the judgment, fact-checking, and final taste human.</p></div>
       </div>
-    </section>
-  </body>
+    </div></section><section class="page "><div class="inner">
+    <div class="brand"><strong>Goldmine</strong><span>Final page</span></div>
+    <span class="badge">7-day sprint and rules</span>
+    <h2>Run this before overbuilding.</h2>
+    <div class="grid-2">
+      <div class="panel"><h3>Days 1 to 3</h3><ul><li>Choose one playbook.</li><li>Write 10 hooks.</li><li>Publish 3 posts in one format.</li><li>Track saves, comments, shares, and profile clicks.</li></ul></div>
+      <div class="panel"><h3>Days 4 to 7</h3><ul><li>Remix the best post into a second format.</li><li>Create one useful link destination.</li><li>Test one CTA.</li><li>Write down what strangers actually responded to.</li></ul></div>
+    </div>
+    <div class="grid-2" style="margin-top: 8mm;">
+      <div class="panel"><h3>Good paths</h3><ul><li>Affiliate links to genuinely useful tools or products.</li><li>Small digital products like prompt packs, calendars, templates, and guides.</li><li>Services for creators or fan pages after showing proof.</li><li>Newsletters and community offers once trust exists.</li></ul></div>
+      <div class="panel"><h3>Avoid</h3><ul><li>Fake income screenshots.</li><li>Unauthorized player images or copyrighted match clips.</li><li>Pretending players endorse your product.</li><li>Selling generic AI slop with no taste or verification.</li></ul></div>
+    </div>
+    <div class="quote" style="margin-top: 7mm;">A good idea is specific enough to post today, useful enough to save, and honest enough to build trust.</div>
+    <p class="footer-note">Goldmine is a testing map, not a guarantee. Use it to move faster and think clearer.</p>
+  </div></section></body>
 </html>

@@ -4,7 +4,7 @@ Goldmine is a UI-first football-season site for a simple digital PDF product.
 
 - Public domain target: `goldmine.signalizeai.org`
 - Live site: `https://goldmine.signalizeai.org`
-- V1 scope: homepage + `/free/` page + `/full-pack/` page + 2-page free PDF download + $1 Lemon Squeezy checkout
+- V1 scope: homepage + `/free/` page + `/full-pack/` page + 5-page free PDF download + $1 Lemon Squeezy checkout
 - Future automation: `n8n.agentpostmortem.com`
 
 ## Local development
@@ -37,6 +37,7 @@ Cloudflare Dashboard → Workers & Pages → `goldmine` → Custom domains.
 
 - The free CTA downloads `public/free-goldmine-starter.pdf`.
 - The free PDF source is `docs/free-goldmine-starter.html`.
+- Regenerate both PDFs with `npm run pdfs`.
 - The paid CTA opens the Lemon Squeezy checkout for `Goldmine Full Pack`.
 - The paid PDF source is `docs/goldmine-full-pack.html`.
 - The rendered paid PDF for Lemon Squeezy upload is `docs/goldmine-full-pack.pdf`.

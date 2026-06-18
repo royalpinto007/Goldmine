@@ -4,511 +4,402 @@
     <meta charset="utf-8" />
     <title>Goldmine Football Starter</title>
     <style>
-      @page {
-        size: A4;
-        margin: 0;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
+      @page { size: A4; margin: 0; }
+      * { box-sizing: border-box; }
+      html, body {
         margin: 0;
         padding: 0;
-        background: #0b0a07;
-        color: #fff8e6;
+        background: #efe4cf;
+        color: #1d2518;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.42;
       }
-
+      body { counter-reset: page; }
       .page {
         position: relative;
         width: 210mm;
-        min-height: 297mm;
+        height: 297mm;
         margin: 0 auto;
-        padding: 13mm;
+        padding: 14mm;
         overflow: hidden;
+        break-after: page;
         page-break-after: always;
         background:
-          radial-gradient(circle at 82% 8%, rgba(247, 209, 88, 0.34), transparent 52mm),
-          radial-gradient(circle at 7% 88%, rgba(141, 240, 168, 0.22), transparent 56mm),
-          linear-gradient(135deg, #122411 0%, #080806 48%, #2e1c04 100%);
+          radial-gradient(circle at 8% 5%, rgba(217, 173, 69, 0.2), transparent 44mm),
+          radial-gradient(circle at 92% 12%, rgba(168, 184, 134, 0.18), transparent 42mm),
+          linear-gradient(135deg, #fff9ec 0%, #fbf4e6 48%, #f1dfbf 100%);
+        counter-increment: page;
       }
-
+      .page:last-child { break-after: auto; page-break-after: auto; }
       .page::before {
         position: absolute;
-        inset: 8mm;
-        border: 1px solid rgba(247, 209, 88, 0.3);
-        border-radius: 16mm;
+        inset: 7mm;
+        border: 1px solid rgba(94, 98, 72, 0.15);
+        border-radius: 15mm;
         content: "";
         pointer-events: none;
       }
-
       .page::after {
         position: absolute;
-        right: 13mm;
+        right: 14mm;
         bottom: 7mm;
-        color: rgba(255, 248, 230, 0.52);
-        font-size: 9.4px;
-        letter-spacing: 0.1em;
+        color: rgba(90, 71, 24, 0.55);
+        content: counter(page);
+        font-size: 9px;
+        font-weight: 800;
+      }
+      .inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 9mm;
+        color: #5a4718;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-
-      .cover::after {
-        content: "01 / Goldmine overview";
+      .brand strong {
+        color: #1d2518;
+        font-size: 16px;
+        letter-spacing: -0.04em;
+        text-transform: none;
       }
-
-      .starter::after {
-        content: "02 / Starter map";
-      }
-
-      .badge,
-      .pill {
+      .badge, .chip {
         display: inline-flex;
-        align-items: center;
         width: fit-content;
+        align-items: center;
         border-radius: 999px;
         font-weight: 900;
         text-transform: uppercase;
       }
-
       .badge {
+        margin-bottom: 7mm;
         padding: 6px 10px;
-        border: 1px solid rgba(247, 209, 88, 0.38);
-        color: #f7d158;
-        background: rgba(247, 209, 88, 0.08);
-        font-size: 10px;
-        letter-spacing: 0.14em;
-      }
-
-      .pill {
-        padding: 4px 7px;
-        color: #120e05;
-        background: #f7d158;
+        border: 1px solid rgba(217, 173, 69, 0.38);
+        color: #8d6a16;
+        background: rgba(255, 236, 180, 0.74);
         font-size: 9px;
+        letter-spacing: 0.13em;
       }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
+      .chip {
+        padding: 4px 7px;
+        color: #2c2411;
+        background: #ffe29a;
+        font-size: 8px;
+        letter-spacing: 0.08em;
       }
-
+      h1, h2, h3, p { margin-top: 0; }
       h1 {
-        max-width: 145mm;
-        margin: 10px 0 8px;
-        font-size: 44px;
-        line-height: 0.93;
+        max-width: 155mm;
+        margin: 0 0 5mm;
+        font-size: 49px;
+        line-height: 0.91;
+        letter-spacing: -0.075em;
+      }
+      h2 {
+        margin: 0 0 4mm;
+        font-size: 30px;
+        line-height: 0.98;
         letter-spacing: -0.06em;
       }
-
-      h2 {
-        margin: 0 0 7px;
-        font-size: 20px;
+      h3 {
+        margin: 0 0 2mm;
+        font-size: 17px;
         line-height: 1.05;
         letter-spacing: -0.035em;
       }
-
-      h3 {
-        margin: 0 0 4px;
-        font-size: 13px;
-        letter-spacing: -0.02em;
-      }
-
       p {
         margin: 0;
-        color: rgba(255, 248, 230, 0.78);
-        font-size: 11.4px;
-        line-height: 1.38;
+        color: #5e6654;
+        font-size: 12px;
+        line-height: 1.47;
       }
-
-      ul,
-      ol {
-        margin: 6px 0 0;
+      ul, ol {
+        margin: 3mm 0 0;
         padding-left: 15px;
-        color: rgba(255, 248, 230, 0.82);
-        font-size: 10.7px;
-        line-height: 1.34;
+        color: #4f5848;
+        font-size: 10.8px;
+        line-height: 1.36;
       }
-
-      li {
-        margin: 2px 0;
-      }
-
-      .rule {
-        width: 62px;
-        height: 4px;
-        margin: 10px 0;
-        border-radius: 99px;
-        background: linear-gradient(90deg, #f7d158, #8df0a8);
-      }
-
-      .hero-grid {
+      li { margin: 1.2mm 0; }
+      .hero-image, .wide-image {
         position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        min-height: 265mm;
-      }
-
-      .hero-image {
-        position: relative;
-        min-height: 112mm;
-        margin: 12px 0;
         overflow: hidden;
-        border: 1px solid rgba(247, 209, 88, 0.28);
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(94, 98, 72, 0.15);
+        border-radius: 8mm;
+        background: rgba(255, 253, 247, 0.72);
+        box-shadow: 0 18px 46px rgba(84, 65, 30, 0.11);
       }
-
-      .hero-image img {
+      .hero-image { height: 102mm; margin-top: auto; }
+      .wide-image { height: 78mm; margin: 6mm 0; }
+      .hero-image img:not(.cover-art), .wide-image img:not(.cover-art) {
         width: 100%;
-        height: 112mm;
+        height: 100%;
         object-fit: cover;
       }
-
-      .hero-image::after {
+      .hero-image::after, .wide-image::after {
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(180deg, transparent 45%, rgba(7, 7, 5, 0.82)),
-          radial-gradient(circle at 24% 22%, rgba(247, 209, 88, 0.16), transparent 34mm);
+        background: linear-gradient(180deg, transparent 46%, rgba(255, 249, 236, 0.62));
         content: "";
       }
-
+      .hero-image .cover-art, .wide-image .cover-art {
+        position: absolute;
+        right: 10mm;
+        bottom: 8mm;
+        width: 36mm;
+        height: auto;
+        border-radius: 5mm;
+        box-shadow: 0 16px 34px rgba(84, 65, 30, 0.22);
+      }
       .caption {
         position: absolute;
-        right: 11px;
-        bottom: 10px;
-        left: 11px;
+        left: 9mm;
+        right: 55mm;
+        bottom: 9mm;
         z-index: 2;
-        color: rgba(255, 248, 230, 0.8);
-        font-size: 10.6px;
-        font-weight: 740;
+        color: #38412f;
+        font-size: 11px;
+        font-weight: 800;
       }
-
-      .stat-row,
-      .grid-3,
-      .grid-2 {
+      .grid-2, .grid-3, .grid-4 {
         display: grid;
-        gap: 8px;
+        gap: 4mm;
       }
-
-      .stat-row {
-        grid-template-columns: repeat(3, 1fr);
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card, .panel, .idea, .metric {
+        border: 1px solid rgba(94, 98, 72, 0.15);
+        border-radius: 6mm;
+        background: rgba(255, 253, 247, 0.78);
+        box-shadow: 0 12px 30px rgba(84, 65, 30, 0.07);
       }
-
-      .grid-3 {
-        grid-template-columns: repeat(3, 1fr);
-        margin-top: 9px;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1.05fr 0.95fr;
-        margin-top: 8px;
-      }
-
-      .stat,
-      .card,
-      .panel {
-        border: 1px solid rgba(247, 209, 88, 0.18);
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.065);
-      }
-
-      .stat {
-        padding: 10px;
-      }
-
-      .stat strong {
+      .card, .panel, .idea { padding: 5mm; }
+      .metric { padding: 4mm; }
+      .metric strong {
         display: block;
-        color: #f7d158;
-        font-size: 21px;
+        color: #9b7218;
+        font-size: 22px;
         line-height: 1;
+        letter-spacing: -0.05em;
       }
-
-      .stat span {
-        color: rgba(255, 248, 230, 0.68);
-        font-size: 10px;
-        font-weight: 760;
+      .metric span {
+        display: block;
+        margin-top: 2mm;
+        color: #65705c;
+        font-size: 9.5px;
       }
-
-      .card {
-        min-height: 88px;
-        padding: 10px;
+      .idea {
+        display: grid;
+        min-height: 88mm;
       }
-
-      .card .pill {
-        margin-bottom: 9px;
+      .idea h3 { font-size: 19px; }
+      .idea .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2mm;
+        margin: 4mm 0;
       }
-
-      .panel {
-        padding: 11px;
-      }
-
-      .mini-table {
-        width: 100%;
-        border-collapse: collapse;
-        color: rgba(255, 248, 230, 0.8);
-        font-size: 10.2px;
-      }
-
-      .mini-table th {
-        color: #f7d158;
-        font-size: 9px;
-        letter-spacing: 0.1em;
-        text-align: left;
+      .mini {
+        color: #6f5a20;
+        font-size: 9.5px;
+        font-weight: 800;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
       }
-
-      .mini-table th,
-      .mini-table td {
-        padding: 5px 4px;
-        border-bottom: 1px solid rgba(247, 209, 88, 0.14);
-        vertical-align: top;
+      .quote {
+        padding: 5mm;
+        border-left: 4px solid #d9ad45;
+        border-radius: 4mm;
+        color: #27301f;
+        background: rgba(255, 236, 180, 0.52);
+        font-size: 14px;
+        font-weight: 850;
+        line-height: 1.35;
       }
-
-      .mini-table tr:last-child td {
-        border-bottom: 0;
+      .footer-note {
+        margin-top: auto;
+        color: rgba(90, 71, 24, 0.66);
+        font-size: 9.4px;
+        font-weight: 700;
       }
-
-      .hooks {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-        margin-top: 7px;
-      }
-
-      .hook {
-        padding: 7px;
-        border-radius: 10px;
-        color: rgba(255, 248, 230, 0.86);
-        background: rgba(255, 255, 255, 0.06);
-        font-size: 10.1px;
-        font-weight: 720;
-        line-height: 1.25;
-      }
-
-      .upgrade {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 10px;
-        align-items: center;
-        margin-top: 9px;
-        padding: 11px;
-        border: 1px solid rgba(141, 240, 168, 0.28);
-        border-radius: 15px;
+      .cover-page {
+        color: #fff8df;
         background:
-          radial-gradient(circle at 0% 0%, rgba(141, 240, 168, 0.16), transparent 26mm),
-          rgba(255, 255, 255, 0.06);
+          radial-gradient(circle at 82% 10%, rgba(217, 173, 69, 0.34), transparent 44mm),
+          radial-gradient(circle at 8% 82%, rgba(168, 184, 134, 0.24), transparent 48mm),
+          linear-gradient(135deg, #1d2518 0%, #0d0e09 58%, #5d4314 100%);
       }
-
-      .upgrade strong {
-        color: #f7d158;
+      .cover-page::before { border-color: rgba(255, 226, 154, 0.24); }
+      .cover-page::after { color: rgba(255, 248, 223, 0.68); }
+      .cover-page h1 { color: #fff8df; }
+      .cover-page p { color: rgba(255, 248, 223, 0.82); }
+      .cover-page .brand { color: rgba(255, 248, 223, 0.74); }
+      .cover-page .brand strong { color: #fff8df; }
+      .cover-page .badge { color: #ffe7a7; background: rgba(255, 226, 154, 0.11); border-color: rgba(255, 226, 154, 0.3); }
+      .toc-row {
+        display: grid;
+        grid-template-columns: 20mm 1fr;
+        gap: 5mm;
+        align-items: start;
+        padding: 3.5mm 0;
+        border-bottom: 1px solid rgba(94, 98, 72, 0.12);
       }
-
-      .upgrade b {
-        display: inline-flex;
-        padding: 8px 10px;
-        border-radius: 999px;
-        color: #120e05;
-        background: linear-gradient(135deg, #fff1a8, #f7d158);
-        font-size: 12px;
+      .toc-row strong {
+        color: #9b7218;
+        font-size: 20px;
+        line-height: 1;
       }
-
-      .footer {
-        position: absolute;
-        right: 13mm;
-        bottom: 12mm;
-        left: 13mm;
-        display: flex;
-        justify-content: space-between;
-        gap: 18px;
-        border-top: 1px solid rgba(247, 209, 88, 0.2);
-        padding-top: 7px;
-        color: rgba(255, 248, 230, 0.56);
-        font-size: 9.6px;
+      .two-col {
+        columns: 2;
+        column-gap: 8mm;
+      }
+      .two-col li { break-inside: avoid; }
+      .playbook-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4mm;
+        margin-top: 5mm;
+      }
+      .playbook-grid .panel {
+        min-height: 38mm;
+      }
+      .hook-line {
+        margin-top: 5mm;
+        padding: 4mm 5mm;
+        border-radius: 5mm;
+        background: rgba(255, 226, 154, 0.5);
+        color: #2a331f;
+        font-size: 13px;
+        font-weight: 850;
+        line-height: 1.35;
       }
     </style>
   </head>
-  <body>
-    <section class="page cover">
-      <main class="hero-grid">
-        <div>
-          <span class="badge">Goldmine Football Starter</span>
-          <h1>Find the football idea worth testing first.</h1>
-          <p>
-            Goldmine is a practical idea map for turning football attention into social content,
-            affiliate paths, lightweight products, and AI-assisted creator workflows. It does not
-            promise income. It helps you choose one clear direction and test it without getting
-            lost in generic "make money online" advice.
-          </p>
-          <div class="rule"></div>
-        </div>
-
-        <figure class="hero-image">
-          <img src="../public/assets/goldmine-hero-soft-v2.jpg" alt="Football creator system" />
-          <figcaption class="caption">
-            The real product is a sharper decision: which format, which audience, which money
-            route, and what to ship this week.
-          </figcaption>
-        </figure>
-
-        <div>
-          <div class="stat-row">
-            <div class="stat"><strong>3</strong><span>starter plays to compare</span></div>
-            <div class="stat"><strong>6</strong><span>hooks you can post today</span></div>
-            <div class="stat"><strong>7</strong><span>day sprint direction</span></div>
-          </div>
-          <div class="grid-3">
-            <article class="card">
-              <span class="pill">Content</span>
-              <h2>Package attention</h2>
-              <p>Use football questions, debates, and match context as repeatable short-form formats.</p>
-            </article>
-            <article class="card">
-              <span class="pill">Money</span>
-              <h2>Choose a route</h2>
-              <p>Affiliate links, newsletters, sponsor concepts, digital guides, or client services.</p>
-            </article>
-            <article class="card">
-              <span class="pill">AI</span>
-              <h2>Move faster</h2>
-              <p>Use AI for hooks, outlines, visuals, captions, research, and workflow repeatability.</p>
-            </article>
-          </div>
-        </div>
-      </main>
-      <div class="footer">
-        <span>Educational guide. No guaranteed income. No official football, club, tournament, or player affiliation.</span>
-        <span>goldmine.signalizeai.org</span>
+  <body><section class="page cover-page"><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Free football starter</span></div>
+      <span class="badge">5-page starter PDF</span>
+      <h1>Start with one football idea people already care about.</h1>
+      <p>Goldmine helps you turn football attention into posts, fan pages, newsletters, affiliate angles, and small digital products. AI helps you move faster, but the idea still has to be useful, specific, and safe to publish.</p>
+      <div class="hero-image">
+        <img src="../public/assets/goldmine-hero-soft-v2.jpg" alt="Goldmine football idea desk" />
+        <img class="cover-art" src="../public/assets/goldmine-starter-cover-soft-v2.svg" alt="Goldmine Starter cover" />
+        <div class="caption">No fake income promises. No player endorsement tricks. Just practical football-first ideas you can test.</div>
       </div>
-    </section>
-
-    <section class="page starter">
-      <main>
-        <span class="badge">Your starter map</span>
-        <h1>Your first World Cup-season money idea map.</h1>
-        <p>
-          Start narrow. Pick one lane, publish three pieces, and measure real signals: saves,
-          comments, profile clicks, link clicks, and replies. The goal is not one viral post. The
-          goal is finding a format you can repeat for a week.
-        </p>
-        <div class="rule"></div>
-
-        <div class="grid-3">
-          <article class="card">
-            <span class="pill">Play 1</span>
-            <h2>Faceless football explainers</h2>
-            <p>Turn match-day questions into 30-second scripts, AI visuals, captions, and repeatable posts.</p>
-          </article>
-          <article class="card">
-            <span class="pill">Play 2</span>
-            <h2>Player storyline reels</h2>
-            <p>Use public narratives around legacy, speed, flair, pressure, records, and fan debates.</p>
-          </article>
-          <article class="card">
-            <span class="pill">Play 3</span>
-            <h2>Football affiliate pages</h2>
-            <p>Route attention into fan gear, creator tools, watch-party products, newsletters, or guides.</p>
-          </article>
-        </div>
-
-        <div class="grid-2">
-          <section class="panel">
-            <h2>Hot niche filter</h2>
-            <table class="mini-table">
-              <thead>
-                <tr>
-                  <th>Lane</th>
-                  <th>Why fans share</th>
-                  <th>Money route</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>GOAT debates</td>
-                  <td>Identity, emotion, stats</td>
-                  <td>Newsletter, sponsor, guide</td>
-                </tr>
-                <tr>
-                  <td>Skill edits</td>
-                  <td>Flair, remix culture</td>
-                  <td>Creator tools, templates</td>
-                </tr>
-                <tr>
-                  <td>Fan products</td>
-                  <td>Buying intent + events</td>
-                  <td>Affiliate, bundles</td>
-                </tr>
-                <tr>
-                  <td>Match explainers</td>
-                  <td>People want context fast</td>
-                  <td>Ads, newsletter, paid pack</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-
-          <section class="panel">
-            <h2>Your first workflow</h2>
-            <ol>
-              <li>Pick one lane and one platform.</li>
-              <li>Collect 10 current football questions or debates.</li>
-              <li>Write 5 hooks and produce 3 posts in one format.</li>
-              <li>Track saves, comments, profile clicks, and link clicks.</li>
-            </ol>
-            <p style="margin-top: 7px">
-              If the same format produces two real signals, repeat it. If not, change the hook,
-              not the whole idea.
-            </p>
-          </section>
-        </div>
-
-        <section class="panel" style="margin-top: 8px">
-          <h2>Six hooks you can test today</h2>
-          <div class="hooks">
-            <div class="hook">The hidden reason this match moment spread so fast...</div>
-            <div class="hook">I would build a football page around this one debate.</div>
-            <div class="hook">Three content angles from one player storyline.</div>
-            <div class="hook">What most fans miss when comparing two legends.</div>
-            <div class="hook">A 7-day football content sprint with no face reveal.</div>
-            <div class="hook">The boring football niche where affiliate links make sense.</div>
-          </div>
-        </section>
-
-        <div class="upgrade">
-          <p>
-            <strong>Want the full map?</strong> The $1 Full Pack expands this into 20 plays,
-            channel names, AI workflows, monetization routes, and a complete 7-day sprint.
-          </p>
-          <b>$1 upgrade</b>
-        </div>
-
-        <div class="grid-3" style="margin-top: 8px">
-          <article class="card">
-            <span class="pill">30 min</span>
-            <h2>Fast test</h2>
-            <p>Pick one debate, write three hooks, and turn the strongest hook into one post today.</p>
-          </article>
-          <article class="card">
-            <span class="pill">Signals</span>
-            <h2>Track proof</h2>
-            <p>Saves, replies, profile clicks, and link taps matter more than vanity views at the start.</p>
-          </article>
-          <article class="card">
-            <span class="pill">Upgrade</span>
-            <h2>Go deeper</h2>
-            <p>The full pack gives you 20 plays, channel packaging, workflows, and execution prompts.</p>
-          </article>
-        </div>
-      </main>
-      <div class="footer">
-        <span>Educational guide. No guaranteed income. No official football, club, tournament, or player affiliation.</span>
-        <span>goldmine.signalizeai.org</span>
+      <div class="grid-3" style="margin-top: 7mm;">
+        <div class="metric"><strong>5</strong><span>starter pages</span></div>
+        <div class="metric"><strong>5</strong><span>testable ideas</span></div>
+        <div class="metric"><strong>7</strong><span>day starter path</span></div>
       </div>
-    </section>
-  </body>
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Page 2</span></div>
+      <span class="badge">Pick your lane</span>
+      <h2>Your quick idea map.</h2>
+      <p>Do not start by asking, "What can I post?" Start by choosing the type of fan problem you want to solve.</p>
+      <div class="wide-image">
+        <img src="../public/assets/goldmine-system-soft-v2.jpg" alt="Goldmine idea system" />
+        <div class="caption">One football topic can become a reel, carousel, poll, newsletter, or product link.</div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>If you like analysis</h3>
+          <ul><li>Use match explainers, player comparisons, and tactical breakdowns.</li><li>Best platforms: X, Instagram carousels, YouTube Shorts, newsletters.</li></ul>
+        </div>
+        <div class="card">
+          <h3>If you like fast trends</h3>
+          <ul><li>Use polls, memes with context, hot takes, and daily watchlists.</li><li>Best platforms: TikTok, Reels, X, Threads, community pages.</li></ul>
+        </div>
+      </div>
+      <div class="quote" style="margin-top: 6mm;">The first win is not money. The first win is proof that strangers care about one repeatable angle.</div>
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Page 3</span></div>
+      <span class="badge">5 starter ideas</span>
+      <h2>Pick one, not all five.</h2>
+      <div class="grid-2">
+
+          <div class="card">
+            <span class="chip">Player debate carousel</span>
+            <h3 style="margin-top: 3mm;">Turn a loud debate into 5 clean slides.</h3>
+            <p>The better question is not who is greater. It is who changed games faster.</p>
+          </div>
+
+          <div class="card">
+            <span class="chip">Match explainer reel</span>
+            <h3 style="margin-top: 3mm;">Explain one moment people saw but did not fully understand.</h3>
+            <p>This goal started 18 seconds before the shot.</p>
+          </div>
+
+          <div class="card">
+            <span class="chip">Fantasy watchlist post</span>
+            <h3 style="margin-top: 3mm;">Help fans decide who to watch before the game.</h3>
+            <p>Three players casual fans are sleeping on this week.</p>
+          </div>
+
+          <div class="card">
+            <span class="chip">Fan product roundup</span>
+            <h3 style="margin-top: 3mm;">Make useful buying lists around match days.</h3>
+            <p>If you are hosting a watch party, start with these 5 things.</p>
+          </div>
+
+      </div>
+      <div class="card" style="margin-top: 4mm;">
+        <span class="chip">AI content remix page</span>
+        <h3 style="margin-top: 3mm;">Use AI to turn one topic into many formats.</h3>
+        <p>One football idea can become a reel, carousel, poll, and newsletter.</p>
+      </div>
+      <p class="footer-note">Choose the one you could post for 7 days without getting bored.</p>
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Page 4</span></div>
+      <span class="badge">One simple AI workflow</span>
+      <h2>Turn one topic into four assets.</h2>
+      <p>This is the starter workflow to run before buying tools or building automation.</p>
+      <div class="grid-2" style="margin-top: 6mm;">
+        <div class="panel">
+          <h3>Input</h3>
+          <ul><li>Topic: a player debate, match question, or fan problem.</li><li>Audience: casual fans, fantasy players, training fans, or creators.</li><li>Format: reel, carousel, poll, or newsletter.</li></ul>
+        </div>
+        <div class="panel">
+          <h3>Prompt</h3>
+          <p>Give me 5 football content angles for [topic]. For each angle, include a hook, a 30-second script, one visual idea, one caption, and one safe monetization path. Avoid copyrighted clips and fake income claims.</p>
+        </div>
+      </div>
+      <div class="grid-4" style="margin-top: 6mm;">
+        <div class="metric"><strong>1</strong><span>hook</span></div>
+        <div class="metric"><strong>1</strong><span>short script</span></div>
+        <div class="metric"><strong>1</strong><span>carousel outline</span></div>
+        <div class="metric"><strong>1</strong><span>link idea</span></div>
+      </div>
+      <div class="quote" style="margin-top: 6mm;">If the hook feels generic, the post will feel generic. Make the angle specific before making it pretty.</div>
+    </div></section><section class="page "><div class="inner">
+      <div class="brand"><strong>Goldmine</strong><span>Page 5</span></div>
+      <span class="badge">7-day starter path</span>
+      <h2>Your first test week.</h2>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Days 1 to 3</h3>
+          <ul><li>Pick one idea lane.</li><li>Write 10 hooks.</li><li>Publish 3 simple posts in the same format.</li><li>Save comments and questions.</li></ul>
+        </div>
+        <div class="panel">
+          <h3>Days 4 to 7</h3>
+          <ul><li>Turn the best post into a second format.</li><li>Create one useful link destination.</li><li>Add a small CTA.</li><li>Decide whether to repeat, refine, or stop.</li></ul>
+        </div>
+      </div>
+      <div class="wide-image" style="height: 84mm;">
+        <img src="../public/assets/goldmine-pack-soft-v2.jpg" alt="Goldmine full pack preview" />
+        <img class="cover-art" src="../public/assets/goldmine-full-pack-cover-soft-v2.svg" alt="Goldmine Full Pack cover" />
+        <div class="caption">The $1 Full Pack expands this into 50 pages of ideas, workflows, hooks, and a 7-day sprint.</div>
+      </div>
+      <div class="quote">Next step: https://goldmine.signalizeai.org/full-pack/</div>
+      <p class="footer-note">Reminder: no guaranteed income. Use this as a testing map, not a promise machine.</p>
+    </div></section></body>
 </html>

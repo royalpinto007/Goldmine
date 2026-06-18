@@ -24,7 +24,7 @@
   </g>
   <text x="112" y="552" fill="#20271C" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Goldmine</text>
   <text x="112" y="637" fill="#20271C" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="-5">Full Pack</text>
-  <text x="116" y="702" fill="#6F7462" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="650">20 football plays, hooks, 7-day sprint</text>
+  <text x="116" y="702" fill="#6F7462" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="650">40 football plays, workflows, 7-day sprint</text>
   <g transform="translate(112 800)">
     <rect width="736" height="112" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
     <text x="32" y="42" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900" letter-spacing="1.7">UPGRADE MAP</text>
@@ -32,13 +32,13 @@
   </g>
   <g transform="translate(112 956)">
     <rect width="176" height="118" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
-    <text x="26" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">20</text>
+    <text x="26" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">40</text>
     <text x="26" y="86" fill="#5B624F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">plays</text>
     <rect x="206" width="176" height="118" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
-    <text x="232" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">12</text>
+    <text x="232" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">20</text>
     <text x="232" y="86" fill="#5B624F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">hooks</text>
     <rect x="412" width="176" height="118" rx="30" fill="#FFFDF6" stroke="#DFD3B4"/>
-    <text x="438" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">3</text>
+    <text x="438" y="50" fill="#A77F22" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">5</text>
     <text x="438" y="86" fill="#5B624F" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">workflows</text>
     <rect x="618" width="118" height="118" rx="30" fill="#F3D06C" stroke="#C99A2A"/>
     <text x="646" y="50" fill="#2C2C20" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900">7</text>

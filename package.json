@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
+    "pdfs": "node scripts/generate-goldmine-pdfs.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "deploy": "npx wrangler@4.101.0 pages deploy dist --project-name goldmine"
   },
